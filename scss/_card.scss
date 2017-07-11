@@ -1,12 +1,29 @@
 .card {
-  margin: 10px;
-  padding: 10px;
+  width: 100%;
+  height: auto;
 
-  img {
+  background: #fff url("../images/bg-1.png") repeat;
 
+  .card-header {
+    position: relative;
+    img {
+      width: 100%;
+    }
+  }
+
+  .card-content, .card-footer {
+    position: relative;
+    padding: 10px 20px;
   }
 
   .card-content {
+    .line {
+      margin: 10px 0;
+      border-bottom: 2px solid #3fc5cb;
+    }
+  }
 
+  .card-footer {
+    text-align: right;
   }
 }
