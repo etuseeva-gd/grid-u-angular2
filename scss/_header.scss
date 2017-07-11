@@ -1,0 +1,9 @@
+@import "variables";
+
+header {
+  width: 100%;
+  height: 50px;
+
+  //background: linear-gradient(#fff, $primary-darken);
+  background-color: $primary-darken;
+}

@@ -1,7 +1,27 @@
-@import "components";
-@import "layout";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #cecece;
+}
+
+@import "form";
+@import "modal";
+@import "grid";
+
+@import "header";
+@import "footer";
+
 @import "login";
 @import "main";
 @import "manager";
 @import "product_admin";
 @import "product_customer";
+
+.col {
+  border: 1px solid red;
+  background-color: white;
+}

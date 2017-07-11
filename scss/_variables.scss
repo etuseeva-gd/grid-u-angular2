@@ -1,0 +1,31 @@
+//Colors
+$primary: #3fc5cb;
+$primary-darken: #278575;
+
+$secondary: #b1b1b1;
+$secondary-darken: #757575;
+
+$valid-color: rgba(41, 135, 121, .41);
+$invalid-color: #ff0000;
+
+$component-color: #2d8779;
+
+//Screen sizes
+$small-screen-up: 481px;
+$medium-screen-up: 801px;
+$large-screen-up: 1001px;
+
+$small-screen: 480px;
+$medium-screen: 800px;
+$large-screen: 1000px;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})";
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})";
+$x-large-and-up: "only screen and (min-width : #{$large-screen})";
+
+$small-and-down: "only screen and (max-width : #{$small-screen})";
+$medium-and-down: "only screen and (max-width : #{$medium-screen})";
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})";
+
+//Grid
+$num-columns: 12;
