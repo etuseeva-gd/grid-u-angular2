@@ -35,6 +35,7 @@ button:focus, input:focus, textarea:focus, select:focus {
   cursor: pointer;
 
   &:disabled {
+    cursor: auto;
     opacity: .5;
   }
 
@@ -107,21 +108,21 @@ input[type='radio'], input[type='checkbox'] {
 
   position: absolute;
   opacity: 0;
-}
 
-input[type='radio'] + label, input[type='checkbox'] + label {
-  cursor: pointer;
-}
+  & + label {
+    cursor: pointer;
+  }
 
-input[type='radio']:not(checked) + label, input[type='checkbox']:not(checked) + label {
-  position: relative;
-  display: inline-block;
-  padding: 0 0 0 48px;
-  font-size: 15px;
-}
+  &:not(checked) + label {
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 48px;
+    font-size: 15px;
+  }
 
-input[type='radio']:checked + label, input[type='checkbox']:checked + label {
-  color: $component-color;
+  &:checked + label{
+    color: $component-color;
+  }
 }
 
 /*Checkbox*/
@@ -293,26 +294,26 @@ select {
     padding: 20px 30px;
     text-align: right;
   }
-}
 
-@-webkit-keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0
+  @-webkit-keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0
+    }
+    to {
+      top: 0;
+      opacity: 1
+    }
   }
-  to {
-    top: 0;
-    opacity: 1
-  }
-}
 
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0
-  }
-  to {
-    top: 0;
-    opacity: 1
+  @keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0
+    }
+    to {
+      top: 0;
+      opacity: 1
+    }
   }
 }
