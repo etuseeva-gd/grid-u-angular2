@@ -1,0 +1,33 @@
+.login-container {
+  margin: 10% auto 0;
+  width: 350px;
+
+  border-radius: 5px;
+
+  background: #ecebe9 url("../images/bg-2.png") repeat;
+
+  .login-header {
+    text-align: center;
+    padding: 10px;
+
+    background-color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .login-content {
+    padding: 0 20px;
+
+    label {
+      font-size: 13px;
+      margin-bottom: 3px;
+      display: inline-block;
+    }
+
+    .btn {
+      margin-bottom: 5px;
+    }
+  }
+}
