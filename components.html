@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Components</title>
-    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 
+<!--Buttons-->
 Primary big
 <button class="btn primary big">submit</button>
 <button class="btn primary big" disabled>submit</button>
@@ -23,6 +24,7 @@ Primary regular
 <button class="btn primary regular">show more</button>
 <button class="btn primary regular" disabled>show more</button>
 
+<!--Forms-->
 <form>
     <input class="big" type="text"/>
 
@@ -70,6 +72,30 @@ Primary regular
     </select>
 
 </form>
+
+<!--Modals-->
+<button id="myBtn" class="btn primary regular">Open Modal</button>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            Header Modal Header Modal Header Modal Header Modal Header Modal Header
+            Modal Header Modal Header Modal Header Modal Header Modal Header Modal
+        </div>
+        <div class="modal-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,
+            libero aliquid architecto ad quis maiores sit nulla officiis ex velit sapiente autem
+            fugit quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus
+            ipsa consequuntur. Pariatur totam suscipit, voluptatibus laudantium.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn secondary big">Cancel</button>
+            <button class="btn primary big">Submit</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/script.js"></script>
 
 </body>
 </html>
