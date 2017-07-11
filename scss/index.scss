@@ -11,10 +11,6 @@ body {
 @import "form";
 @import "modal";
 @import "grid";
-@import "card";
-
-@import "header";
-@import "footer";
 
 @import "login";
 @import "main";
@@ -26,12 +22,64 @@ html, body {
   height: 100%;
 }
 
+header {
+  width: 100%;
+  height: 50px;
+
+  //background: linear-gradient(#fff, $primary-darken);
+  background-color: $primary-darken;
+}
+
+footer {
+  //position: absolute;
+  //bottom: 0;
+
+  width: 100%;
+  height: 50px;
+
+  //background: linear-gradient(#fff, $primary-darken);
+  color: #fff;
+  background-color: $primary-darken;
+}
+
 .container {
   height: calc(100% - 50px);
   background-color: rgba(0, 0, 0, 0.35);
 }
 
+.filter {
+  text-align: right;
+}
+
 .card {
+  width: 100%;
+  height: auto;
+
+  background: #fff url("../images/bg-1.png") repeat;
+
+  .card-header {
+    position: relative;
+    img {
+      width: 100%;
+    }
+  }
+
+  .card-content, .card-footer {
+    position: relative;
+    padding: 10px 20px;
+  }
+
+  .card-content {
+    .line {
+      margin: 10px 0;
+      border-bottom: 2px solid #3fc5cb;
+    }
+  }
+
+  .card-footer {
+    text-align: right;
+  }
+
   .stars-legend {
     position: absolute;
     bottom: 4px;
