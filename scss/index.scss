@@ -1,3 +1,12 @@
+@import "form";
+@import "modal";
+@import "grid";
+
+@import "login";
+@import "main";
+@import "manager";
+@import "product";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,18 +17,12 @@ body {
   background: #cecece url('../images/bg.png');
 }
 
-@import "form";
-@import "modal";
-@import "grid";
-
-@import "login";
-@import "main";
-@import "manager";
-@import "product_admin";
-@import "product_customer";
-
 html, body {
   height: 100%;
+}
+
+p {
+  margin: 10px 0;
 }
 
 main {

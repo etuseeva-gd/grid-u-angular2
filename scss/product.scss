@@ -1,0 +1,54 @@
+@import "variables";
+
+.product-card {
+
+  @media #{$medium-and-up} {
+
+  }
+
+  @media #{$large-and-up} {
+    .col {
+      padding: 10px;
+    }
+
+    .product-content {
+      min-height: 321px;
+      height: auto;
+    }
+
+    .card-content, .card-footer {
+      padding: 10px 0;
+    }
+
+    .card-content {
+      min-height: 255px;
+      height: auto;
+    }
+
+    .card-footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .card-footer {
+    .count-product {
+      float: left;
+      margin-top: 13px;
+      font-size: 13px;
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+
+      .sold {
+        color: $invalid-color;
+      }
+    }
+  }
+
+  p {
+    span {
+      color: $primary;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
