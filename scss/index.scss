@@ -72,6 +72,23 @@ footer {
   }
 }
 
+nav {
+  color: #fff;
+
+  a {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .section {
+    float: right;
+
+    span {
+      font-weight: bold;
+    }
+  }
+}
+
 .align-center {
   text-align: center;
 }
