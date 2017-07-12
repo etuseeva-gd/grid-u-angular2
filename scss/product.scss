@@ -52,3 +52,31 @@
     }
   }
 }
+
+.edit-modal {
+  .row {
+    margin: 0;
+  }
+
+  .modal-body {
+    padding: 10px;
+  }
+
+  .modal-footer {
+    padding: 20px;
+  }
+
+  p {
+    margin: 0;
+
+    &.label {
+      font-size: 17px;
+      margin-top: 15px;
+      margin-bottom: 5px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

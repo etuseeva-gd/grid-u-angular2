@@ -42,12 +42,14 @@
                             </p>
                             <p>
                                 You can <span>add 5 more</span>.
-                                You can also <span>edit</span> details or <span>delete</span> them.
+                                You can also <span onclick="openModal('adminPopup')">edit</span> details or <span
+                                    onclick="openModal('deletePopup')">delete</span> them.
                             </p>
                         </div>
                         <div class="card-footer">
                             <span class="price">$7800.00</span>
-                            <button class="btn regular primary">Show more</button>
+                            &nbsp;<span class="count-product">(9 items left)</span>
+                            <button class="btn regular primary" onclick="openModal('successPopup')">Buy</button>
                         </div>
                     </div>
                 </div>
@@ -59,6 +61,101 @@
         <span>Copyright "<span>Demo Shop</span>", 2017</span>
     </footer>
 </main>
+
+<!--Delete popup-->
+<div id="deletePopup" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            Are you sure?
+        </div>
+        <div class="modal-body">
+            <p>You are trying to delete this product.
+                Are you sure you want this?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn secondary big">Cancel</button>
+            <button class="btn primary big">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!--Success popup-->
+<div id="successPopup" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            Thank you!
+        </div>
+        <div class="modal-body">
+            <p>You successfully purchased this item.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn primary big">Continue shopping</button>
+        </div>
+    </div>
+</div>
+
+<!--Admin popup-->
+<div id="adminPopup" class="modal edit-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            Edit “Active Coat Lorem Ipsum Dolor Sit Amet Consectetur
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col s12 m6">
+                    <p class="label">Name:</p>
+                    <p>
+                        <input type="text">
+                    </p>
+                    <p class="label">Category:</p>
+                    <p>
+                        <select>
+                            <option value="1">Active wear</option>
+                            <option value="2">Active wear 2</option>
+                            <option value="3">Active wear 3</option>
+                        </select>
+                    </p>
+                    <p class="label">Gender:</p>
+                    <p><input id="radioMen" type="radio" name="selector" checked>
+                        <label for="radioMen">Men</label>
+                        <input id="radioWoman" type="radio" name="selector">
+                        <label for="radioWoman">Woman</label>
+                        <input id="radioUnisex" type="radio" name="selector">
+                        <label for="radioUnisex">Unisex</label>
+                    </p>
+                    <p class="label">Description:</p>
+                    <p>
+                        <textarea></textarea>
+                    </p>
+                </div>
+                <div class="col s12 m6">
+                    <p class="label">Link to image:</p>
+                    <p>
+                        <input type="text">
+                    </p>
+                    <p class="label">
+                        <img src="./images/products/4.png">
+                    </p>
+                    <p class="label">Price:</p>
+                    <p>
+                        <input type="text">
+                    </p>
+                    <p class="label">Rating:</p>
+                    <p>
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn primary big">Continue shopping</button>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" src="./js/script.js"></script>
 
