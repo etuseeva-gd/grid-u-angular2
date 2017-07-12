@@ -1,12 +1,12 @@
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
+var modal;
 
-btn.onclick = function () {
+openModal = function (modalId) {
+    modal = document.getElementById(modalId);
     modal.style.display = "block";
 };
 
 window.onclick = function (event) {
-    if (event.target == modal) {
+    if (event.target === modal) {
         modal.style.display = "none";
     }
 };
