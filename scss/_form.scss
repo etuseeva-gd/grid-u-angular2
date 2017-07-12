@@ -1,66 +1,14 @@
 @import "variables";
 
 /*Reset*/
-button:focus, input:focus, textarea:focus, select:focus {
+input:focus, textarea:focus, select:focus {
   outline: 0;
-}
-
-/*Button*/
-.btn {
-  width: auto;
-
-  //margin: 10px;
-
-  border: 0;
-  border-radius: 5px;
-
-  color: #fff;
-  font-weight: normal;
-  text-transform: capitalize;
-
-  cursor: pointer;
-
-  &:disabled {
-    cursor: auto;
-    opacity: .5;
-  }
-
-  &.primary {
-    background: linear-gradient($primary, $primary-darken);
-
-    &:active {
-      background: linear-gradient($primary-darken, $primary);
-    }
-  }
-
-  &.secondary {
-    background: linear-gradient($secondary, $secondary-darken);
-
-    &:active {
-      background: linear-gradient($secondary-darken, $secondary);
-    }
-  }
-
-  &.big {
-    min-width: 150px;
-    padding: 15px 25px;
-
-    font-size: 1rem;
-  }
-
-  &.regular {
-    min-width: 100px;
-    padding: 10px 25px;
-
-    font-weight: lighter;
-    font-size: .8rem;
-  }
 }
 
 /*Form*/
 input, textarea, select {
   width: 100%;
-  min-width: 220px;
+  max-width: 250px;
   height: 30px;
 
   //margin: 10px;
@@ -206,7 +154,7 @@ input[type='radio'] {
 /*Textarea*/
 textarea {
   width: 100%;
-  min-width: 220px;
+  max-width: 250px;
   height: 200px;
 }
 

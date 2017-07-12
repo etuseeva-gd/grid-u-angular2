@@ -1,5 +1,21 @@
-.filter {
+.filter-container {
+  position: relative;
   text-align: right;
+}
+
+.filter {
+  position: absolute;
+  top: 40px;
+  left: calc(50% - 50px);
+
+  width: 100px;
+  height: 100px;
+
+  background-color: #3fc5cb;
+
+  //display: none;
+
+  z-index: 1;
 }
 
 .card {

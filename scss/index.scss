@@ -1,10 +1,10 @@
+@import "buttons";
 @import "form";
 @import "modal";
 @import "grid";
 
 @import "login";
 @import "main";
-@import "manager";
 @import "product";
 
 * {
@@ -99,4 +99,16 @@ nav {
 
 .align-left {
   text-align: left;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
 }
