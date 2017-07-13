@@ -2,7 +2,6 @@
 @import "form";
 @import "modal";
 @import "grid";
-
 @import "login";
 @import "main";
 @import "product";
@@ -29,13 +28,17 @@ img {
   width: 100%;
 }
 
-main {
+.wrapper {
+  display: table;
+  height: 100%;
   width: 100%;
-  min-height: 100%;
+  //min-height: 100%;
   position: relative;
 }
 
 header {
+  display: table-row;
+
   width: 100%;
   height: 50px;
 
@@ -43,14 +46,19 @@ header {
   background-color: $primary-darken;
 }
 
-.content {
+main {
+  display: table-row;
   height: 100%;
-  padding-bottom: 60px;
 
-  background-color: rgba(0, 0, 0, 0.35);
+  .container {
+    height: calc(100% - 50px);
+    margin-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0.35);
+  }
 }
 
 footer {
+  display: table-row;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -94,8 +102,8 @@ nav {
 }
 
 .align-right {
-   text-align: right;
- }
+  text-align: right;
+}
 
 .align-left {
   text-align: left;
