@@ -14,42 +14,46 @@ window.onclick = function (event) {
 
 //Sliders
 var sliderOne = document.getElementById('sliderOne');
-noUiSlider.create(sliderOne, {
-    start: [1, 4],
-    connect: true,
-    range: {
-        'min': 0,
-        'max': 10
-    },
-    tooltips: true,
-    format: {
-        to: function ( value ) {
-            return Math.floor(value)
+if (sliderOne) {
+    noUiSlider.create(sliderOne, {
+        start: [1, 4],
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 10
         },
-        from: function ( value ) {
-            return Math.floor(value)
+        tooltips: true,
+        format: {
+            to: function ( value ) {
+                return Math.floor(value)
+            },
+            from: function ( value ) {
+                return Math.floor(value)
+            }
         }
-    }
-});
+    });
+}
 
 var sliderTwo = document.getElementById('sliderTwo');
-noUiSlider.create(sliderTwo, {
-    start: [275, 822],
-    connect: true,
-    range: {
-        'min': 0,
-        'max': 1000
-    },
-    tooltips: true,
-    format: {
-        to: function ( value ) {
-            return Math.floor(value)
+if (sliderTwo) {
+    noUiSlider.create(sliderTwo, {
+        start: [275, 822],
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 1000
         },
-        from: function ( value ) {
-            return Math.floor(value)
+        tooltips: true,
+        format: {
+            to: function ( value ) {
+                return Math.floor(value)
+            },
+            from: function ( value ) {
+                return Math.floor(value)
+            }
         }
-    }
-});
+    });
+}
 
 //Filter
 var f = document.getElementById('filter');
