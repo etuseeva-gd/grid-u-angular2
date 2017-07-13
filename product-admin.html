@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <title>Product-admin</title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
 <div class="wrapper">
     <header>
         <div class="container">
-            logo
+            <i class="material-icons left">shopping_cart</i>
+
+            <ul class="right">
+                <li>
+                    <span>Hello, John_Doe</span>
+                </li>
+                <li>
+                    <i class="material-icons">exit_to_app</i>
+                </li>
+            </ul>
+
+            <div class="clearfix"></div>
         </div>
     </header>
 
@@ -88,8 +101,8 @@
                 Are you sure you want this?</p>
         </div>
         <div class="modal-footer">
-            <button class="btn secondary big">Cancel</button>
-            <button class="btn primary big">Submit</button>
+            <button class="btn secondary big" onclick="closeModal()">Cancel</button>
+            <button class="btn primary big" onclick="closeModal()">Submit</button>
         </div>
     </div>
 </div>
@@ -104,7 +117,7 @@
             <p>You successfully purchased this item.</p>
         </div>
         <div class="modal-footer">
-            <button class="btn primary big">Continue shopping</button>
+            <button class="btn primary big" onclick="closeModal()">Continue shopping</button>
         </div>
     </div>
 </div>
@@ -168,11 +181,13 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn primary big">Continue shopping</button>
+            <button class="btn primary big" onclick="closeModal()">Continue shopping</button>
         </div>
     </div>
 </div>
 
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.js"></script>
 <script type="text/javascript" src="./js/script.js"></script>
 
 </body>

@@ -6,11 +6,15 @@ openModal = function (modalId) {
     modal.style.display = "block";
 };
 
-window.onclick = function (event) {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
+closeModal = function () {
+    modal.style.display = "none";
 };
+
+// window.onclick = function (event) {
+//     if (event.target === modal) {
+//         modal.style.display = "none";
+//     }
+// };
 
 //Sliders
 var sliderOne = document.getElementById('sliderOne');
@@ -57,6 +61,17 @@ if (sliderTwo) {
 
 //Filter
 var f = document.getElementById('filter');
+var count = 0;
+
+window.onclick = function (event) {
+    count++;
+    if (count > 2 && event.target !== f) {
+        f.style.display = "none";
+        count = 0;
+    }
+};
+
 openFilter = function () {
     f.style.display = "block";
+    count++;
 };
