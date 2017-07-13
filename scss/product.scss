@@ -1,9 +1,20 @@
 @import "variables";
 
 .product-card {
+  .row {
+    margin-bottom: 0;
+  }
 
-  @media #{$medium-and-up} {
+  .card-content, .card-footer {
+    padding: 0;
+  }
 
+  .col {
+    padding: 20px;
+  }
+
+  .product-content {
+    padding-top: 0;
   }
 
   @media #{$large-and-up} {
@@ -16,24 +27,25 @@
       height: auto;
     }
 
-    .card-content, .card-footer {
-      padding: 10px 0;
-    }
-
     .card-content {
       min-height: 255px;
       height: auto;
     }
 
     .card-footer {
+      padding-top: 10px;
       border-top: 1px solid rgba(0, 0, 0, 0.3);
     }
   }
 
   .card-footer {
+    .price {
+      margin: 0;
+    }
+
     .count-product {
       float: left;
-      margin-top: 13px;
+      margin-top: 5px;
       font-size: 13px;
       color: rgba(0, 0, 0, 0.5);
       font-weight: bold;

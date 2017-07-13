@@ -43,16 +43,13 @@
       @media #{$medium-and-down} {
         .col {
           border-bottom: 1px solid $primary-darken;
+          margin-bottom: 0;
         }
       }
 
       @media #{$large-and-up} {
         &:first-child {
           border-bottom: 1px solid $primary-darken;
-        }
-
-        &:last-child {
-          padding-bottom: 20px;
         }
       }
 
@@ -70,6 +67,7 @@
 
         &:last-child {
           padding-right: 0;
+          margin-bottom: 20px;
         }
       }
 
