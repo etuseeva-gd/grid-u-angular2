@@ -37,8 +37,8 @@ input {
 }
 
 .input-container {
-  min-width: 250px;
-  width: 20%;
+  max-width: 350px;
+  width: 100%;
 
   position: relative;
   padding: 0;
@@ -49,7 +49,7 @@ input {
     max-width: 100%;
 
     margin: 0;
-    padding-left: 30px;
+    padding-left: 10px;
 
     & + i {
       position: absolute;
