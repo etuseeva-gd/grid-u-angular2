@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="card-container row">
                 <div class="col s12 m6 l4">
                     <div class="card">
                         <div class="card-header">
@@ -287,7 +287,24 @@
 
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight.js"></script>
 <script type="text/javascript" src="./js/script.js"></script>
+
+<script>
+    $(function() {
+        $('.card-container .card-content').matchHeight(
+            {
+                byRow: true,
+                property: 'height',
+                target: null,
+                remove: false
+            }
+        );
+    });
+</script>
 
 </body>
 </html>
