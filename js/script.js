@@ -13,13 +13,13 @@ window.onclick = function (event) {
 };
 
 //Sliders
-var slider = document.getElementById('slider');
-noUiSlider.create(slider, {
-    start: [20, 80],
+var sliderOne = document.getElementById('sliderOne');
+noUiSlider.create(sliderOne, {
+    start: [1, 4],
     connect: true,
     range: {
         'min': 0,
-        'max': 100
+        'max': 10
     },
     tooltips: true,
     format: {
@@ -31,5 +31,26 @@ noUiSlider.create(slider, {
         }
     }
 });
+
+
+var sliderTwo = document.getElementById('sliderTwo');
+noUiSlider.create(sliderTwo, {
+    start: [275, 822],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 1000
+    },
+    tooltips: true,
+    format: {
+        to: function ( value ) {
+            return Math.floor(value)
+        },
+        from: function ( value ) {
+            return Math.floor(value)
+        }
+    }
+});
+
 
 //Form

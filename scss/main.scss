@@ -1,21 +1,72 @@
+@import "variables";
+
 .filter-container {
   position: relative;
-  text-align: right;
 }
 
 .filter {
   position: absolute;
   top: 40px;
-  left: calc(50% - 50px);
+  right: -189px;
 
-  width: 100px;
-  height: 100px;
+  width: 640px;
+  height: auto;
 
-  background-color: #3fc5cb;
+  background-color: #fff;
+  border-radius: 5px;
+
+  padding: 0 20px;
 
   //display: none;
 
   z-index: 1;
+
+  .row {
+    margin-bottom: 0;
+
+    @media #{$medium-and-down} {
+      .col {
+        border-bottom: 1px solid $primary-darken;
+      }
+    }
+
+    @media #{$large-and-up} {
+      &:first-child {
+        border-bottom: 1px solid $primary-darken;
+      }
+
+      &:last-child {
+        padding-bottom: 20px;
+      }
+    }
+
+    .col {
+      padding: 15px 0;
+    }
+
+    .slider-container {
+      padding-right: 20px;
+
+      label {
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    @media #{$medium-and-down} {
+      .slider-container {
+        padding-bottom: 35px;
+      }
+    }
+  }
+
+  label {
+    font-size: 13px;
+  }
 }
 
 .card {
