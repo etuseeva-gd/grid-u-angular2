@@ -21,18 +21,52 @@ input, textarea, select {
 }
 
 input {
-  &:focus, &:focus {
-    border: 3px solid $valid-color;
+  &:focus {
+    box-shadow: 0 0 0 3px $valid-color;
   }
 
-  &:invalid, &:invalid {
-    border: 3px solid $invalid-color;
+  &:invalid:not(:focus) {
+    box-shadow: 0 0 0 3px $invalid-color;
   }
 
   &.big {
     width: 100%;
     max-width: 300px;
     height: 40px;
+  }
+}
+
+.input-container {
+  min-width: 250px;
+  width: 20%;
+
+  position: relative;
+  padding: 0;
+  margin: 0;
+
+  input {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding-left: 30px;
+
+    & + i {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 40px;
+
+      color: rgba(0, 0, 0, 0.2);
+    }
+
+    &:focus + i {
+      color: $valid-color;
+    }
+
+    &:invalid:not(:focus) + i {
+      color: $invalid-color;
+    }
   }
 }
 
@@ -56,7 +90,7 @@ input[type='radio'], input[type='checkbox'] {
     font-size: 15px;
   }
 
-  &:checked + label{
+  &:checked + label {
     color: $component-color;
   }
 }
@@ -156,6 +190,10 @@ textarea {
   width: 100%;
   max-width: 250px;
   height: 200px;
+
+  &:focus {
+    box-shadow: 0 0 0 3px $valid-color;
+  }
 }
 
 /*Select*/
@@ -174,7 +212,7 @@ select {
 
 //Slider
 .slider {
-  &.noUi-target{
+  &.noUi-target {
     border: none;
     box-shadow: none;
   }

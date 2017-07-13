@@ -1,3 +1,4 @@
+//Modals
 var modal;
 
 openModal = function (modalId) {
@@ -11,8 +12,7 @@ window.onclick = function (event) {
     }
 };
 
-
-//Slider
+//Sliders
 var slider = document.getElementById('slider');
 noUiSlider.create(slider, {
     start: [20, 80],
@@ -31,3 +31,5 @@ noUiSlider.create(slider, {
         }
     }
 });
+
+//Form
