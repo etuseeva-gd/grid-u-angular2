@@ -44,6 +44,26 @@ header {
 
   //background: linear-gradient(#fff, $primary-darken);
   background-color: $primary-darken;
+
+  .container {
+    padding-top: 13px;
+
+    i {
+      color: #fff;
+    }
+
+    li {
+      span {
+        display: inline-block;
+        margin-top: -7px;
+        vertical-align: top;
+      }
+
+      color: #fff;
+      display: inline-block;
+      list-style-type: none;
+    }
+  }
 }
 
 main {
