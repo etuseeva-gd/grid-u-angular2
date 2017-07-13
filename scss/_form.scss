@@ -171,3 +171,48 @@ select {
     background: $component-color url("../images/icons/arrow_down_white.svg") no-repeat 195px center;
   }
 }
+
+//Slider
+.slider {
+  &.noUi-target{
+    border: none;
+    box-shadow: none;
+  }
+
+  &.noUi-horizontal {
+    height: 4px;
+  }
+
+  &.noUi-horizontal .noUi-handle {
+    width: 25px;
+    height: 25px;
+    top: -12px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+  }
+
+  &.noUi-horizontal .noUi-handle:focus {
+    outline: none;
+  }
+
+  .noUi-handle:after, .noUi-handle:before {
+    display: none;
+  }
+
+  .noUi-handle {
+    background-color: $primary-darken;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .noUi-connect {
+    background-color: $primary-darken;
+  }
+
+  .noUi-tooltip {
+    background-color: transparent;
+    border: none;
+  }
+}

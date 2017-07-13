@@ -10,3 +10,24 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 };
+
+
+//Slider
+var slider = document.getElementById('slider');
+noUiSlider.create(slider, {
+    start: [20, 80],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    },
+    tooltips: true,
+    format: {
+        to: function ( value ) {
+            return Math.floor(value)
+        },
+        from: function ( value ) {
+            return Math.floor(value)
+        }
+    }
+});
