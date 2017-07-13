@@ -32,7 +32,6 @@ noUiSlider.create(sliderOne, {
     }
 });
 
-
 var sliderTwo = document.getElementById('sliderTwo');
 noUiSlider.create(sliderTwo, {
     start: [275, 822],
@@ -52,5 +51,8 @@ noUiSlider.create(sliderTwo, {
     }
 });
 
-
-//Form
+//Filter
+var f = document.getElementById('filter');
+openFilter = function () {
+    f.style.display = "block";
+};
