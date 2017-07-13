@@ -3,8 +3,19 @@
 .filter-container {
   position: relative;
 
-  button {
-    margin: 3px 10px;
+  .btn-container {
+    float: left;
+
+    button {
+      margin: 3px 0;
+      margin-right: 10px;
+    }
+  }
+
+  @media #{$large-and-up} {
+    .btn-container {
+      float: right;
+    }
   }
 
   .filter {
@@ -24,7 +35,7 @@
 
     z-index: 1;
 
-    filter: drop-shadow(0 0 2px  rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
 
     .row {
       margin-bottom: 0;
@@ -76,13 +87,19 @@
     & .angle {
       position: absolute;
       top: -10px;
-      right: 265px;
+      right: 252px;
 
       width: 0;
       height: 0;
       border-style: solid;
       border-width: 0 7.5px 10px 7.5px;
       border-color: transparent transparent #ffffff transparent;
+
+      @media #{$medium-and-down} {
+        & {
+          left: 55px;
+        }
+      }
     }
   }
 }
