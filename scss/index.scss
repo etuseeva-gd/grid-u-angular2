@@ -108,14 +108,6 @@ nav {
     cursor: pointer;
     text-decoration: underline;
   }
-
-  .section {
-    float: right;
-
-    span {
-      font-weight: bold;
-    }
-  }
 }
 
 .align-center {
@@ -152,4 +144,22 @@ nav {
 
 .no-border {
   border: none !important;
+}
+
+//Texts
+.bold-text {
+  font-weight: bold;
+}
+
+.large-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.medium-text {
+  font-size: 16px;
+}
+
+.small-text {
+  font-size: 14px;
 }
