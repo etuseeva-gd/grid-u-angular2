@@ -1,20 +1,46 @@
+.blur-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  background: url('../images/bg.png');
+  background-size: cover;
+  z-index: 1;
+
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+
 .login-container {
   display: block;
 
   .modal-content {
-    width: 350px;
+    width: 570px;
+    height: 400px;
   }
 
   .modal-body {
-    padding-bottom: 0;
+    padding: 25px 60px 0;
+  }
+
+  .modal-footer {
+    padding: 0 60px 30px 60px;
   }
 
   label {
     display: inline-block;
-    margin: 7px 0 5px 0;
+    margin-bottom: 10px;
+
+    font-size: 18px;
   }
 
   .input-container {
-    max-width: 350px;
+    max-width: 450px;
+    margin-bottom: 20px;
   }
 }

@@ -41,17 +41,17 @@ button:focus {
   }
 
   &.big {
-    min-width: 150px;
-    padding: 15px 25px;
+    min-width: 170px;
+    padding: 15px 50px;
 
-    font-size: 1rem;
+    font-size: 18px;
   }
 
   &.regular {
-    min-width: 100px;
+    min-width: 120px;
     padding: 10px 25px;
 
     font-weight: lighter;
-    font-size: .8rem;
+    font-size: 14px;
   }
 }
