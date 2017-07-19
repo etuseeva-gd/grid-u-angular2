@@ -13,17 +13,20 @@
     padding: 20px;
   }
 
-  .product-content {
-    padding-top: 0;
+  @media #{$medium-and-down} {
+    .product-content {
+      padding-top: 0;
+    }
+
+    .card-content {
+      padding-bottom: 25px;
+    }
   }
 
   @media #{$large-and-up} {
-    .col {
-      padding: 10px;
-    }
-
     .product-content {
       min-height: 321px;
+      padding-left: 0;
       height: auto;
     }
 
@@ -33,7 +36,7 @@
     }
 
     .card-footer {
-      padding-top: 10px;
+      padding-top: 20px;
       border-top: 1px solid rgba(0, 0, 0, 0.3);
     }
   }
@@ -45,9 +48,7 @@
 
     .count-product {
       float: left;
-      margin-top: 5px;
-      color: rgba(0, 0, 0, 0.5);
-      font-weight: bold;
+      margin-top: 7px;
 
       .sold {
         color: $invalid-color;
@@ -57,7 +58,7 @@
 
   p {
     span {
-      color: $primary;
+      color: $link-color;
       text-decoration: underline;
       cursor: pointer;
     }
