@@ -1,13 +1,16 @@
 //Modals
 var modal;
+var wrapper = document.getElementsByClassName('wrapper')[0];
 
 openModal = function (modalId) {
     modal = document.getElementById(modalId);
+    wrapper.style.filter = 'blur(1px)';
     modal.style.display = "block";
 };
 
 closeModal = function () {
     modal.style.display = "none";
+    wrapper.style.filter = '';
 };
 
 // window.onclick = function (event) {
@@ -65,7 +68,7 @@ var count = 0;
 
 window.onclick = function (event) {
     count++;
-    if (count > 2 && event.target !== f) {
+    if (count > 2 && f && event.target !== f) {
         f.style.display = "none";
         count = 0;
     }

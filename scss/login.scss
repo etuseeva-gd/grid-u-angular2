@@ -1,27 +1,9 @@
-.blur-bg {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-
-  background: url('../images/bg.png');
-  background-size: cover;
-  z-index: 1;
-
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: blur(1px);
-}
-
 .login-container {
   display: block;
 
   .modal-content {
     width: 570px;
-    height: 400px;
+    //height: 400px;
   }
 
   .modal-body {

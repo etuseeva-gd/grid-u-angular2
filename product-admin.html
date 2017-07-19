@@ -31,9 +31,9 @@
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <nav>
-                        <a>Back</a>
-                        <span class="section">Category: <span>Man / Active wear</span></span>
+                    <nav class="medium-text">
+                        <a class="bold-text">Back</a>
+                        <span class="right">Category: <span class="bold-text">Man / Active wear</span></span>
                     </nav>
                 </div>
             </div>
@@ -55,9 +55,9 @@
                             </div>
                             <div class="col s12 m6 product-content">
                                 <div class="card-content">
-                                    <h4>Active Coat Lorem 2 Active Coat Lorem 2 Active Coat Lorem 2</h4>
+                                    <div class="large-text">Active Coat Lorem 2 Active Coat Lorem 2 Active Coat Lorem 2</div>
                                     <div class="line"></div>
-                                    <p>
+                                    <p class="medium-text">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,
                                         libero
                                         aliquid architecto ad quis maiores sit nulla officiis ex velit sapiente autem
@@ -72,9 +72,9 @@
                                                 onclick="openModal('deletePopup')">delete</span> them.
                                     </p>
                                 </div>
-                                <div class="card-footer">
-                                    <span class="price">$7800.00</span>
-                                    <span class="count-product">&nbsp;(9 items left)</span>
+                                <div class="card-footer ">
+                                    <span class="price large-text">$7800.00</span>
+                                    <span class="count-product medium-text">&nbsp;(9 items left)</span>
                                     <button class="btn regular primary" onclick="openModal('successPopup')">Buy</button>
                                 </div>
                             </div>
@@ -91,14 +91,14 @@
 </div>
 
 <!--Delete popup-->
-<div id="deletePopup" class="modal">
+<div id="deletePopup" class="modal delete-modal pr-modal">
     <div class="modal-content">
         <div class="modal-header">
             Are you sure?
         </div>
         <div class="modal-body align-center">
-            <p>You are trying to delete this product.
-                Are you sure you want this?</p>
+            You are trying to delete this product.
+            Are you sure you want this?
         </div>
         <div class="modal-footer">
             <button class="btn secondary big" onclick="closeModal()">Cancel</button>
@@ -108,13 +108,13 @@
 </div>
 
 <!--Success popup-->
-<div id="successPopup" class="modal">
+<div id="successPopup" class="modal success-modal pr-modal">
     <div class="modal-content">
         <div class="modal-header">
             Thank you!
         </div>
         <div class="modal-body align-center">
-            <p>You successfully purchased this item.</p>
+            You successfully purchased this item.
         </div>
         <div class="modal-footer">
             <button class="btn primary big" onclick="closeModal()">Continue shopping</button>
@@ -123,7 +123,7 @@
 </div>
 
 <!--Admin popup-->
-<div id="adminPopup" class="modal edit-modal">
+<div id="adminPopup" class="modal edit-modal pr-modal">
     <div class="modal-content">
         <div class="modal-header">
             Edit “Active Coat Lorem Ipsum Dolor Sit Amet Consectetur

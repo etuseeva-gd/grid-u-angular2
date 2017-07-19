@@ -64,6 +64,48 @@
   }
 }
 
+.pr-modal {
+  .modal-content {
+    max-width: 730px;
+  }
+
+  .modal-header {
+    font-size: 22px;
+  }
+
+  .modal-body {
+    font-size: 24px;
+  }
+}
+
+.delete-modal {
+  .modal-body {
+    padding: 45px 160px 40px;
+  }
+
+  .modal-footer {
+    padding: 0 30px 30px;
+
+    .btn {
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.success-modal {
+  .modal-body {
+    padding: 50px 0 45px 0;
+  }
+
+  .modal-footer {
+    padding: 0px 30px 30px;
+  }
+}
+
 .edit-modal {
   .row {
     margin: 0;
