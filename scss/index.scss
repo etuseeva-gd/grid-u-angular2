@@ -47,15 +47,27 @@ header {
   //background: linear-gradient(#fff, $primary-darken);
   background-color: $primary-darken;
 
+  .logo {
+    width: 30px;
+  }
+
+  .user-name {
+    font-size: 15px;
+
+    span {
+      font-style: italic;
+    }
+  }
+
   .container {
-    padding: 13px 20px 0;
+    padding-top: 13px;
 
     i {
       color: #fff;
     }
 
     li {
-      span {
+      & > span {
         display: inline-block;
         margin-top: -7px;
         vertical-align: top;
@@ -64,6 +76,7 @@ header {
       color: #fff;
       display: inline-block;
       list-style-type: none;
+      margin-left: 10px;
     }
   }
 }
