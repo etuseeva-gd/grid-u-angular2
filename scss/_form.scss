@@ -47,6 +47,18 @@ input {
   padding: 0;
   margin: 0;
 
+  & > i, & > img {
+    position: absolute;
+    right: 10px;
+    top: 11px;
+    font-size: 40px;
+  }
+
+  & > img {
+    width: 40px;
+    display: none;
+  }
+
   input {
     width: 100%;
     max-width: 100%;
@@ -54,25 +66,8 @@ input {
     margin: 0;
     padding-left: 25px;
 
-    & + i, & + img {
-      position: absolute;
-      right: 10px;
-      top: 11px;
-      font-size: 40px;
-
-      color: rgba(0, 0, 0, 0.2);
-    }
-
-    & + img {
-      width: 40px;
-    }
-
-    &:focus + i {
-      color: $valid-color;
-    }
-
-    &:invalid:not(:focus) + i {
-      color: $invalid-color;
+    &:not(focus) ~ img.inactive, &:focus ~ img.active, &:invalid:not(:focus) ~ img.invalid {
+      display: inline;
     }
   }
 }
