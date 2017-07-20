@@ -64,17 +64,22 @@ if (sliderTwo) {
 
 //Filter
 var f = document.getElementById('filter');
+var filterBtn = document.getElementById('filterBtn');
+var notActiveClasses = filterBtn.className;
 var count = 0;
 
-window.onclick = function (event) {
-    count++;
-    if (count > 2 && f && event.target !== f) {
-        f.style.display = "none";
-        count = 0;
+$(document).mouseup(function(e)
+{
+    var container = $("#filter");
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        filterBtn.className = notActiveClasses;
+        container.hide();
     }
-};
+});
 
 openFilter = function () {
     f.style.display = "block";
+    filterBtn.className += ' active';
     count++;
 };
