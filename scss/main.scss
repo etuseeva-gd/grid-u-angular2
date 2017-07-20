@@ -157,7 +157,10 @@
   .card-footer {
     text-align: right;
     font-size: $large-size;
-    font-weight: bold;
+
+    .price {
+      font-weight: bold;
+    }
   }
 
   .stars-legend {

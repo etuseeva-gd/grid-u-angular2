@@ -40,7 +40,7 @@ input {
 }
 
 .input-container {
-  max-width: 250px;
+  max-width: 290px;
   width: 100%;
 
   position: relative;
@@ -54,13 +54,17 @@ input {
     margin: 0;
     padding-left: 25px;
 
-    & + i {
+    & + i, & + img {
       position: absolute;
       right: 10px;
       top: 11px;
       font-size: 40px;
 
       color: rgba(0, 0, 0, 0.2);
+    }
+
+    & + img {
+      width: 40px;
     }
 
     &:focus + i {
