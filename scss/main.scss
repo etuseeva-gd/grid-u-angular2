@@ -93,6 +93,12 @@
       @media #{$medium-and-down} {
         .slider-container {
           padding-bottom: 35px;
+
+          &:first-child {
+            .slider {
+              width: 50%;
+            }
+          }
         }
       }
     }
