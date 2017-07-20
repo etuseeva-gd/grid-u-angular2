@@ -213,21 +213,19 @@ select {
 
 .input-container {
   select {
-    & + i {
-      position: absolute;
-      top: 6px;
-      right: 0;
+    cursor: pointer;
 
-      color: $component-color;
+    & + img {
+      position: absolute;
+      width: 35px;
+
+      top: 2px;
+      right: 1px;
     }
 
     &.green {
       color: #fff;
       background-color: $component-color;
-
-      & + i {
-        color: #fff;
-      }
     }
   }
 }
