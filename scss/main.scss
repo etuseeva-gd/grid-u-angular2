@@ -8,9 +8,11 @@
       min-width: 230px;
       font-style: italic;
 
-      & + img {
-        top: 5px;
-        width: 25px;
+      &.input-filter {
+        background: #fff url(../images/icons/search.svg) no-repeat calc(100% - 5px);
+        background-size: 25px;
+
+        padding-right: 35px;
       }
     }
   }

@@ -47,29 +47,12 @@ input {
   padding: 0;
   margin: 0;
 
-  & > i, & > img {
-    position: absolute;
-    right: 10px;
-    top: 11px;
-
-    width: 40px;
-    font-size: 40px;
-  }
-
   input {
     width: 100%;
     max-width: 100%;
 
     margin: 0;
     padding-left: 25px;
-
-    & ~ img {
-      display: none;
-    }
-
-    &:not(focus) ~ img.inactive, &:focus ~ img.active, &:invalid:not(:focus) ~ img.invalid {
-      display: inline;
-    }
   }
 }
 
