@@ -117,19 +117,16 @@
   .modal-body {
     padding: 20px 30px 10px;
 
-    input, textarea, select, .input-container {
-      max-width: 100%;
+    p {
+      margin: 0;
+
+      img {
+        margin-top: 15px;
+      }
     }
-  }
 
-  .modal-footer {
-    padding: 20px 20px 30px;
-  }
-
-  p {
-    margin: 0;
-
-    &.label {
+    label {
+      display: inline-block;
       font-size: 17px;
       margin-top: 15px;
       margin-bottom: 5px;
@@ -138,5 +135,13 @@
         margin-top: 0;
       }
     }
+
+    input, textarea, select, .input-container {
+      max-width: 100%;
+    }
+  }
+
+  .modal-footer {
+    padding: 20px 20px 30px;
   }
 }
