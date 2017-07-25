@@ -50,19 +50,27 @@ header {
   background: linear-gradient(to bottom, #449587 0%,#2a8676 91%,#6b647f 93%,#5cba96 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
   .logo {
+    position: relative;
     width: 30px;
+    top: calc(50% - 15px);
   }
 
-  .user-name {
-    font-size: 15px;
+  .user-info {
+    position: relative;
+    top: calc(50% - 12px);
 
-    span {
-      font-style: italic;
+    .user-name {
+      font-size: 15px;
+
+      span {
+        font-style: italic;
+      }
     }
   }
 
   .container {
-    padding-top: 13px;
+    //padding-top: 13px;
+    height: 50px;
 
     i {
       color: #fff;
