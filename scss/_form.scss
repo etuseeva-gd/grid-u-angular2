@@ -192,18 +192,15 @@ select {
 
 .input-container {
   select {
+    background: #fff url(../images/icons/down2.svg) no-repeat calc(100% - 10px);
+    background-size: 20px;
     cursor: pointer;
 
-    & + img {
-      position: absolute;
-      width: 20px;
-      top: 8px;
-      right: 10px;
-    }
-
     &.green {
+      background: $component-color url(../images/icons/down.svg) no-repeat calc(100% - 10px);
+      background-size: 20px;
+
       color: #fff;
-      background-color: $component-color;
     }
   }
 }
