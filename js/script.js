@@ -5,7 +5,7 @@ var wrapper = document.getElementsByClassName('wrapper')[0];
 openModal = function (modalId) {
     modal = document.getElementById(modalId);
     wrapper.style.filter = 'blur(1px)';
-    modal.style.display = "block";
+    modal.style.display = "flex";
 };
 
 closeModal = function () {
