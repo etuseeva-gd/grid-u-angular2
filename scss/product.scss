@@ -31,14 +31,7 @@
 
   @media #{$large-and-up} {
     .product-content {
-      min-height: 321px;
       padding-left: 0;
-      height: auto;
-    }
-
-    .card-content {
-      min-height: 287px;
-      height: auto;
     }
 
     .card-footer {
