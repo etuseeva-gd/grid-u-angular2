@@ -25,7 +25,8 @@
         padding-right: 55px;
 
         &.input-login {
-          background: #fff url(../images/icons/login-inactive.svg) no-repeat 100%;
+          background: #fff url(../images/icons/login-inactive.svg) no-repeat calc(100% - 17px);
+          background-size: 45px;
 
           &:focus {
             background-image: url(../images/icons/login-active.svg);
@@ -37,8 +38,8 @@
         }
 
         &.input-password {
-          background: #fff url(../images/icons/password-inactive.svg) no-repeat calc(100% - 5px);
-          background-size: 45px;
+          background: #fff url(../images/icons/password-inactive.svg) no-repeat calc(100% - 20px);
+          background-size: 40px;
 
           &:focus {
             background-image: url(../images/icons/password-active.svg);

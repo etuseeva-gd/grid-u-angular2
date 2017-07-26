@@ -44,6 +44,8 @@ button:focus {
     padding: 15px 50px;
 
     font-size: 18px;
+    font-family: $font-family-pt-sans-caption;
+    font-weight: bold;
   }
 
   &.regular {
