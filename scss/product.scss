@@ -13,6 +13,12 @@
     padding: 20px;
   }
 
+  .card-content {
+    p {
+      font-size: $medium-size;
+    }
+  }
+
   @media #{$medium-and-down} {
     .product-content {
       padding-top: 0;
