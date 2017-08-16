@@ -42,7 +42,10 @@
                         <div class="row flex-row">
                             <div class="col s12 m6">
                                 <div class="card-header">
-                                    <img src="./images/products/1.png">
+                                    <img id="previousImage" src="./images/arrow.svg"/>
+                                    <img id="nextImage" src="./images/arrow.svg"/>
+
+                                    <img id="sliderImage" src="./images/products/1.png">
                                     <div class="stars-legend">
                                         <img class="star" src="./images/stars/full-star.png">
                                         <img class="star" src="./images/stars/full-star.png">
@@ -67,8 +70,7 @@
                                     <p>
                                         You can <span>add 5 more</span>.
                                         You can also <span onclick="openModal('adminPopup')">edit</span> details or
-                                        <span
-                                                onclick="openModal('deletePopup')">delete</span> them.
+                                        <span onclick="openModal('deletePopup')">delete</span> them.
                                     </p>
                                 </div>
                                 <div class="card-footer">
@@ -189,6 +191,9 @@
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.0.0/nouislider.min.js"></script>
 <script type="text/javascript" src="./js/script.js"></script>
+
+<!--Scripts for js task-->
+<script type="text/javascript" src="./js/index.js"></script>
 
 </body>
 </html>

@@ -6,7 +6,9 @@
   "scripts": {
     "build-css": "node-sass --include-path scss ./scss/index.scss ./css/index.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-ts": "tsc --out js/index.js ts/index.ts",
+    "watch-ts": "tsc -w --out js/index.js ts/index.ts"
   },
   "author": "",
   "license": "ISC",
