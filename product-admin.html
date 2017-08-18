@@ -41,13 +41,18 @@
                     <div class="card product-card">
                         <div class="row flex-row">
                             <div class="col s12 m6">
-                                <div class="card-content image-slider-content">
-                                    <img id="previousImage" src="./images/arrow.svg"/>
-                                    <img id="nextImage" src="./images/arrow.svg"/>
+                                <div class="card-header image-slider-content">
+                                    <div class="image-slider">
+                                        <canvas id="canvasSlider">
+                                            <img id="imageForSlider" src="./images/products/1.png">
+                                        </canvas>
+                                        <span id="imageDescription">Default slider description</span>
 
-                                    <span id="sliderText">slider text</span>
-
-                                    <img id="sliderImage" src="./images/products/1.png">
+                                        <img id="previousImage" src="./images/arrow.svg"/>
+                                        <img id="nextImage" src="./images/arrow.svg"/>
+                                    </div>
+                                    <canvas id="canvasZoomSlider">
+                                    </canvas>
 
                                     <div class="stars-legend">
                                         <img class="star" src="./images/stars/full-star.png">
@@ -60,7 +65,9 @@
                             </div>
                             <div class="col s12 m6 product-content">
                                 <div class="card-content">
-                                    <div class="large-text">Active Coat Lorem 2 Active Coat Lorem 2 Active Coat Lorem 2</div>
+                                    <div class="large-text">Active Coat Lorem 2 Active Coat Lorem 2 Active Coat Lorem
+                                        2
+                                    </div>
                                     <div class="line"></div>
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,

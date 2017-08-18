@@ -191,15 +191,12 @@ nav {
 
 //For js task
 .image-slider-content {
-  overflow: hidden;
-
-  #sliderImage {
-    opacity: 1;
-    transition: opacity 1s;
+  .image-slider {
+    overflow: hidden;
   }
 
-  #sliderImage.fadeOut {
-    opacity: 0;
+  #canvasSlider {
+    width: 100%;
   }
 
   #previousImage, #nextImage {
@@ -219,7 +216,7 @@ nav {
     transform: rotate(180deg);
   }
 
-  #sliderText {
+  #imageDescription {
     width: 100%;
 
     position: absolute;
@@ -232,5 +229,17 @@ nav {
     line-height: 19px;
 
     z-index: 100;
+  }
+
+  #canvasZoomSlider {
+    position: absolute;
+    border: 2px solid #FFCC00;
+
+    top: 0;
+    right: -210px;
+
+    z-index: 100;
+
+    display: none;
   }
 }
