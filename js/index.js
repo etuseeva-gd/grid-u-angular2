@@ -23,6 +23,7 @@ var Zoomer = (function () {
         this.defaultImage = defaultImage;
         this.canvas.addEventListener('mousemove', this.move.bind(this));
         this.canvas.addEventListener('mouseout', this.out.bind(this));
+        this.canvas.addEventListener('mousedown', this.out.bind(this));
         this.zoomCanvas = zoomCanvas;
         this.ctxZoom = this.zoomCanvas.getContext('2d');
         this.initParams();
