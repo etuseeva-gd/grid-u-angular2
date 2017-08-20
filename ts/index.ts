@@ -36,6 +36,8 @@ class Zoomer {
 
     topPos: number;
     leftPos: number;
+
+    rectData: ImageData;
     zoomData: ImageData;
 
     constructor(canvas, zoomCanvas, defaultImage) {
@@ -56,6 +58,8 @@ class Zoomer {
     initParams() {
         this.topPos = 0;
         this.leftPos = 0;
+
+        this.rectData = null;
         this.zoomData = null;
     }
 
@@ -70,16 +74,23 @@ class Zoomer {
         this.leftPos = this.getSidePosition(e.layerX * widthScale - (ZOOM_RECT_WIDTH / 2), this.canvas.width, ZOOM_RECT_WIDTH);
         this.topPos = this.getSidePosition(e.layerY * heightScale - (ZOOM_RECT_HEIGHT / 2), this.canvas.height, ZOOM_RECT_HEIGHT);
 
-        this.zoomData = this.ctx.getImageData(this.leftPos - 2, this.topPos - 2, ZOOM_RECT_WIDTH, ZOOM_RECT_HEIGHT);
+        let tempCanvas: HTMLCanvasElement = document.createElement('canvas');
+        let ctxTempCanvas: CanvasRenderingContext2D = tempCanvas.getContext('2d');
+        tempCanvas.width = this.defaultImage.width;
+        tempCanvas.height = this.defaultImage.height;
+        ctxTempCanvas.drawImage(this.defaultImage, 0, 0);
+
+        this.rectData = this.ctx.getImageData(this.leftPos - 2, this.topPos - 2, ZOOM_RECT_WIDTH, ZOOM_RECT_HEIGHT);
+        this.zoomData = ctxTempCanvas.getImageData(this.leftPos - 2, this.topPos - 2, ZOOM_RECT_WIDTH, ZOOM_RECT_HEIGHT);
 
         this.ctx.fillRect(this.leftPos, this.topPos, ZOOM_RECT_WIDTH, ZOOM_RECT_HEIGHT);
         this.ctx.strokeRect(this.leftPos, this.topPos, ZOOM_RECT_WIDTH, ZOOM_RECT_HEIGHT);
     }
 
     move(e: any) {
-        if (this.zoomData) {
+        if (this.rectData) {
             setImageToCanvas(this.canvas, this.defaultImage, WATERMARK);
-            this.ctx.putImageData(this.zoomData, this.leftPos - 2, this.topPos - 2);
+            this.ctx.putImageData(this.rectData, this.leftPos - 2, this.topPos - 2);
         }
 
         this.drawZoomRect(e);
