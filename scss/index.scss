@@ -199,21 +199,23 @@ nav {
     width: 100%;
   }
 
-  #previousImage, #nextImage {
+  .slider-arrow {
     position: absolute;
     top: calc(50% - 20px);
 
-    width: 50px;
+    width: 40px;
     height: 40px;
 
     z-index: 10;
 
     cursor: pointer;
-  }
 
-  #nextImage {
-    right: 0;
-    transform: rotate(180deg);
+    background: url("../images/arrow.svg") no-repeat;
+    
+    &#setNextImage {
+      right: 0;
+      transform: rotate(180deg);
+    }
   }
 
   #imageDescription {
