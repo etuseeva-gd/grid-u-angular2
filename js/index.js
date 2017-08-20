@@ -5,12 +5,6 @@ var ImagesForSlider = (function () {
     }
     return ImagesForSlider;
 }());
-var imagesForSlider = [
-    new ImagesForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImagesForSlider('./images/products/2.png', 'Some text 2'),
-    new ImagesForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImagesForSlider('./images/products/4.png', 'Some text 4'),
-];
 // let sliderImage: HTMLImageElement = <HTMLImageElement>document.getElementById('imageForSlider');
 // let sliderText = document.getElementById('imageDescription');
 //
@@ -319,4 +313,10 @@ var Slider = (function () {
 //         canvasOverlay.style['display'] = 'none';
 //     }
 // };
-var slider = new Slider(imagesForSlider);
+var images = [
+    new ImagesForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
+    new ImagesForSlider('./images/products/2.png', 'Some text 2'),
+    new ImagesForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
+    new ImagesForSlider('./images/products/4.png', 'Some text 4'),
+];
+var slider = new Slider(images);

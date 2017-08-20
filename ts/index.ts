@@ -8,13 +8,6 @@ class ImagesForSlider {
     }
 }
 
-let imagesForSlider: ImagesForSlider[] = [
-    new ImagesForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImagesForSlider('./images/products/2.png', 'Some text 2'),
-    new ImagesForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImagesForSlider('./images/products/4.png', 'Some text 4'),
-];
-
 // let sliderImage: HTMLImageElement = <HTMLImageElement>document.getElementById('imageForSlider');
 // let sliderText = document.getElementById('imageDescription');
 //
@@ -390,4 +383,12 @@ class Slider {
 //     }
 // };
 
-let slider = new Slider(imagesForSlider);
+
+let images: ImagesForSlider[] = [
+    new ImagesForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
+    new ImagesForSlider('./images/products/2.png', 'Some text 2'),
+    new ImagesForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
+    new ImagesForSlider('./images/products/4.png', 'Some text 4'),
+];
+
+let slider = new Slider(images);
