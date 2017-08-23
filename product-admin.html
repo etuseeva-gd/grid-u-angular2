@@ -96,7 +96,8 @@
             <div class="row review-container">
                 <div class="col s12 align-center no-padding">
                     <div>There is no user reviews for now.</div>
-                    <div id="inviteToReview">Would you like to <span class="review-link" onclick="toggleReview()">share your thoughts with other customers?</span></div>
+                    <div id="inviteToReview">Would you like to <span class="review-link" onclick="toggleReview()">share your thoughts with other customers?</span>
+                    </div>
                     <div id="reviewInfo">Share your thoughts with other customers:</div>
                 </div>
                 <div id="reviewContainer" class="col s12">
@@ -105,7 +106,9 @@
                         <div class="author">
                             By <span id="authorName"></span> <span id="currentDate"></span>
                         </div>
-                        <div id="rating" class="rating">Rating</div>
+                        <div id="ratingReview" class="rating">
+                            <div class="stars"></div>
+                        </div>
 
                         <div id="avatarImg" class="avatar">Avatar</div>
                         <div id="textReview" class="review-text">
@@ -125,6 +128,16 @@
                         </div>
                         <div class="col s9">
                             <label for="review">Write your review:</label>
+                            <div id="rating" class="right">
+                                Rating:
+                                <div class="stars">
+                                    <div class="star grey-star active-star"></div>
+                                    <div class="star grey-star active-star"></div>
+                                    <div class="star grey-star"></div>
+                                    <div class="star grey-star"></div>
+                                    <div class="star grey-star"></div>
+                                </div>
+                            </div>
                             <p>
                                 <textarea id="review"></textarea>
                             </p>

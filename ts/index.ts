@@ -312,6 +312,37 @@ date.innerHTML = formatDate(new Date());
 let review = new Variable('review', 'Start typing and your review text will appear here...');
 bindVariableWithElement(review, '#textReview');
 
+let stars: any = Array.prototype.slice.call(document.querySelectorAll('#rating .stars .star'));
+stars.forEach(star => {
+    star.addEventListener('click', (e: any) => {
+        let selectedIndex = stars.findIndex((s) => s === e.target);
+        selectedIndex++;
+
+        for (let i = 0; i < 5; i++) {
+            if (i < selectedIndex) {
+                stars[i].classList.add('active-star');
+            } else {
+                stars[i].classList.remove('active-star');
+            }
+        }
+
+        let starsInReview = document.querySelector('#ratingReview .stars');
+        while (starsInReview.firstChild) {
+            starsInReview.removeChild(starsInReview.firstChild);
+        }
+
+        for (let i = 0; i < 5; i++) {
+            let s: any = document.createElement('div');
+            if (i < selectedIndex) {
+                s.className = 'star active-star';
+            } else {
+                s.className = 'star';
+            }
+            starsInReview.appendChild(s);
+        }
+    });
+});
+
 
 //------------------------
 // let isReviewShow = true;

@@ -215,6 +215,35 @@ var date = document.querySelector('#currentDate');
 date.innerHTML = formatDate(new Date());
 var review = new Variable('review', 'Start typing and your review text will appear here...');
 bindVariableWithElement(review, '#textReview');
+var stars = Array.prototype.slice.call(document.querySelectorAll('#rating .stars .star'));
+stars.forEach(function (star) {
+    star.addEventListener('click', function (e) {
+        var selectedIndex = stars.findIndex(function (s) { return s === e.target; });
+        selectedIndex++;
+        for (var i = 0; i < 5; i++) {
+            if (i < selectedIndex) {
+                stars[i].classList.add('active-star');
+            }
+            else {
+                stars[i].classList.remove('active-star');
+            }
+        }
+        var starsInReview = document.querySelector('#ratingReview .stars');
+        while (starsInReview.firstChild) {
+            starsInReview.removeChild(starsInReview.firstChild);
+        }
+        for (var i = 0; i < 5; i++) {
+            var s = document.createElement('div');
+            if (i < selectedIndex) {
+                s.className = 'star active-star';
+            }
+            else {
+                s.className = 'star';
+            }
+            starsInReview.appendChild(s);
+        }
+    });
+});
 //------------------------
 // let isReviewShow = true;
 var isReviewShow = false;

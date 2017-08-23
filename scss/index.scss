@@ -251,7 +251,7 @@ nav {
   color: #fff;
 
   span.review-link {
-    color: $link-color-yellow;
+    color: $yellow;
     text-decoration: underline;
 
     cursor: pointer;
@@ -262,9 +262,14 @@ nav {
     margin-bottom: 0;
     padding: 15px;
 
-    .user-name {
+    .author {
       float: left;
       width: calc(100% - 100px);
+
+      #authorName {
+        color: $yellow;
+        font-style: italic;
+      }
     }
 
     .rating {
@@ -284,6 +289,10 @@ nav {
       &:after {
         clear: both;
       }
+
+      b, i {
+        color: $yellow;
+      }
     }
 
   }
@@ -301,5 +310,29 @@ nav {
     textarea {
       max-width: 100%;
     }
+  }
+}
+
+// Change on this all stars
+.stars {
+  display: inline-block;
+
+  .star {
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+
+    cursor: pointer;
+
+    background: url("../images/stars/star-inactive.svg");
+    background-size: 17px 17px;
+  }
+
+  .grey-star {
+    background-image: url("../images/stars/star-inactive-grey.svg");
+  }
+
+  .active-star {
+    background-image: url("../images/stars/star-active.svg");
   }
 }
