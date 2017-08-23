@@ -1,3 +1,5 @@
+// Slider
+
 const ZOOM_RECT_WIDTH = 100, ZOOM_RECT_HEIGHT = 150, WATERMARK = 'Demo shop';
 
 function setImageToCanvas(canvas: HTMLCanvasElement, image: HTMLImageElement, watermark: any) {
@@ -240,3 +242,84 @@ let images: ImagesForSlider[] = [
 ];
 
 let slider = new Slider(images);
+
+// Review
+class Variable {
+    name: string;
+
+    element: any;
+    defaultValue: any;
+    value: any;
+    event: any;
+
+    constructor(name: string, defaultValue: string = null) {
+        this.name = name;
+        this.element = document.querySelector(`#${this.name}`);
+
+        this.defaultValue = defaultValue;
+        this.value = null;
+
+        this.event = new Event(`${this.name} change`);
+    }
+
+    set(value: any) {
+        this.value = value;
+        this.element.dispatchEvent(this.event);
+    }
+
+    get() {
+        return this.value && this.value.length > 0 ? this.value : this.defaultValue;
+    }
+
+    model(selector: string) {
+
+    }
+}
+
+function bindVariableWithElement(v: Variable, elementSelector: string) {
+    let bindElem = document.querySelector(elementSelector);
+    bindElem.innerHTML = v.defaultValue;
+
+    v.element.addEventListener('input', function() {
+        let _this = this;
+        v.set(_this.value);
+    });
+
+    v.element.addEventListener(`${v.name} change`, () => {
+        // this.value = v.get();
+        bindElem.innerHTML = v.get();
+    });
+}
+
+let author = new Variable('author', 'Your name');
+bindVariableWithElement(author, '#authorName');
+
+let review = new Variable('review', 'Start typing and your review text will appear here...');
+bindVariableWithElement(review, '#textReview');
+
+
+//------------------------
+// let isReviewShow = true;
+let isReviewShow = false;
+
+function toggleReview() {
+    let review = document.getElementById('reviewContainer'),
+        inviteToReview = document.getElementById('inviteToReview'),
+        reviewInfo = document.getElementById('reviewInfo');
+
+    if (isReviewShow) {
+        review.style.display = 'none';
+        inviteToReview.style.display = 'block';
+        reviewInfo.style.display = 'none';
+    } else {
+        review.style.display = 'block';
+        inviteToReview.style.display = 'none';
+        reviewInfo.style.display = 'block';
+    }
+
+    isReviewShow = !isReviewShow;
+}
+
+function updateReview() {
+
+}

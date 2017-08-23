@@ -96,22 +96,26 @@
             <div class="row review-container">
                 <div class="col s12 align-center no-padding">
                     <div>There is no user reviews for now.</div>
-                    <div>Would you like to <span class="review-link">share your thoughts with other customers?</span></div>
+                    <div id="inviteToReview">Would you like to <span class="review-link" onclick="toggleReview()">share your thoughts with other customers?</span></div>
+                    <div id="reviewInfo">Share your thoughts with other customers:</div>
                 </div>
-                <div class="col s12">
+                <div id="reviewContainer" class="col s12">
                     <h2>Add review:</h2>
                     <div class="row review">
-                        <div class="user-name">Name</div>
-                        <span class="rating">Rating</span>
+                        <div class="author">
+                            By <span id="authorName"></span> date
+                        </div>
+                        <div id="rating" class="rating">Rating</div>
 
-                        <div class="avatar">Avatar</div>
-                        <div class="review-text">Text review</div>
+                        <div id="avatarImg" class="avatar">Avatar</div>
+                        <div id="textReview" class="review-text">
+                        </div>
                     </div>
                     <div class="row review-form">
                         <div class="col s3">
-                            <label for="user-name">Enter your name:</label>
+                            <label for="author">Enter your name:</label>
                             <p>
-                                <input id="user-name" type="text">
+                                <input id="author" type="text">
                             </p>
 
                             <label for="avatar">Choose your avatar:</label>
