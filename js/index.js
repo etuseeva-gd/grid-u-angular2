@@ -183,24 +183,36 @@ var Variable = (function () {
     Variable.prototype.get = function () {
         return this.value && this.value.length > 0 ? this.value : this.defaultValue;
     };
-    Variable.prototype.model = function (selector) {
-    };
     return Variable;
 }());
 function bindVariableWithElement(v, elementSelector) {
     var bindElem = document.querySelector(elementSelector);
     bindElem.innerHTML = v.defaultValue;
     v.element.addEventListener('input', function () {
-        var _this = this;
-        v.set(_this.value);
+        v.set(this.value);
     });
     v.element.addEventListener(v.name + " change", function () {
         // this.value = v.get();
         bindElem.innerHTML = v.get();
     });
 }
+function formatDate(date) {
+    var monthNames = [
+        "January", "February", "March",
+        "April", "May", "June", "July",
+        "August", "September", "October",
+        "November", "December"
+    ];
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+    return monthNames[monthIndex] + " " + day + ", " + year;
+}
+console.log(formatDate(new Date()));
 var author = new Variable('author', 'Your name');
 bindVariableWithElement(author, '#authorName');
+var date = document.querySelector('#currentDate');
+date.innerHTML = formatDate(new Date());
 var review = new Variable('review', 'Start typing and your review text will appear here...');
 bindVariableWithElement(review, '#textReview');
 //------------------------

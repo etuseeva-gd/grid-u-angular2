@@ -270,19 +270,14 @@ class Variable {
     get() {
         return this.value && this.value.length > 0 ? this.value : this.defaultValue;
     }
-
-    model(selector: string) {
-
-    }
 }
 
 function bindVariableWithElement(v: Variable, elementSelector: string) {
     let bindElem = document.querySelector(elementSelector);
     bindElem.innerHTML = v.defaultValue;
 
-    v.element.addEventListener('input', function() {
-        let _this = this;
-        v.set(_this.value);
+    v.element.addEventListener('input', function () {
+        v.set(this.value);
     });
 
     v.element.addEventListener(`${v.name} change`, () => {
@@ -291,8 +286,28 @@ function bindVariableWithElement(v: Variable, elementSelector: string) {
     });
 }
 
+function formatDate(date: Date): string {
+    let monthNames = [
+        "January", "February", "March",
+        "April", "May", "June", "July",
+        "August", "September", "October",
+        "November", "December"
+    ];
+
+    let day = date.getDate();
+    let monthIndex = date.getMonth();
+    let year = date.getFullYear();
+
+    return `${monthNames[monthIndex]} ${day}, ${year}`;
+}
+
+console.log(formatDate(new Date()));
+
 let author = new Variable('author', 'Your name');
 bindVariableWithElement(author, '#authorName');
+
+let date = document.querySelector('#currentDate');
+date.innerHTML = formatDate(new Date());
 
 let review = new Variable('review', 'Start typing and your review text will appear here...');
 bindVariableWithElement(review, '#textReview');
