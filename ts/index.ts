@@ -343,6 +343,21 @@ stars.forEach(star => {
     });
 });
 
+let avatar: any = document.querySelector('#avatar');
+avatar.addEventListener('change', function (e) {
+    let file = e.target.files[0];
+    let reader = new FileReader();
+    reader.onload = function (e: any) {
+        let avatarInReview: any = document.querySelector('#avatarImg');
+        avatarInReview.src = e.target.result;
+
+        let avatarContainer: any = document.querySelector('.input-container-image');
+        avatarContainer.style.backgroundImage = `url(${ e.target.result})`;
+        avatarContainer.children[0].innerHTML = 'Image selected';
+    };
+    reader.readAsDataURL(file);
+});
+
 
 //------------------------
 // let isReviewShow = true;

@@ -244,6 +244,19 @@ stars.forEach(function (star) {
         }
     });
 });
+var avatar = document.querySelector('#avatar');
+avatar.addEventListener('change', function (e) {
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        var avatarInReview = document.querySelector('#avatarImg');
+        avatarInReview.src = e.target.result;
+        var avatarContainer = document.querySelector('.input-container-image');
+        avatarContainer.style.backgroundImage = "url(" + e.target.result + ")";
+        avatarContainer.children[0].innerHTML = 'Image selected';
+    };
+    reader.readAsDataURL(file);
+});
 //------------------------
 // let isReviewShow = true;
 var isReviewShow = false;

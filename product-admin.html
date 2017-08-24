@@ -110,7 +110,9 @@
                             <div class="stars"></div>
                         </div>
 
-                        <div id="avatarImg" class="avatar">Avatar</div>
+                        <div class="avatar">
+                            <img id="avatarImg" src="./images/empty_image.PNG">
+                        </div>
                         <div id="textReview" class="review-text">
                         </div>
                     </div>
@@ -122,8 +124,9 @@
                             </p>
 
                             <label for="avatar">Choose your avatar:</label>
-                            <p class="input-container">
-                                <input id="avatar" type="text">
+                            <p class="input-container input-container-image">
+                                <span>Select image</span>
+                                <input id="avatar" type="file" accept="image/*">
                             </p>
                         </div>
                         <div class="col s9">
@@ -131,8 +134,8 @@
                             <div id="rating" class="right">
                                 Rating:
                                 <div class="stars">
-                                    <div class="star grey-star active-star"></div>
-                                    <div class="star grey-star active-star"></div>
+                                    <div class="star grey-star"></div>
+                                    <div class="star grey-star"></div>
                                     <div class="star grey-star"></div>
                                     <div class="star grey-star"></div>
                                     <div class="star grey-star"></div>
