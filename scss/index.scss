@@ -286,6 +286,8 @@ nav {
         height: 100px;
 
         margin-top: 15px;
+
+        border: 2px solid $yellow;
       }
     }
 
@@ -299,6 +301,26 @@ nav {
 
       b, i {
         color: $yellow;
+      }
+
+      q {
+        font-size: 24px;
+        quotes: "\201C" "\201e";
+
+        &:before, &:after {
+          font-weight: bold;
+          color: $yellow;
+          font-size: 45px;
+        }
+
+        &:before {
+          content: open-quote;
+          vertical-align: middle;
+        }
+
+        &:after {
+          content: close-quote;
+        }
       }
     }
 

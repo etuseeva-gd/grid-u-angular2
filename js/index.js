@@ -208,7 +208,6 @@ function formatDate(date) {
     var year = date.getFullYear();
     return monthNames[monthIndex] + " " + day + ", " + year;
 }
-console.log(formatDate(new Date()));
 var author = new Variable('author', 'Your name');
 bindVariableWithElement(author, '#authorName');
 var date = document.querySelector('#currentDate');
@@ -257,6 +256,51 @@ avatar.addEventListener('change', function (e) {
     };
     reader.readAsDataURL(file);
 });
+//Buttons with style
+var selectionStart = -1, selectionEnd = -1;
+function getPosSelectedText(elem) {
+    if (elem.tagName === "TEXTAREA") {
+        selectionStart = elem.selectionStart;
+        selectionEnd = elem.selectionEnd;
+    }
+}
+setInterval(function () {
+    getPosSelectedText(document.activeElement);
+}, 100);
+function addTags(tagType) {
+    var tag = '';
+    switch (tagType) {
+        case 'bold': {
+            tag = 'b';
+            break;
+        }
+        case 'emphasize': {
+            tag = 'i';
+            break;
+        }
+        case 'quote': {
+            tag = 'q';
+            break;
+        }
+    }
+    if (selectionEnd > -1 && selectionStart > -1) {
+        var reviewValue = review.get();
+        reviewValue = reviewValue.slice(0, selectionStart) + ("<" + tag + ">") + reviewValue.slice(selectionStart, selectionEnd) + ("</" + tag + ">") + reviewValue.slice(selectionEnd);
+        review.set(reviewValue);
+        review.element.value = reviewValue;
+        selectionStart = -1;
+        selectionEnd = -1;
+    }
+}
+document.querySelector('#boldBtn').addEventListener('click', function () {
+    addTags('bold');
+});
+document.querySelector('#emphasizeBtn').addEventListener('click', function () {
+    addTags('emphasize');
+});
+document.querySelector('#quoteBtn').addEventListener('click', function () {
+    addTags('quote');
+});
 //------------------------
 // let isReviewShow = true;
 var isReviewShow = false;
@@ -273,6 +317,4 @@ function toggleReview() {
         reviewInfo.style.display = 'block';
     }
     isReviewShow = !isReviewShow;
-}
-function updateReview() {
 }

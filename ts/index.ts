@@ -301,8 +301,6 @@ function formatDate(date: Date): string {
     return `${monthNames[monthIndex]} ${day}, ${year}`;
 }
 
-console.log(formatDate(new Date()));
-
 let author = new Variable('author', 'Your name');
 bindVariableWithElement(author, '#authorName');
 
@@ -358,11 +356,62 @@ avatar.addEventListener('change', function (e) {
     reader.readAsDataURL(file);
 });
 
+//Buttons with style
+let selectionStart = -1, selectionEnd = -1;
+
+function getPosSelectedText(elem) {
+    if (elem.tagName === "TEXTAREA") {
+        selectionStart = elem.selectionStart;
+        selectionEnd = elem.selectionEnd;
+    }
+}
+
+setInterval(() => {
+    getPosSelectedText(document.activeElement);
+}, 100);
+
+function addTags(tagType: string) {
+    let tag = '';
+    switch (tagType) {
+        case 'bold': {
+            tag = 'b';
+            break;
+        }
+        case 'emphasize': {
+            tag = 'i';
+            break;
+        }
+        case 'quote': {
+            tag = 'q';
+            break;
+        }
+    }
+
+    if (selectionEnd > -1 && selectionStart > -1) {
+        let reviewValue = review.get();
+        reviewValue = reviewValue.slice(0, selectionStart) + `<${tag}>` + reviewValue.slice(selectionStart, selectionEnd) + `</${tag}>` + reviewValue.slice(selectionEnd);
+        review.set(reviewValue);
+        review.element.value = reviewValue;
+
+        selectionStart = -1;
+        selectionEnd = -1;
+    }
+}
+
+document.querySelector('#boldBtn').addEventListener('click', () => {
+    addTags('bold');
+});
+document.querySelector('#emphasizeBtn').addEventListener('click', () => {
+    addTags('emphasize');
+});
+document.querySelector('#quoteBtn').addEventListener('click', () => {
+    addTags('quote');
+});
+
 
 //------------------------
 // let isReviewShow = true;
 let isReviewShow = false;
-
 function toggleReview() {
     let review = document.getElementById('reviewContainer'),
         inviteToReview = document.getElementById('inviteToReview'),
@@ -379,8 +428,4 @@ function toggleReview() {
     }
 
     isReviewShow = !isReviewShow;
-}
-
-function updateReview() {
-
 }
