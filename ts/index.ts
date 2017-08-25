@@ -165,7 +165,13 @@ class Slider {
         document.getElementById('setNextImage').addEventListener(
             'click', this.setNextImage.bind(this));
 
-        this.setImageToCanvas();
+        if (this.selectedImage.complete) {
+            this.setImageToCanvas();
+        } else {
+            this.selectedImage.onload = () => {
+                this.setImageToCanvas();
+            };
+        }
 
         this.zoomer = new Zoomer(this.canvas, <HTMLCanvasElement>document.getElementById("canvasZoomSlider"), this.selectedImage);
     }
@@ -241,7 +247,7 @@ let images: ImagesForSlider[] = [
     new ImagesForSlider('./images/products/4.png', 'Some text 4'),
 ];
 
-let slider = new Slider(images);
+new Slider(images);
 
 // Review
 class Variable {
@@ -408,10 +414,14 @@ document.querySelector('#quoteBtn').addEventListener('click', () => {
     addTags('quote');
 });
 
+document.querySelector('#cancelBtn').addEventListener('click', toggleReview);
+document.querySelector('#addBtn').addEventListener('click', () => {
+    alert('Your review has been added!')
+});
 
 //------------------------
-// let isReviewShow = true;
-let isReviewShow = false;
+let isReviewShow = true;
+// let isReviewShow = false;
 function toggleReview() {
     let review = document.getElementById('reviewContainer'),
         inviteToReview = document.getElementById('inviteToReview'),
@@ -429,3 +439,5 @@ function toggleReview() {
 
     isReviewShow = !isReviewShow;
 }
+
+toggleReview();

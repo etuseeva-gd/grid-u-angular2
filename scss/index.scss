@@ -280,12 +280,11 @@ nav {
     .avatar {
       float: left;
       width: 115px;
+      margin-top: 15px;
 
       img {
         width: 100px;
         height: 100px;
-
-        margin-top: 15px;
 
         border: 2px solid $yellow;
       }
@@ -294,6 +293,8 @@ nav {
     .review-text {
       float: right;
       width: calc(100% - 115px);
+
+      margin-top: 15px;
 
       &:after {
         clear: both;
@@ -304,6 +305,7 @@ nav {
       }
 
       q {
+        display: block;
         font-size: 24px;
         quotes: "\201C" "\201e";
 
@@ -351,7 +353,7 @@ nav {
   width: 100%;
   height: 135px;
 
-  border-radius: 5px;
+  border-radius: 25px;
 
   background: #fff url(../images/upload-image.PNG) no-repeat 85% 50%;
   background-size: 100px 100px;
@@ -388,6 +390,9 @@ nav {
     width: 17px;
     height: 17px;
     display: inline-block;
+
+    vertical-align: middle;
+    margin-top: -5px;
 
     cursor: pointer;
 

@@ -96,11 +96,19 @@ var Slider = (function () {
         this.initSlider();
     }
     Slider.prototype.initSlider = function () {
+        var _this = this;
         this.selectedImage.src = this.images[this.indexSelectedImage].src;
         this.descSelectedImage.innerText = this.images[this.indexSelectedImage].text;
         document.getElementById('setPreviousImage').addEventListener('click', this.setPreviousImage.bind(this));
         document.getElementById('setNextImage').addEventListener('click', this.setNextImage.bind(this));
-        this.setImageToCanvas();
+        if (this.selectedImage.complete) {
+            this.setImageToCanvas();
+        }
+        else {
+            this.selectedImage.onload = function () {
+                _this.setImageToCanvas();
+            };
+        }
         this.zoomer = new Zoomer(this.canvas, document.getElementById("canvasZoomSlider"), this.selectedImage);
     };
     Slider.prototype.setImageToSlider = function () {
@@ -165,7 +173,7 @@ var images = [
     new ImagesForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
     new ImagesForSlider('./images/products/4.png', 'Some text 4'),
 ];
-var slider = new Slider(images);
+new Slider(images);
 // Review
 var Variable = (function () {
     function Variable(name, defaultValue) {
@@ -301,9 +309,13 @@ document.querySelector('#emphasizeBtn').addEventListener('click', function () {
 document.querySelector('#quoteBtn').addEventListener('click', function () {
     addTags('quote');
 });
+document.querySelector('#cancelBtn').addEventListener('click', toggleReview);
+document.querySelector('#addBtn').addEventListener('click', function () {
+    alert('Your review has been added!');
+});
 //------------------------
-// let isReviewShow = true;
-var isReviewShow = false;
+var isReviewShow = true;
+// let isReviewShow = false;
 function toggleReview() {
     var review = document.getElementById('reviewContainer'), inviteToReview = document.getElementById('inviteToReview'), reviewInfo = document.getElementById('reviewInfo');
     if (isReviewShow) {
@@ -318,3 +330,4 @@ function toggleReview() {
     }
     isReviewShow = !isReviewShow;
 }
+toggleReview();
