@@ -18,7 +18,7 @@ function setImageToCanvas(canvas: HTMLCanvasElement, image: HTMLImageElement, wa
     ctx.fillText(watermark, canvas.width - 90, 30);
 }
 
-class ImagesForSlider {
+class ImageForSlider {
     src: string;
     text: string;
 
@@ -240,11 +240,11 @@ class Slider {
     }
 }
 
-let images: ImagesForSlider[] = [
-    new ImagesForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImagesForSlider('./images/products/2.png', 'Some text 2'),
-    new ImagesForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImagesForSlider('./images/products/4.png', 'Some text 4'),
+let images: ImageForSlider[] = [
+    new ImageForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
+    new ImageForSlider('./images/products/2.png', 'Some text 2'),
+    new ImageForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
+    new ImageForSlider('./images/products/4.png', 'Some text 4'),
 ];
 
 new Slider(images);

@@ -10,14 +10,14 @@ function setImageToCanvas(canvas, image, watermark) {
     ctx.font = "15px PT Sans";
     ctx.fillText(watermark, canvas.width - 90, 30);
 }
-var ImagesForSlider = (function () {
-    function ImagesForSlider(src, text) {
+var ImageForSlider = /** @class */ (function () {
+    function ImageForSlider(src, text) {
         this.src = src;
         this.text = text;
     }
-    return ImagesForSlider;
+    return ImageForSlider;
 }());
-var Zoomer = (function () {
+var Zoomer = /** @class */ (function () {
     function Zoomer(canvas, zoomCanvas, defaultImage) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
@@ -86,7 +86,7 @@ var Zoomer = (function () {
     };
     return Zoomer;
 }());
-var Slider = (function () {
+var Slider = /** @class */ (function () {
     function Slider(images) {
         this.images = images;
         this.indexSelectedImage = 0;
@@ -168,14 +168,14 @@ var Slider = (function () {
     return Slider;
 }());
 var images = [
-    new ImagesForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImagesForSlider('./images/products/2.png', 'Some text 2'),
-    new ImagesForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImagesForSlider('./images/products/4.png', 'Some text 4'),
+    new ImageForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
+    new ImageForSlider('./images/products/2.png', 'Some text 2'),
+    new ImageForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
+    new ImageForSlider('./images/products/4.png', 'Some text 4'),
 ];
 new Slider(images);
 // Review
-var Variable = (function () {
+var Variable = /** @class */ (function () {
     function Variable(name, defaultValue) {
         if (defaultValue === void 0) { defaultValue = null; }
         this.name = name;
