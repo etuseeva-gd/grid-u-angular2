@@ -314,20 +314,12 @@ document.querySelector('#addBtn').addEventListener('click', function () {
     alert('Your review has been added!');
 });
 //------------------------
-var isReviewShow = true;
-// let isReviewShow = false;
+var review1 = document.getElementById('reviewContainer'), reviewInfo1 = document.getElementById('reviewInfo');
+review1.classList.add('no-display');
+reviewInfo1.classList.add('no-display');
 function toggleReview() {
     var review = document.getElementById('reviewContainer'), inviteToReview = document.getElementById('inviteToReview'), reviewInfo = document.getElementById('reviewInfo');
-    if (isReviewShow) {
-        review.style.display = 'none';
-        inviteToReview.style.display = 'block';
-        reviewInfo.style.display = 'none';
-    }
-    else {
-        review.style.display = 'block';
-        inviteToReview.style.display = 'none';
-        reviewInfo.style.display = 'block';
-    }
-    isReviewShow = !isReviewShow;
+    review.classList.toggle('no-display');
+    inviteToReview.classList.toggle('no-display');
+    reviewInfo.classList.toggle('no-display');
 }
-toggleReview();
