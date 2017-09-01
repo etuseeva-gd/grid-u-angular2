@@ -41,8 +41,8 @@ var Zoomer = /** @class */ (function () {
         this.ctx.lineWidth = 2;
         var widthScale = this.canvas.width / e.target.clientWidth;
         var heightScale = this.canvas.height / e.target.clientHeight;
-        this.leftPos = this.getSidePosition(e.layerX * widthScale - (ZOOM_RECT_WIDTH / 2), this.canvas.width, ZOOM_RECT_WIDTH);
-        this.topPos = this.getSidePosition(e.layerY * heightScale - (ZOOM_RECT_HEIGHT / 2), this.canvas.height, ZOOM_RECT_HEIGHT);
+        this.leftPos = Zoomer.getSidePosition(e.layerX * widthScale - (ZOOM_RECT_WIDTH / 2), this.canvas.width, ZOOM_RECT_WIDTH);
+        this.topPos = Zoomer.getSidePosition(e.layerY * heightScale - (ZOOM_RECT_HEIGHT / 2), this.canvas.height, ZOOM_RECT_HEIGHT);
         var tempCanvas = document.createElement('canvas');
         var ctxTempCanvas = tempCanvas.getContext('2d');
         tempCanvas.width = this.defaultImage.width;
@@ -61,7 +61,7 @@ var Zoomer = /** @class */ (function () {
         this.drawZoomRect(e);
         this.showZoomData(e);
     };
-    Zoomer.prototype.getSidePosition = function (pos, canvasSizeSide, zoomRectSideSize) {
+    Zoomer.getSidePosition = function (pos, canvasSizeSide, zoomRectSideSize) {
         pos = pos < 0 ? 0 : pos;
         return pos > canvasSizeSide - zoomRectSideSize ? canvasSizeSide - zoomRectSideSize : pos;
     };

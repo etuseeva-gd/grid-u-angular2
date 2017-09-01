@@ -73,8 +73,8 @@ class Zoomer {
         const widthScale = this.canvas.width / e.target.clientWidth;
         const heightScale = this.canvas.height / e.target.clientHeight;
 
-        this.leftPos = this.getSidePosition(e.layerX * widthScale - (ZOOM_RECT_WIDTH / 2), this.canvas.width, ZOOM_RECT_WIDTH);
-        this.topPos = this.getSidePosition(e.layerY * heightScale - (ZOOM_RECT_HEIGHT / 2), this.canvas.height, ZOOM_RECT_HEIGHT);
+        this.leftPos = Zoomer.getSidePosition(e.layerX * widthScale - (ZOOM_RECT_WIDTH / 2), this.canvas.width, ZOOM_RECT_WIDTH);
+        this.topPos = Zoomer.getSidePosition(e.layerY * heightScale - (ZOOM_RECT_HEIGHT / 2), this.canvas.height, ZOOM_RECT_HEIGHT);
 
         let tempCanvas: HTMLCanvasElement = document.createElement('canvas');
         let ctxTempCanvas: CanvasRenderingContext2D = tempCanvas.getContext('2d');
@@ -99,7 +99,7 @@ class Zoomer {
         this.showZoomData(e);
     }
 
-    getSidePosition(pos: number, canvasSizeSide: number, zoomRectSideSize: number): number {
+    static getSidePosition(pos: number, canvasSizeSide: number, zoomRectSideSize: number): number {
         pos = pos < 0 ? 0 : pos;
         return pos > canvasSizeSide - zoomRectSideSize ? canvasSizeSide - zoomRectSideSize : pos;
     }
