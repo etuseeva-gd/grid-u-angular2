@@ -18,16 +18,6 @@ function setImageToCanvas(canvas: HTMLCanvasElement, image: HTMLImageElement, wa
     ctx.fillText(watermark, canvas.width - 90, 30);
 }
 
-class ImageForSlider {
-    src: string;
-    text: string;
-
-    constructor(src, text) {
-        this.src = src;
-        this.text = text;
-    }
-}
-
 class Zoomer {
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
@@ -148,7 +138,7 @@ class Slider {
         this.images = images;
 
         this.indexSelectedImage = 0;
-        this.selectedImage = <HTMLImageElement>document.getElementById('imageForSlider');
+        this.selectedImage = <HTMLImageElement>this.images[0];
         this.descSelectedImage = <HTMLElement>document.getElementById('imageDescription');
 
         this.canvas = <HTMLCanvasElement>document.getElementById("canvasSlider");
@@ -158,7 +148,7 @@ class Slider {
 
     initSlider() {
         this.selectedImage.src = this.images[this.indexSelectedImage].src;
-        this.descSelectedImage.innerText = this.images[this.indexSelectedImage].text;
+        this.descSelectedImage.innerText = this.images[this.indexSelectedImage].alt;
 
         document.getElementById('setPreviousImage').addEventListener(
             'click', this.setPreviousImage.bind(this));
@@ -194,7 +184,7 @@ class Slider {
         setTimeout(() => {
             this.selectedImage.src = this.images[this.indexSelectedImage].src;
 
-            this.descSelectedImage.innerText = this.images[this.indexSelectedImage].text;
+            this.descSelectedImage.innerText = this.images[this.indexSelectedImage].alt;
             this.descSelectedImage.style.left = 'auto';
             this.descSelectedImage.style.right = 'auto';
 
@@ -240,12 +230,7 @@ class Slider {
     }
 }
 
-let images: ImageForSlider[] = [
-    new ImageForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImageForSlider('./images/products/2.png', 'Some text 2'),
-    new ImageForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImageForSlider('./images/products/4.png', 'Some text 4'),
-];
+let images: any = Array.prototype.slice.call(document.querySelectorAll('#canvasSlider img'));
 
 new Slider(images);
 

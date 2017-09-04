@@ -10,13 +10,6 @@ function setImageToCanvas(canvas, image, watermark) {
     ctx.font = "15px PT Sans";
     ctx.fillText(watermark, canvas.width - 90, 30);
 }
-var ImageForSlider = /** @class */ (function () {
-    function ImageForSlider(src, text) {
-        this.src = src;
-        this.text = text;
-    }
-    return ImageForSlider;
-}());
 var Zoomer = /** @class */ (function () {
     function Zoomer(canvas, zoomCanvas, defaultImage) {
         this.canvas = canvas;
@@ -90,7 +83,7 @@ var Slider = /** @class */ (function () {
     function Slider(images) {
         this.images = images;
         this.indexSelectedImage = 0;
-        this.selectedImage = document.getElementById('imageForSlider');
+        this.selectedImage = this.images[0];
         this.descSelectedImage = document.getElementById('imageDescription');
         this.canvas = document.getElementById("canvasSlider");
         this.initSlider();
@@ -98,7 +91,7 @@ var Slider = /** @class */ (function () {
     Slider.prototype.initSlider = function () {
         var _this = this;
         this.selectedImage.src = this.images[this.indexSelectedImage].src;
-        this.descSelectedImage.innerText = this.images[this.indexSelectedImage].text;
+        this.descSelectedImage.innerText = this.images[this.indexSelectedImage].alt;
         document.getElementById('setPreviousImage').addEventListener('click', this.setPreviousImage.bind(this));
         document.getElementById('setNextImage').addEventListener('click', this.setNextImage.bind(this));
         if (this.selectedImage.complete) {
@@ -126,7 +119,7 @@ var Slider = /** @class */ (function () {
         }, 50);
         setTimeout(function () {
             _this.selectedImage.src = _this.images[_this.indexSelectedImage].src;
-            _this.descSelectedImage.innerText = _this.images[_this.indexSelectedImage].text;
+            _this.descSelectedImage.innerText = _this.images[_this.indexSelectedImage].alt;
             _this.descSelectedImage.style.left = 'auto';
             _this.descSelectedImage.style.right = 'auto';
             if (_this.selectedImage.complete) {
@@ -167,12 +160,7 @@ var Slider = /** @class */ (function () {
     };
     return Slider;
 }());
-var images = [
-    new ImageForSlider('./images/products/1.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImageForSlider('./images/products/2.png', 'Some text 2'),
-    new ImageForSlider('./images/products/3.png', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero'),
-    new ImageForSlider('./images/products/4.png', 'Some text 4'),
-];
+var images = Array.prototype.slice.call(document.querySelectorAll('#canvasSlider img'));
 new Slider(images);
 // Review
 var Variable = /** @class */ (function () {
