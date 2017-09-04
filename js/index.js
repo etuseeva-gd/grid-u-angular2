@@ -301,7 +301,7 @@ document.querySelector('#cancelBtn').addEventListener('click', toggleReview);
 document.querySelector('#addBtn').addEventListener('click', function () {
     alert('Your review has been added!');
 });
-//------------------------
+//Todo: refactor
 var review1 = document.getElementById('reviewContainer'), reviewInfo1 = document.getElementById('reviewInfo');
 review1.classList.add('no-display');
 reviewInfo1.classList.add('no-display');
@@ -311,3 +311,5 @@ function toggleReview() {
     inviteToReview.classList.toggle('no-display');
     reviewInfo.classList.toggle('no-display');
 }
+//Delete this
+toggleReview();

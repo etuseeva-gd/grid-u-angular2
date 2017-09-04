@@ -404,7 +404,7 @@ document.querySelector('#addBtn').addEventListener('click', () => {
     alert('Your review has been added!')
 });
 
-//------------------------
+//Todo: refactor
 let review1 = document.getElementById('reviewContainer'),
     reviewInfo1 = document.getElementById('reviewInfo');
 
@@ -420,3 +420,6 @@ function toggleReview() {
     inviteToReview.classList.toggle('no-display');
     reviewInfo.classList.toggle('no-display');
 }
+
+//Delete this
+toggleReview();
