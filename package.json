@@ -8,7 +8,8 @@
     "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-ts": "tsc --out js/index.js ts/index.ts",
-    "watch-ts": "tsc -w --out js/index.js ts/index.ts"
+    "watch-review-ts": "tsc -w --out js/add-review/add-review.js ts/add-review.ts",
+    "watch-slider-ts": "tsc -w --out js/image-slider/image-slider.js ts/image-slider.ts"
   },
   "author": "",
   "license": "ISC",

@@ -99,7 +99,7 @@
             <div class="row review-container">
                 <div class="col s12 align-center no-padding">
                     <div>There is no user reviews for now.</div>
-                    <div id="inviteToReview">Would you like to <span class="review-link" onclick="toggleReview()">share your thoughts with other customers?</span>
+                    <div id="inviteToReview">Would you like to <span class="review-link toggle-review-link"">share your thoughts with other customers?</span>
                     </div>
                     <div id="reviewInfo">Share your thoughts with other customers:</div>
                 </div>
@@ -272,7 +272,14 @@
 <script type="text/javascript" src="./js/script.js"></script>
 
 <!--Scripts for js task-->
-<script type="text/javascript" src="./js/index.js"></script>
+
+<script type="text/javascript" src="./js/add-review/add-review.js"></script>
+<script type="text/javascript" src="./js/image-slider/image-slider.js"></script>
+
+<script>
+    ImageSlider.init('.image-slider');
+    Review.init();
+</script>
 
 </body>
 </html>
