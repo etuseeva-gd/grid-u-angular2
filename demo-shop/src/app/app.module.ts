@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ErrorPagesComponent } from './error-pages/error-pages.component';
-import { ProductsDetailsPageComponent } from './products-details-page/products-details-page.component';
-import { ProductsListPageComponent } from './products-list-page/products-list-page.component';
+import { ProductsDetailsPageComponent } from './main/products-details-page/products-details-page.component';
+import { ProductsListPageComponent } from './main/products-list-page/products-list-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import {routing} from "./app.routing";
 import {FormsModule} from "@angular/forms";
+import {ErrorHandlerService} from "./services/error-handler.service";
+import { MainComponent } from './main/main.component';
+import { ProductCardComponent } from './main/product-card/product-card.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +19,19 @@ import {FormsModule} from "@angular/forms";
     ErrorPagesComponent,
     ProductsDetailsPageComponent,
     ProductsListPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    MainComponent,
+    ProductCardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     routing
   ],
-  providers: [],
+  providers: [
+    ErrorHandlerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

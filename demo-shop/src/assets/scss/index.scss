@@ -1,0 +1,433 @@
+@import "./_buttons.scss";
+@import "./_form.scss";
+@import "./_modal.scss";
+@import "./_grid.scss";
+@import "login.scss";
+@import "main.scss";
+@import "product.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+}
+
+body {
+}
+
+html, body {
+  height: 100%;
+}
+
+p {
+  margin: 10px 0;
+}
+
+img {
+  width: 100%;
+}
+
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+  //min-height: 100%;
+  position: relative;
+
+  background: #cecece url('../images/bg.png');
+}
+
+header {
+  display: table-row;
+
+  width: 100%;
+  height: 50px;
+
+  background: #449587; /* Old browsers */
+  background: -moz-linear-gradient(top, #449587 0%, #2a8676 91%, #6b647f 93%, #5cba96 95%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #449587 0%, #2a8676 91%, #6b647f 93%, #5cba96 95%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #449587 0%, #2a8676 91%, #6b647f 93%, #5cba96 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+  .logo {
+    position: relative;
+    width: 30px;
+    top: calc(50% - 15px);
+  }
+
+  .user-info {
+    position: relative;
+    top: calc(50% - 12px);
+
+    .user-name {
+      font-size: 15px;
+
+      span {
+        font-style: italic;
+      }
+    }
+  }
+
+  .container {
+    //padding-top: 13px;
+    height: 50px;
+
+    i {
+      color: #fff;
+    }
+
+    li {
+      & > span {
+        display: inline-block;
+        margin-top: -7px;
+        vertical-align: top;
+      }
+
+      color: #fff;
+      display: inline-block;
+      list-style-type: none;
+      margin-left: 10px;
+    }
+  }
+}
+
+main {
+  display: table-row;
+  height: 100%;
+
+  .container {
+    height: calc(100% - 50px);
+    padding: 0 20px;
+    margin-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0.35);
+  }
+}
+
+footer {
+  display: table-row;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+
+  //background: linear-gradient(#fff, $primary-darken);
+  color: #fff;
+  background-color: $primary-darken;
+
+  text-align: center;
+
+  span {
+    display: inline-block;
+    margin-top: 8px;
+
+    & > span {
+      text-decoration: underline;
+    }
+  }
+}
+
+nav {
+  color: #fff;
+
+  a {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.blur {
+  filter: blur(1px);
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-border {
+  border: none !important;
+}
+
+//Texts
+.bold-text {
+  font-weight: bold;
+}
+
+.large-text {
+  font-size: $large-size;
+  font-weight: bold;
+}
+
+.medium-text {
+  font-size: $medium-size;
+}
+
+.small-text {
+  font-size: $small-size;
+}
+
+//For js task (maybe move to another scss file)
+.image-slider-content {
+  .image-slider {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #canvasSlider {
+    width: 100%;
+  }
+
+  .slider-arrow {
+    position: absolute;
+    top: calc(50% - 20px);
+
+    width: 40px;
+    height: 40px;
+
+    z-index: 10;
+
+    cursor: pointer;
+
+    background: url("../images/arrow.svg") no-repeat;
+
+    &#setNextImage {
+      right: 0;
+      transform: rotate(180deg);
+    }
+  }
+
+  #imageDescription {
+    width: 100%;
+
+    position: absolute;
+    bottom: 45px;
+    text-align: center;
+    color: #fff;
+
+    font-size: 14px;
+    font-style: italic;
+    line-height: 19px;
+
+    z-index: 100;
+  }
+
+  #canvasZoomSlider {
+    position: absolute;
+    border: 2px solid #FFCC00;
+
+    top: 0;
+    right: -210px;
+
+    z-index: 100;
+
+    display: none;
+  }
+}
+
+.review-container {
+  color: #fff;
+
+  span.review-link {
+    color: $yellow;
+    text-decoration: underline;
+
+    cursor: pointer;
+  }
+
+  .review {
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 0;
+    padding: 15px;
+
+    position: relative;
+
+    .author {
+      float: left;
+      width: calc(100% - 100px);
+
+      #authorName {
+        color: $yellow;
+        font-style: italic;
+      }
+    }
+
+    .rating {
+      float: right;
+      width: 100px;
+    }
+
+    .avatar {
+      float: left;
+      width: 115px;
+      margin-top: 15px;
+
+      img {
+        width: 100px;
+        height: 100px;
+
+        border: 2px solid $yellow;
+      }
+    }
+
+    .review-text {
+      white-space: pre;
+      float: right;
+      width: calc(100% - 115px);
+
+      margin-top: 15px;
+
+      &:after {
+        clear: both;
+      }
+
+      b, i {
+        color: $yellow;
+      }
+
+      q {
+        display: block;
+        font-size: 24px;
+        quotes: "\201C" "\201e";
+
+        &:before, &:after {
+          font-weight: bold;
+          color: $yellow;
+          font-size: 45px;
+        }
+
+        &:before {
+          content: open-quote;
+          vertical-align: middle;
+        }
+
+        &:after {
+          content: close-quote;
+        }
+      }
+    }
+
+    .edit-review-title {
+      position: absolute;
+      bottom: -20px;
+      left: calc(50% - 90px);
+
+      width: 180px;
+      height: 40px;
+      color: #000;
+      text-align: center;
+      background-color: #fff;
+      border: 3px solid #3FC5CB;
+      border-radius: 15px;
+      padding-top: 7px;
+
+      text-transform: uppercase;
+    }
+  }
+
+  .review-form {
+    padding: 20px;
+    background: #eee url("../images/bg-2.png") repeat;
+    border: 3px solid #3FC5CB;
+    color: #000;
+
+    p {
+      margin: 5px 0;
+    }
+
+    textarea {
+      max-width: 100%;
+    }
+
+    //input, textarea {
+    //  box-shadow: 0 0 0 3px $secondary;
+    //}
+  }
+}
+
+//Replace to form components ???
+.input-container.input-container-image {
+  width: 100%;
+  height: 135px;
+
+  border-radius: 25px;
+
+  background: #fff url(../images/upload-image.PNG) no-repeat 85% 50%;
+  background-size: 100px 100px;
+
+  span {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px;
+    font-style: italic;
+    line-height: 19px;
+
+    position: absolute;
+    top: calc(50% - 14px);
+    margin-left: 30px;
+  }
+
+  input {
+    width: 100%;
+    height: 135px;
+
+    margin: 0;
+    padding: 0;
+
+    opacity: 0;
+    cursor: pointer;
+    border: none;
+  }
+}
+
+// Change on this all stars
+.stars {
+  display: inline-block;
+
+  .star {
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+
+    vertical-align: middle;
+    margin-top: -5px;
+
+    cursor: pointer;
+
+    background: url("../images/stars/star-inactive.svg");
+    background-size: 17px 17px;
+  }
+
+  .grey-star {
+    background-image: url("../images/stars/star-inactive-grey.svg");
+  }
+
+  .active-star {
+    background-image: url("../images/stars/star-active.svg");
+  }
+}
+
+.no-display {
+  display: none;
+}

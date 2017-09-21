@@ -1,0 +1,54 @@
+@import "variables";
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 30px;
+}
+
+.row {
+  margin-bottom: 20px;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .col {
+    float: left;
+    padding: 10px;
+
+    $i: 1;
+    @while $i <= $num-columns {
+      $perc: unquote((100 / ($num-columns / $i)) + "%");
+      &.s#{$i} {
+        width: $perc;
+      }
+      $i: $i + 1;
+    }
+
+    @media #{$large-and-up} {
+      $i: 1;
+      @while $i <= $num-columns {
+        $perc: unquote((100 / ($num-columns / $i)) + "%");
+        &.m#{$i} {
+          width: $perc;
+        }
+        $i: $i + 1
+      }
+    }
+
+    @media #{$x-large-and-up} {
+      $i: 1;
+      @while $i <= $num-columns {
+        $perc: unquote((100 / ($num-columns / $i)) + "%");
+        &.l#{$i} {
+          width: $perc;
+        }
+        $i: $i + 1;
+      }
+    }
+  }
+}

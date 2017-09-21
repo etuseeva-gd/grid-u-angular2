@@ -1,9 +1,10 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {ProductsDetailsPageComponent} from "./products-details-page/products-details-page.component";
+import {ProductsDetailsPageComponent} from "./main/products-details-page/products-details-page.component";
 import {LoginPageComponent} from "./login-page/login-page.component";
-import {ProductsListPageComponent} from "./products-list-page/products-list-page.component";
+import {ProductsListPageComponent} from "./main/products-list-page/products-list-page.component";
 import {ErrorPagesComponent} from "./error-pages/error-pages.component";
+import {MainComponent} from "./main/main.component";
 
 const appRoutes: Routes = [
   {
@@ -13,15 +14,25 @@ const appRoutes: Routes = [
   },
   {
     path: 'main',
-    pathMatch: 'prefix',
-    component: ProductsDetailsPageComponent,
+    component: MainComponent,
     // canActivate: [AuthGuardService],
-  },
-  {
-    path: 'products',
-    component: ProductsListPageComponent,
-    pathMatch: 'full',
-    // canActivate: [AuthGuardService],
+    children: [
+      {
+        redirectTo: 'products-list',
+        path: '',
+        pathMatch: 'full'
+      },
+      {
+        path: 'products-list',
+        component: ProductsListPageComponent,
+        pathMatch: 'prefix'
+      },
+      {
+        path: 'products',
+        component: ProductsDetailsPageComponent,
+        pathMatch: 'prefix'
+      },
+    ]
   },
   {
     path: '404',
