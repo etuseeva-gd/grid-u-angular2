@@ -1,3 +1,67 @@
-<p>
-  products-list-page works!
-</p>
+<div class="row no-margin">
+  <div class="col l4"></div>
+  <div class="col s12 m12 l8 filter-container">
+    <div class="right">
+      <div class="input-container">
+        <input class="input-filter" type="text" placeholder="Filter by text...">
+      </div>
+    </div>
+    <div class="btn-container">
+      <button id="filterBtn" onclick="openFilter()" class="btn primary regular">
+        Filter options
+      </button>
+    </div>
+    <div id="filter" class="filter">
+      <div class="row">
+        <div class="col s12 m3">
+          <label>Available:</label>
+          <p>
+            <input id="r_uncheck" type="checkbox">
+            <label for="r_uncheck">Available only</label>
+          </p>
+        </div>
+        <div class="col s12 m5">
+          <label>Gender:</label>
+          <p>
+            <input id="radioMen" type="radio" name="selector" checked>
+            <label for="radioMen">Men</label>
+            <input id="radioWoman" type="radio" name="selector">
+            <label for="radioWoman">Woman</label>
+            <input id="radioUnisex" type="radio" name="selector">
+            <label for="radioUnisex">Unisex</label>
+          </p>
+        </div>
+        <div class="col s12 m4">
+          <label>Category:</label>
+          <div class="input-container">
+            <select class="green">
+              <option value="1">text1</option>
+              <option value="2">text2</option>
+              <option value="3">text3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m4 slider-container">
+          <label>Rating:</label>
+          <div id="sliderOne" class="slider">
+          </div>
+        </div>
+        <div class="col s12 m8 slider-container no-border">
+          <label>Price:</label>
+          <div id="sliderTwo" class="slider">
+          </div>
+        </div>
+      </div>
+      <div class="angle">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-container row flex-row">
+  <div *ngFor="let i of [0, 1, 2]" class="col s12 m6 l4">
+    <app-product-list-card></app-product-list-card>
+  </div>
+</div>

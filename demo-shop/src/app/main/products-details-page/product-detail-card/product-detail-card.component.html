@@ -1,0 +1,56 @@
+<div class="card product-card">
+  <div class="row flex-row">
+    <div class="col s12 m6">
+      <div class="card-header image-slider-content">
+        <div class="image-slider">
+          <canvas id="canvasSlider">
+            <img src="./images/products/1.png" alt="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam, libero">
+            <img src="./images/products/2.png" alt="Some text 1">
+            <img src="./images/products/3.png" alt="Lorem ipsum dolor sit amet">
+            <img src="./images/products/4.png" alt="Some test 2">
+          </canvas>
+          <span id="imageDescription">Default slider description</span>
+
+          <div class="slider-arrow" id="setPreviousImage"></div>
+          <div class="slider-arrow" id="setNextImage"></div>
+        </div>
+        <canvas id="canvasZoomSlider">
+        </canvas>
+
+        <div class="stars-legend">
+          <img class="star" src="./images/stars/full-star.png">
+          <img class="star" src="./images/stars/full-star.png">
+          <img class="star" src="./images/stars/full-star.png">
+          <img class="star" src="./images/stars/full-star.png">
+          <img class="star" src="./images/stars/star.png">
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6 product-content">
+      <div class="card-content">
+        <div class="large-text">Active Coat Lorem 2 Active Coat Lorem 2 Active Coat Lorem
+          2
+        </div>
+        <div class="line"></div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam,
+          libero
+          aliquid architecto ad quis maiores sit nulla officiis ex velit sapiente autem
+          fugit
+          quam, qui reprehenderit veniam fugiat nemo exercitationem cum minus ipsa
+          consequuntur. Pariatur totam suscipit, voluptatibus laudantium.
+        </p>
+        <p>
+          You can <span>add 5 more</span>.
+          You can also <span onclick="openModal('adminPopup')">edit</span> details or
+          <span onclick="openModal('deletePopup')">delete</span> them.
+        </p>
+      </div>
+      <div class="card-footer">
+        <span class="price large-text">$7800.00</span>
+        <span class="count-product medium-text">&nbsp;(9 items left)</span>
+        <button class="btn regular primary" onclick="openModal('successPopup')">Buy</button>
+      </div>
+    </div>
+  </div>
+</div>
