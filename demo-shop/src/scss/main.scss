@@ -9,13 +9,13 @@
       font-style: italic;
 
       &.input-filter {
-        background: #fff url(../images/icons/search.svg) no-repeat calc(100% - 5px);
+        background: #fff url(../assets/images/icons/search.svg) no-repeat calc(100% - 5px);
         background-size: 25px;
 
         padding-right: 35px;
 
         &:focus {
-          background: #fff url(../images/icons/search-active.svg) no-repeat calc(100% - 5px);
+          background: #fff url(../assets/images/icons/search-active.svg) no-repeat calc(100% - 5px);
           background-size: 25px;
         }
       }
@@ -151,7 +151,7 @@
   width: 100%;
   height: 100%;
 
-  background: #fff url("../images/bg-1.png") repeat;
+  background: #fff url("../assets/images/bg-1.png") repeat;
 
   .card-header {
     position: relative;

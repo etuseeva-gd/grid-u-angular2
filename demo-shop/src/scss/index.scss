@@ -1,10 +1,11 @@
-@import "./_buttons.scss";
-@import "./_form.scss";
-@import "./_modal.scss";
-@import "./_grid.scss";
-@import "login.scss";
-@import "main.scss";
-@import "product.scss";
+@import "/demo-shop/src/scss/_buttons.scss";
+@import "/demo-shop/src/scss/_form.scss";
+@import "/demo-shop/src/scss/_modal.scss";
+@import "/demo-shop/src/scss/_grid.scss";
+@import "/demo-shop/src/scss/_variables.scss";
+@import "/demo-shop/src/scss/login.scss";
+@import "/demo-shop/src/scss/main.scss";
+@import "/demo-shop/src/scss/product.scss";
 
 * {
   box-sizing: border-box;
@@ -35,7 +36,7 @@ img {
   //min-height: 100%;
   position: relative;
 
-  background: #cecece url('../images/bg.png');
+  background: #cecece url('../assets/images/bg.png');
 }
 
 header {
@@ -211,7 +212,7 @@ nav {
 
     cursor: pointer;
 
-    background: url("../images/arrow.svg") no-repeat;
+    background: url("../assets/images/arrow.svg") no-repeat;
 
     &#setNextImage {
       right: 0;
@@ -349,7 +350,7 @@ nav {
 
   .review-form {
     padding: 20px;
-    background: #eee url("../images/bg-2.png") repeat;
+    background: #eee url("../assets/images/bg-2.png") repeat;
     border: 3px solid #3FC5CB;
     color: #000;
 
@@ -374,7 +375,7 @@ nav {
 
   border-radius: 25px;
 
-  background: #fff url(../images/upload-image.PNG) no-repeat 85% 50%;
+  background: #fff url(../assets/images/upload-image.PNG) no-repeat 85% 50%;
   background-size: 100px 100px;
 
   span {
@@ -415,16 +416,16 @@ nav {
 
     cursor: pointer;
 
-    background: url("../images/stars/star-inactive.svg");
+    background: url("../assets/images/stars/star-inactive.svg");
     background-size: 17px 17px;
   }
 
   .grey-star {
-    background-image: url("../images/stars/star-inactive-grey.svg");
+    background-image: url("../assets/images/stars/star-inactive-grey.svg");
   }
 
   .active-star {
-    background-image: url("../images/stars/star-active.svg");
+    background-image: url("../assets/images/stars/star-active.svg");
   }
 }
 

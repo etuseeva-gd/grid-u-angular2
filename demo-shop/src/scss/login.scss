@@ -25,28 +25,28 @@
         padding-right: 55px;
 
         &.input-login {
-          background: #fff url(../images/icons/login-inactive.svg) no-repeat calc(100% - 17px);
+          background: #fff url(../assets/images/icons/login-inactive.svg) no-repeat calc(100% - 17px);
           background-size: 45px;
 
           &:focus {
-            background-image: url(../images/icons/login-active.svg);
+            background-image: url(../assets/images/icons/login-active.svg);
           }
 
           &:invalid {
-            background-image: url(../images/icons/login-invalid.svg);
+            background-image: url(../assets/images/icons/login-invalid.svg);
           }
         }
 
         &.input-password {
-          background: #fff url(../images/icons/password-inactive.svg) no-repeat calc(100% - 20px);
+          background: #fff url(../assets/images/icons/password-inactive.svg) no-repeat calc(100% - 20px);
           background-size: 40px;
 
           &:focus {
-            background-image: url(../images/icons/password-active.svg);
+            background-image: url(../assets/images/icons/password-active.svg);
           }
 
           &:invalid {
-            background-image: url(../images/icons/pass-invalid.svg);
+            background-image: url(../assets/images/icons/pass-invalid.svg);
           }
         }
       }
