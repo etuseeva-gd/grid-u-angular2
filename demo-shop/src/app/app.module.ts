@@ -14,6 +14,8 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {ProductDetailCardComponent} from './main/products-details-page/product-detail-card/product-detail-card.component';
 import {ProductListCardComponent} from "./main/products-list-page/product-list-card/product-list-card.component";
+import {ProductService} from "./services/product.service";
+import {HttpModule, JsonpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -31,10 +33,13 @@ import {ProductListCardComponent} from "./main/products-list-page/product-list-c
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
+    JsonpModule,
     routing
   ],
   providers: [
-    ErrorHandlerService
+    ErrorHandlerService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
