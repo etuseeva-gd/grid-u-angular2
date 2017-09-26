@@ -28,11 +28,17 @@ const appRoutes: Routes = [
         pathMatch: 'prefix'
       },
       {
-        path: 'products',
+        path: 'product/:productId',
         component: ProductsDetailsPageComponent,
         pathMatch: 'prefix'
       },
     ]
+  },
+  {
+    path: 'login',
+    component: LoginPageComponent,
+    pathMatch: 'full',
+    // canActivate: [LoginGuardService],
   },
   {
     path: '404',
@@ -40,11 +46,5 @@ const appRoutes: Routes = [
     pathMatch: 'full',
     // canActivate: [AuthGuardService],
   },
-  {
-    path: 'login',
-    component: LoginPageComponent,
-    pathMatch: 'full',
-    // canActivate: [LoginGuardService],
-  }
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
