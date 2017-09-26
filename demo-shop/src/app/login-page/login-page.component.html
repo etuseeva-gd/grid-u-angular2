@@ -7,15 +7,15 @@
     <div class="modal-body">
       <label for="login" >Your Login:</label>
       <div class="input-container">
-        <input id="login" class="big input-login" type="text">
+        <input id="login" class="big input-login" [(ngModel)]="login" name="login" type="text">
       </div>
       <label for="pass">Your Password:</label>
       <div class="input-container">
-        <input id="pass" class="big input-password" type="password">
+        <input id="pass" class="big input-password" [(ngModel)]="password" name="password" type="password">
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn big primary">Submit</button>
+      <button class="btn big primary" (click)="signIn()">Submit</button>
     </div>
   </div>
 </div>

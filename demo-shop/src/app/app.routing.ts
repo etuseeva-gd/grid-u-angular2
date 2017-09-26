@@ -5,6 +5,7 @@ import {LoginPageComponent} from "./login-page/login-page.component";
 import {ProductsListPageComponent} from "./main/products-list-page/products-list-page.component";
 import {ErrorPagesComponent} from "./error-pages/error-pages.component";
 import {MainComponent} from "./main/main.component";
+import {AuthGuardService} from "./services/auth-guard.service";
 
 const appRoutes: Routes = [
   {
@@ -15,7 +16,7 @@ const appRoutes: Routes = [
   {
     path: 'main',
     component: MainComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     children: [
       {
         redirectTo: 'products-list',
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     path: '404',
     component: ErrorPagesComponent,
     pathMatch: 'full',
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
   },
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

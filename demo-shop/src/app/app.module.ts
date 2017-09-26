@@ -16,6 +16,9 @@ import {ProductDetailCardComponent} from './main/products-details-page/product-d
 import {ProductListCardComponent} from "./main/products-list-page/product-list-card/product-list-card.component";
 import {ProductService} from "./services/product.service";
 import {HttpModule, JsonpModule} from "@angular/http";
+import {AuthService} from "./services/auth.service";
+import {AuthGuardService} from "./services/auth-guard.service";
+import {TransportService} from "./services/transport.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import {HttpModule, JsonpModule} from "@angular/http";
   ],
   providers: [
     ErrorHandlerService,
-    ProductService
+    ProductService,
+    AuthService,
+    AuthGuardService,
+    TransportService
   ],
   bootstrap: [AppComponent]
 })

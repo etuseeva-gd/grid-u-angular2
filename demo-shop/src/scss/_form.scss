@@ -192,12 +192,12 @@ select {
 
 .input-container {
   select {
-    //background: #fff url(../assets/images/icons/down2.svg) no-repeat calc(100% - 10px);
+    background: #fff url(/assets/images/icons/down2.svg) no-repeat calc(100% - 10px);
     background-size: 20px;
     cursor: pointer;
 
     &.green {
-      //background: $component-color url(../assets/images/icons/down.svg) no-repeat calc(100% - 10px);
+      background: $component-color url(/assets/images/icons/down.svg) no-repeat calc(100% - 10px);
       background-size: 20px;
 
       color: #fff;
