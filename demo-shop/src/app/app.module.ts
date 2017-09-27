@@ -10,16 +10,16 @@ import {routing} from "./app.routing";
 import {FormsModule} from "@angular/forms";
 import {ErrorHandlerService} from "./services/error-handler.service";
 import {MainComponent} from './main/main.component';
-import {HeaderComponent} from './header/header.component';
-import {FooterComponent} from './footer/footer.component';
-import {ProductDetailCardComponent} from './main/products-details-page/product-detail-card/product-detail-card.component';
-import {ProductListCardComponent} from "./main/products-list-page/product-list-card/product-list-card.component";
 import {ProductService} from "./services/product.service";
 import {HttpModule, JsonpModule} from "@angular/http";
 import {UserService} from "./services/user.service";
 import {AuthGuardService} from "./services/auth-guard.service";
 import {TransportService} from "./services/transport.service";
 import {StoreService} from "./services/store.service";
+import {HeaderComponent} from "./components/header/header.component";
+import {ProductListCardComponent} from "./components/product-list-card/product-list-card.component";
+import {ProductDetailCardComponent} from "./components/product-detail-card/product-detail-card.component";
+import {FooterComponent} from "./components/footer/footer.component";
 
 @NgModule({
   declarations: [

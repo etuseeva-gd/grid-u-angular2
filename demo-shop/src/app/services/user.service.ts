@@ -42,5 +42,3 @@ export class UserService {
     this.transportService.post('/logout', []);
   }
 }
-
-// session-token

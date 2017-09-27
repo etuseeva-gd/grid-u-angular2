@@ -41,5 +41,5 @@ export class LoginPageComponent implements OnInit {
       }, error => console.log(error));
     return false;
   }
-
+  
 }
