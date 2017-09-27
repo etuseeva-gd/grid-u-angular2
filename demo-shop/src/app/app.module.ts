@@ -19,6 +19,7 @@ import {HttpModule, JsonpModule} from "@angular/http";
 import {AuthService} from "./services/auth.service";
 import {AuthGuardService} from "./services/auth-guard.service";
 import {TransportService} from "./services/transport.service";
+import {StoreService} from "./services/store.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {TransportService} from "./services/transport.service";
     ProductService,
     AuthService,
     AuthGuardService,
-    TransportService
+    TransportService,
+    StoreService
   ],
   bootstrap: [AppComponent]
 })

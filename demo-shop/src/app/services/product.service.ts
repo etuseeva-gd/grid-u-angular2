@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {Response} from '@angular/http';
 import {IProduct} from "../interfaces";
 import "rxjs/add/operator/map";
-import {BACK_URL} from "../constants";
+import {TransportService} from "./transport.service";
 
 @Injectable()
 export class ProductService {
@@ -12,7 +12,7 @@ export class ProductService {
     products: IProduct[]
   };
 
-  constructor(private http: Http) {
+  constructor(private transportService: TransportService) {
     this._products = <BehaviorSubject<IProduct[]>>new BehaviorSubject([]);
     this.dataStore = {products: []};
   }
@@ -22,10 +22,10 @@ export class ProductService {
   }
 
   loadAll() {
-    this.http.get(`${BACK_URL}/products`)
-      .map(res => res.json())
+    this.transportService.get('/products')
+      .map((res: Response) => res.json())
       .subscribe(data => {
-        this.dataStore.products = data;
+        this.dataStore.products = <IProduct[]> data;
         this._products.next(Object.assign({}, this.dataStore).products);
       }, error => console.log(error));
   }
