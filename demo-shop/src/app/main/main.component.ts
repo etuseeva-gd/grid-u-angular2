@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from "../services/user.service";
 import {IUser} from "../interfaces";
 import {Router} from "@angular/router";
@@ -12,7 +12,8 @@ export class MainComponent implements OnInit {
   user: IUser;
 
   constructor(private userService: UserService,
-  private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.user = this.userService.getUser();

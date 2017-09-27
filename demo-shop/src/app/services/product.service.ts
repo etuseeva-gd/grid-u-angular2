@@ -30,4 +30,14 @@ export class ProductService {
       }, error => console.log(error));
   }
 
+
+
+  load(id: number | string) {
+    this.transportService.get(`/products/${id}`)
+      .map(res => res.json())
+      .subscribe(data => {
+        return 
+    }, error => console.log(error));
+  }
+
 }

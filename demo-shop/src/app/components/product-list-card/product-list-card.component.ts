@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {IProduct} from "../../interfaces";
 
 @Component({
@@ -9,10 +9,17 @@ import {IProduct} from "../../interfaces";
 export class ProductListCardComponent implements OnInit {
   @Input()
   product: IProduct;
+  
+  @Output()
+  detailsEventEmitter = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showDetails() {
+    this.detailsEventEmitter.emit(this.product.id);
   }
 
 }

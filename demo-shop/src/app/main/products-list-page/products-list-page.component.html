@@ -4,6 +4,7 @@
 </div>
 <div class="card-container row flex-row">
   <div *ngFor="let product of products | async" class="col s12 m6 l4">
-    <app-product-list-card [product]="product"></app-product-list-card>
+    <app-product-list-card [product]="product"
+                           (detailsEventEmitter)="showDetails($event)"></app-product-list-card>
   </div>
 </div>

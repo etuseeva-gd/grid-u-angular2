@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params} from "@angular/router";
+import {ProductService} from "../../services/product.service";
+import {Observable} from "rxjs/Rx";
+import {IProduct} from "../../interfaces";
 
 @Component({
   selector: 'app-products-details-page',
@@ -6,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products-details-page.component.scss']
 })
 export class ProductsDetailsPageComponent implements OnInit {
+  private productId: number;
+  private product: IProduct;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private productService: ProductService) {
+  }
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.productId = +params['productId'];
+      this.productService.load(this.productId);
+    });
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="card">
+<div *ngIf="product" class="card">
   <div class="card-header">
     <img [src]="product.image">
     <div class="stars-legend">
@@ -14,6 +14,6 @@
   </div>
   <div class="card-footer">
     <span class="price">${{product.cost}}</span>
-    <button class="btn regular primary">Show more</button>
+    <button class="btn regular primary" (click)="showDetails()">Show more</button>
   </div>
 </div>
