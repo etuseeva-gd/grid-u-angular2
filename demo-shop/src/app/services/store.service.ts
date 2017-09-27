@@ -18,4 +18,8 @@ export class StoreService {
   static has(key: string):boolean {
     return window.localStorage.hasOwnProperty(NAMESPACE + key);
   }
+  
+  static remove(key: string): void {
+    window.localStorage.removeItem(NAMESPACE + key)
+  }
 }

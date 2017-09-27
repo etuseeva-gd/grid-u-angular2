@@ -6,6 +6,7 @@ import {ProductsListPageComponent} from "./main/products-list-page/products-list
 import {ErrorPagesComponent} from "./error-pages/error-pages.component";
 import {MainComponent} from "./main/main.component";
 import {AuthGuardService} from "./services/auth-guard.service";
+import {LoginGuardService} from "./services/login-guard.service";
 
 const appRoutes: Routes = [
   {
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     path: 'login',
     component: LoginPageComponent,
     pathMatch: 'full',
-    // canActivate: [LoginGuardService],
+    canActivate: [LoginGuardService],
   },
   {
     path: '404',

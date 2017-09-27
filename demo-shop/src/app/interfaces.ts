@@ -13,7 +13,7 @@ export interface IProduct {
 
 export interface IUser {
   id: number;
-  name: string;
+  login: string;
   roleId: number;
 }
 

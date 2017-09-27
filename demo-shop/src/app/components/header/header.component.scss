@@ -17,6 +17,7 @@ header {
 
   .user-info {
     position: relative;
+    min-width: 120px;
     top: calc(50% - 12px);
 
     .user-name {
@@ -25,6 +26,11 @@ header {
       span {
         font-style: italic;
       }
+    }
+
+    img {
+      cursor: pointer;
+      width: 24px;
     }
   }
 

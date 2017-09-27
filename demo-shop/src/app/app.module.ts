@@ -20,6 +20,7 @@ import {HeaderComponent} from "./components/header/header.component";
 import {ProductListCardComponent} from "./components/product-list-card/product-list-card.component";
 import {ProductDetailCardComponent} from "./components/product-detail-card/product-detail-card.component";
 import {FooterComponent} from "./components/footer/footer.component";
+import {LoginGuardService} from "./services/login-guard.service";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {FooterComponent} from "./components/footer/footer.component";
     UserService,
     AuthGuardService,
     TransportService,
-    StoreService
+    StoreService,
+    LoginGuardService
   ],
   bootstrap: [AppComponent]
 })

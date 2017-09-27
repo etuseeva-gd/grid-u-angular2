@@ -3,9 +3,9 @@
     <img class="left logo" src="./assets/images/icons/logo.svg">
     <ul class="right user-info">
       <li>
-        <span class="user-name">Hello, <span>John_Doe</span></span>
+        <span class="user-name">Hello, <span>{{user.login}}</span></span>
       </li>
-      <li>
+      <li (click)="logout()">
         <img src="./assets/images/icons/header-logout.svg">
       </li>
     </ul>

@@ -24,6 +24,11 @@ export class UserService {
     StoreService.set('User', this.user);
   }
 
+  removeUser() {
+    this.user = null;
+    StoreService.remove('User');
+  }
+
   isUserDefined(): boolean {
     return this.user ? true : false;
   }
@@ -38,7 +43,12 @@ export class UserService {
       });
   }
 
-  logout() {
-    this.transportService.post('/logout', []);
+  logout(): Observable<any> {
+    const body = JSON.stringify({login: this.user.login});
+    return this.transportService.post('/logout', body).map(res => {
+      this.removeUser();
+      this.transportService.removeToken();
+      return true;
+    });
   }
 }

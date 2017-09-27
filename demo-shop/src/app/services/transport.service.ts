@@ -6,7 +6,7 @@ import {Observable} from "rxjs/Rx";
 
 @Injectable()
 export class TransportService {
-  private token: string = '';
+  private token: string = null;
 
   constructor(private http: Http) {
     if (StoreService.has('AuthToken')) {
@@ -17,6 +17,11 @@ export class TransportService {
   setToken(token) {
     this.token = token;
     StoreService.set('AuthToken', token);
+  }
+
+  removeToken() {
+    this.token = null;
+    StoreService.remove('AuthToken');
   }
 
   createAuthHeader(headers: Headers) {
