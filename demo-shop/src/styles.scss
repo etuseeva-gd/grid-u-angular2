@@ -325,40 +325,9 @@ nav {
   }
 }
 
-// Change on this all stars
-.stars {
-  display: inline-block;
-
-  .star {
-    width: 17px;
-    height: 17px;
-    display: inline-block;
-
-    vertical-align: middle;
-    margin-top: -5px;
-
-    cursor: pointer;
-
-    background: url("/assets/images/stars/star-inactive.svg");
-    background-size: 17px 17px;
-  }
-
-  .grey-star {
-    background-image: url("/assets/images/stars/star-inactive-grey.svg");
-  }
-
-  .active-star {
-    background-image: url("/assets/images/stars/star-active.svg");
-  }
-}
-
 .no-display {
   display: none;
 }
-
-//===========
-//Manager
-
 
 ///=========
 //Main

@@ -2,11 +2,7 @@
   <div class="card-header">
     <img [src]="product.image">
     <div class="stars-legend">
-      <img class="star" src="./assets/images/stars/full-star.png">
-      <img class="star" src="./assets/images/stars/full-star.png">
-      <img class="star" src="./assets/images/stars/full-star.png">
-      <img class="star" src="./assets/images/stars/full-star.png">
-      <img class="star" src="./assets/images/stars/star.png">
+      <app-rating-stars [rating]="product.rating"></app-rating-stars>
     </div>
   </div>
   <div class="card-content">

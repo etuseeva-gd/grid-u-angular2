@@ -21,6 +21,8 @@ import {ProductListCardComponent} from "./components/product-list-card/product-l
 import {ProductDetailCardComponent} from "./components/product-detail-card/product-detail-card.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {LoginGuardService} from "./services/login-guard.service";
+import { FilterComponent } from './main/products-list-page/filter/filter.component';
+import { RatingStarsComponent } from './components/rating-stars/rating-stars.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {LoginGuardService} from "./services/login-guard.service";
     HeaderComponent,
     FooterComponent,
     ProductDetailCardComponent,
-    ProductListCardComponent
+    ProductListCardComponent,
+    FilterComponent,
+    RatingStarsComponent
   ],
   imports: [
     BrowserModule,
