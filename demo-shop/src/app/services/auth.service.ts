@@ -12,9 +12,6 @@ export class AuthService {
     const body = JSON.stringify({login, password});
     const headers = new Headers({
       'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
-      'Access-Control-Allow-Headers': 'Content-Type',
     });
     this.http.post(`${BACK_URL}/login`, body, {headers})
       .map(res => {

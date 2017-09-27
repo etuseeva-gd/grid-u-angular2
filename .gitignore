@@ -4,4 +4,4 @@
 /css
 *.iml
 *.log
-node-test-server/
+node-test-server/node_modules
