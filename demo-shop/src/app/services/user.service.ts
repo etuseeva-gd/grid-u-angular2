@@ -30,7 +30,7 @@ export class UserService {
   }
 
   isUserDefined(): boolean {
-    return this.user ? true : false;
+    return !!this.user;
   }
 
   login(login: string, password: string): Observable<any> {

@@ -4,6 +4,7 @@ import {Response} from '@angular/http';
 import {IProduct} from "../interfaces";
 import "rxjs/add/operator/map";
 import {TransportService} from "./transport.service";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class ProductService {
@@ -30,14 +31,9 @@ export class ProductService {
       }, error => console.log(error));
   }
 
-
-
-  load(id: number | string) {
-    this.transportService.get(`/products/${id}`)
+  getProductById(id: number | string): Observable<IProduct> {
+    return this.transportService.get(`/products/${id}`)
       .map(res => res.json())
-      .subscribe(data => {
-        return 
-    }, error => console.log(error));
   }
 
 }
