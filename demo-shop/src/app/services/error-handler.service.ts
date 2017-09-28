@@ -5,4 +5,5 @@ export class ErrorHandlerService {
 
   constructor() { }
 
+  //check is auth or not
 }
