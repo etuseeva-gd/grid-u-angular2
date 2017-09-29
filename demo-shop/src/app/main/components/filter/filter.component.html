@@ -1,16 +1,15 @@
-
-<div class="col s12 m12 l8 filter-container">
+<div class="filter-container">
   <div class="right">
     <div class="input-container">
       <input class="input-filter" type="text" placeholder="Filter by text...">
     </div>
   </div>
   <div class="btn-container">
-    <button id="filterBtn" onclick="openFilter()" class="btn primary regular">
+    <button (click)="toggleFilter()" class="btn primary regular">
       Filter options
     </button>
   </div>
-  <div id="filter" class="filter">
+  <div *ngIf="canSeeFilter" class="filter">
     <div class="row">
       <div class="col s12 m3">
         <label>Available:</label>
@@ -22,11 +21,11 @@
       <div class="col s12 m5">
         <label>Gender:</label>
         <p>
-          <input id="radioMen" type="radio" name="selector" checked>
+          <input id="radioMen" type="radio" name="selector">
           <label for="radioMen">Men</label>
           <input id="radioWoman" type="radio" name="selector">
           <label for="radioWoman">Woman</label>
-          <input id="radioUnisex" type="radio" name="selector">
+          <input id="radioUnisex" type="radio" name="selector" checked>
           <label for="radioUnisex">Unisex</label>
         </p>
       </div>
@@ -42,15 +41,22 @@
       </div>
     </div>
     <div class="row">
-      <div class="col s12 m4 slider-container">
+      <div class="col s12 m4">
         <label>Rating:</label>
-        <div id="sliderOne" class="slider">
+        <div class="input-container">
+          <input class="" type="number" placeholder="Rating">
         </div>
       </div>
-      <div class="col s12 m8 slider-container no-border">
+      <div class="col s12 m4 no-border">
         <label>Price:</label>
-        <div id="sliderTwo" class="slider">
+        <div class="input-container">
+          <input type="number" placeholder="From">
+          <input type="number" placeholder="To">
         </div>
+      </div>
+      <div class="col s12 m4 align-center">
+        <button class="btn regular primary">Apply</button>
+        <button class="btn regular primary" (click)="toggleFilter()">Cancel</button>
       </div>
     </div>
     <div class="angle">

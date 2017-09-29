@@ -1,6 +1,8 @@
 <div class="row no-margin">
-  <div class="col l4"></div>
-  <app-filter></app-filter>
+  <div class="col l4">
+    <button class="btn regular primary">Add product</button>
+  </div>
+  <app-filter class="col s12 m12 l8"></app-filter>
 </div>
 <div class="card-container row flex-row">
   <div *ngFor="let product of products | async" class="col s12 m6 l4">

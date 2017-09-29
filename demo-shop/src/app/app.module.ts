@@ -19,11 +19,11 @@ import {StoreService} from "./services/store.service";
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {LoginGuardService} from "./services/login-guard.service";
-import { FilterComponent } from './main/products-list-page/filter/filter.component';
 import {DefaultImageDirective} from "./directives/default-image.directive";
 import {ProductDetailCardComponent} from "./main/components/product-detail-card/product-detail-card.component";
 import {ProductListCardComponent} from "./main/components/product-list-card/product-list-card.component";
 import {RatingStarsComponent} from "./main/components/rating-stars/rating-stars.component";
+import {FilterComponent} from "./main/components/filter/filter.component";
 
 @NgModule({
   declarations: [

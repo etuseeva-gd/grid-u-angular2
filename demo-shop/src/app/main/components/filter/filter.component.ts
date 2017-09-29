@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
 
+  canSeeFilter: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    // this.canSeeFilter = false;
+    this.canSeeFilter = true;
+  }
+
+  toggleFilter() {
+    this.canSeeFilter = !this.canSeeFilter;
   }
 
 }
