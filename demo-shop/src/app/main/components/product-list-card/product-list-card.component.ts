@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {IProduct} from "../../interfaces";
+import {IProduct} from "../../../interfaces";
+import {NOT_FOUND_IMAGE} from "../../../constants";
 
 @Component({
   selector: 'app-product-list-card',
@@ -20,6 +21,10 @@ export class ProductListCardComponent implements OnInit {
 
   showDetails() {
     this.detailsEventEmitter.emit(this.product.id);
+  }
+  
+  getNotFoundImage() {
+    return NOT_FOUND_IMAGE;
   }
 
 }

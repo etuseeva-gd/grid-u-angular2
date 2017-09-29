@@ -17,12 +17,13 @@ import {AuthGuardService} from "./services/auth-guard.service";
 import {TransportService} from "./services/transport.service";
 import {StoreService} from "./services/store.service";
 import {HeaderComponent} from "./components/header/header.component";
-import {ProductListCardComponent} from "./components/product-list-card/product-list-card.component";
-import {ProductDetailCardComponent} from "./components/product-detail-card/product-detail-card.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {LoginGuardService} from "./services/login-guard.service";
 import { FilterComponent } from './main/products-list-page/filter/filter.component';
-import { RatingStarsComponent } from './components/rating-stars/rating-stars.component';
+import {DefaultImageDirective} from "./directives/default-image.directive";
+import {ProductDetailCardComponent} from "./main/components/product-detail-card/product-detail-card.component";
+import {ProductListCardComponent} from "./main/components/product-list-card/product-list-card.component";
+import {RatingStarsComponent} from "./main/components/rating-stars/rating-stars.component";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { RatingStarsComponent } from './components/rating-stars/rating-stars.com
     ProductDetailCardComponent,
     ProductListCardComponent,
     FilterComponent,
-    RatingStarsComponent
+    RatingStarsComponent,
+    DefaultImageDirective
   ],
   imports: [
     BrowserModule,

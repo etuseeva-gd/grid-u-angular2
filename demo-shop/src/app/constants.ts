@@ -11,3 +11,5 @@ export const PATH = {
 export const API = {
   
 };
+
+export const NOT_FOUND_IMAGE = 'http://www.kickoff.com/chops/images/resized/large/no-image-found.jpg';

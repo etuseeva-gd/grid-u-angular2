@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {IProduct} from "../../interfaces";
+import {IProduct} from "../../../interfaces";
+import {NOT_FOUND_IMAGE} from "../../../constants";
 
 @Component({
   selector: 'app-product-detail-card',
@@ -14,6 +15,10 @@ export class ProductDetailCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+  
+  getNotFoundImage() {
+    return NOT_FOUND_IMAGE;
   }
 
 }

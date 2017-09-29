@@ -1,6 +1,7 @@
 <div *ngIf="product" class="card">
   <div class="card-header">
-    <img [src]="product.image">
+    <img [src]="product.image"
+         [default]="getNotFoundImage()">
     <div class="stars-legend">
       <app-rating-stars [rating]="product.rating"></app-rating-stars>
     </div>
