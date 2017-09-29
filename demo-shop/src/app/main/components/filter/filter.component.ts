@@ -12,8 +12,8 @@ export class FilterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // this.canSeeFilter = false;
-    this.canSeeFilter = true;
+    this.canSeeFilter = false;
+    // this.canSeeFilter = true;
   }
 
   toggleFilter() {
