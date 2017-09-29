@@ -9,6 +9,9 @@ export const PATH = {
 };
 
 export const API = {
+  MAIN: {
+    
+  }
   
 };
 

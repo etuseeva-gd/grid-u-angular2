@@ -20,7 +20,7 @@ export class ProductsListPageComponent implements OnInit {
   }
 
   showDetails(productId: number) {
-    this.router.navigate(['/main/product/', productId]);
+    this.router.navigate(['/main/product/details', productId]);
   }
 
 }
