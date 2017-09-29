@@ -30,10 +30,15 @@ const appRoutes: Routes = [
         pathMatch: 'prefix'
       },
       {
-        path: 'product/:productId',
+        path: 'product/details/:productId',
         component: ProductsDetailsPageComponent,
         pathMatch: 'prefix'
       },
+      {
+        path: 'product/edit/:productId',
+        component: ProductsDetailsPageComponent,
+        pathMatch: 'prefix'
+      }
     ]
   },
   {

@@ -8,8 +8,8 @@ export class FilterPrice {
   to: number;
 
   constructor() {
-    this.from = 0;
-    this.to = 0;
+    this.from = null;
+    this.to = null;
   }
 }
 
@@ -24,7 +24,7 @@ export class FilterParams {
     this.isAvailable = false;
     this.gender = 'Unisex';
     this.category = 0;
-    this.rating = 0;
+    this.rating = null;
     this.price = new FilterPrice();
   }
 }
@@ -51,8 +51,8 @@ export class FilterComponent implements OnInit {
   init() {
     this.initFilter();
 
-    // this.canSeeFilter = false;
-    this.canSeeFilter = true;
+    this.canSeeFilter = false;
+    // this.canSeeFilter = true;
 
     this.categories = this.categoryService.categories;
     this.categoryService.loadAll();
