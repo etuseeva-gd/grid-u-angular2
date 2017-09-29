@@ -27,18 +27,21 @@
       <div class="col s12 m5">
         <label>Gender:</label>
         <p>
-          <input id="radioMen" type="radio" name="selector">
+          <input [(ngModel)]="filterParams.gender" value="Men"
+                 id="radioMen" type="radio" name="selector">
           <label for="radioMen">Men</label>
-          <input id="radioWoman" type="radio" name="selector">
+          <input [(ngModel)]="filterParams.gender" value="Woman"
+                 id="radioWoman" type="radio" name="selector">
           <label for="radioWoman">Woman</label>
-          <input id="radioUnisex" type="radio" name="selector" checked>
+          <input [(ngModel)]="filterParams.gender" value="Unisex"
+                 id="radioUnisex" type="radio" name="selector" checked>
           <label for="radioUnisex">Unisex</label>
         </p>
       </div>
       <div class="col s12 m4">
         <label>Category:</label>
         <div class="input-container">
-          <select class="green">
+          <select [(ngModel)]="filterParams.category" class="green">
             <option *ngFor="let category of categories | async"
                     value="{{category.id}}">{{category.name}}</option>
           </select>
@@ -49,14 +52,14 @@
       <div class="col s12 m4">
         <label>Rating:</label>
         <div class="input-container">
-          <input class="" type="number" placeholder="Rating">
+          <input [(ngModel)]="filterParams.rating" type="number" placeholder="Rating">
         </div>
       </div>
       <div class="col s12 m4 no-border">
         <label>Price:</label>
         <div class="input-container">
-          <input type="number" placeholder="From">
-          <input type="number" placeholder="To">
+          <input type="number" [(ngModel)]="filterParams.price.from" placeholder="From">
+          <input type="number" [(ngModel)]="filterParams.price.to" placeholder="To">
         </div>
       </div>
       <div class="col s12 m4 align-center">
