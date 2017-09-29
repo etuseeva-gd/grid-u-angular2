@@ -11,11 +11,17 @@
   </div>
   <div *ngIf="canSeeFilter" class="filter">
     <div class="row">
+      <div *ngIf="filterParams" class="col s12">
+        {{filterParams | json}}
+      </div>
+    </div>
+    <div class="row">
       <div class="col s12 m3">
         <label>Available:</label>
         <p>
-          <input id="r_uncheck" type="checkbox">
-          <label for="r_uncheck">Available only</label>
+          <input [(ngModel)]="filterParams.isAvailable"
+                 id="checkIsAvailable" type="checkbox">
+          <label for="checkIsAvailable">Available only</label>
         </p>
       </div>
       <div class="col s12 m5">
@@ -33,9 +39,8 @@
         <label>Category:</label>
         <div class="input-container">
           <select class="green">
-            <option value="1">text1</option>
-            <option value="2">text2</option>
-            <option value="3">text3</option>
+            <option *ngFor="let category of categories | async"
+                    value="{{category.id}}">{{category.name}}</option>
           </select>
         </div>
       </div>

@@ -24,6 +24,7 @@ import {ProductDetailCardComponent} from "./main/components/product-detail-card/
 import {ProductListCardComponent} from "./main/components/product-list-card/product-list-card.component";
 import {RatingStarsComponent} from "./main/components/rating-stars/rating-stars.component";
 import {FilterComponent} from "./main/components/filter/filter.component";
+import {CategoryService} from "./services/category.service";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {FilterComponent} from "./main/components/filter/filter.component";
     AuthGuardService,
     TransportService,
     StoreService,
-    LoginGuardService
+    LoginGuardService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

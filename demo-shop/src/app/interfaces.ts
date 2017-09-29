@@ -22,7 +22,7 @@ export interface IRoles {
   name: string;
 }
 
-export interface ICategories {
+export interface ICategory {
   id: number;
   name: string;
 }
