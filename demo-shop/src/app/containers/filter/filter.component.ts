@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ICategory} from "../../../interfaces";
-import {CategoryService} from "../../../services/category.service";
 import {Observable} from "rxjs/Rx";
+import {ICategory} from "../../interfaces";
+import {CategoryService} from "../../services/category.service";
 
 export class FilterPrice {
   from: number;

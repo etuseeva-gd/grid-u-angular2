@@ -1,12 +1,12 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {ProductsDetailsPageComponent} from "./main/products-details-page/products-details-page.component";
-import {LoginPageComponent} from "./login-page/login-page.component";
-import {ProductsListPageComponent} from "./main/products-list-page/products-list-page.component";
-import {ErrorPagesComponent} from "./error-pages/error-pages.component";
-import {MainComponent} from "./main/main.component";
 import {AuthGuardService} from "./services/auth-guard.service";
 import {LoginGuardService} from "./services/login-guard.service";
+import {LoginPageComponent} from "./containers/login-page/login-page.component";
+import {ProductsDetailsPageComponent} from "./containers/products-details-page/products-details-page.component";
+import {ProductsListPageComponent} from "./containers/products-list-page/products-list-page.component";
+import {MainComponent} from "./containers/main/main.component";
+import {ErrorPagesComponent} from "./modules/error-pages/error-pages.component";
 
 const appRoutes: Routes = [
   {
@@ -52,6 +52,6 @@ const appRoutes: Routes = [
     component: ErrorPagesComponent,
     pathMatch: 'full',
     canActivate: [AuthGuardService],
-  },
+  }
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

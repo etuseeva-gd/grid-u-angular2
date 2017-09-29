@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../services/user.service";
-import {TransportService} from "../services/transport.service";
 import {Router} from "@angular/router";
+import {UserService} from "../../services/user.service";
+import {TransportService} from "../../services/transport.service";
 
 @Component({
   selector: 'app-login-page',

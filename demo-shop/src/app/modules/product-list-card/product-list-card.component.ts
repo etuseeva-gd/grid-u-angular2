@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {IProduct} from "../../../interfaces";
-import {NOT_FOUND_IMAGE} from "../../../constants";
+import {IProduct} from "../../interfaces";
+import {NOT_FOUND_IMAGE} from "../../constants";
 
 @Component({
   selector: 'app-product-list-card',
