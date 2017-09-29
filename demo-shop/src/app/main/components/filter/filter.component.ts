@@ -46,15 +46,20 @@ export class FilterComponent implements OnInit {
 
   ngOnInit() {
     this.init();
+  }
+
+  init() {
+    this.initFilter();
+
+    // this.canSeeFilter = false;
+    this.canSeeFilter = true;
 
     this.categories = this.categoryService.categories;
     this.categoryService.loadAll();
   }
 
-  init() {
+  initFilter() {
     this.filterParams = new FilterParams();
-    // this.canSeeFilter = false;
-    this.canSeeFilter = true;
   }
 
   toggleFilter() {
