@@ -16,15 +16,15 @@ import {DefaultImageDirective} from "./directives/default-image.directive";
 import {CategoryService} from "./services/category.service";
 import {ErrorPagesComponent} from "./modules/error-pages/error-pages.component";
 import {MainComponent} from "./containers/main/main.component";
-import {ProductListCardComponent} from "./modules/product-list-card/product-list-card.component";
+import {ProductListCardComponent} from "./modules/product-card/product-card.component";
 import {RatingStarsComponent} from "./modules/rating-stars/rating-stars.component";
 import {LoginPageComponent} from "./containers/login-page/login-page.component";
 import {HeaderComponent} from "./modules/header/header.component";
-import {ProductDetailCardComponent} from "./modules/product-detail-card/product-detail-card.component";
 import {FilterComponent} from "./containers/filter/filter.component";
 import {FooterComponent} from "./modules/footer/footer.component";
 import {ProductsDetailsPageComponent} from "./containers/products-details-page/products-details-page.component";
 import {ProductsListPageComponent} from "./containers/products-list-page/products-list-page.component";
+import { EditProductComponent } from './containers/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +36,11 @@ import {ProductsListPageComponent} from "./containers/products-list-page/product
     MainComponent,
     HeaderComponent,
     FooterComponent,
-    ProductDetailCardComponent,
     ProductListCardComponent,
     FilterComponent,
     RatingStarsComponent,
-    DefaultImageDirective
+    DefaultImageDirective,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

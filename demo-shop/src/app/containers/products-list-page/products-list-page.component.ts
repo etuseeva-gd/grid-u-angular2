@@ -19,8 +19,12 @@ export class ProductsListPageComponent implements OnInit {
     this.productService.loadAll();
   }
 
-  showDetails(productId: number) {
+  toProductDetails(productId: number) {
     this.router.navigate(['/main/product/details', productId]);
+  }
+
+  toEditMode() {
+    this.router.navigate(['/main/product/edit/']);
   }
 
 }

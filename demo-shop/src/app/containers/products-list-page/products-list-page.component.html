@@ -1,12 +1,12 @@
 <div class="row no-margin">
   <div class="col l4">
-    <button class="btn regular primary">Add product</button>
+    <button class="btn regular primary" (click)="toEditMode()">Add product</button>
   </div>
   <app-filter class="col s12 m12 l8"></app-filter>
 </div>
 <div class="card-container row flex-row">
   <div *ngFor="let product of products | async" class="col s12 m6 l4">
-    <app-product-list-card [product]="product"
-                           (detailsEventEmitter)="showDetails($event)"></app-product-list-card>
+    <app-product-card [product]="product"
+                           (detailsEventEmitter)="toProductDetails($event)"></app-product-card>
   </div>
 </div>

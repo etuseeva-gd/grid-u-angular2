@@ -3,14 +3,14 @@ import {IProduct} from "../../interfaces";
 import {NOT_FOUND_IMAGE} from "../../constants";
 
 @Component({
-  selector: 'app-product-list-card',
-  templateUrl: './product-list-card.component.html',
-  styleUrls: ['./product-list-card.component.scss']
+  selector: 'app-product-card',
+  templateUrl: './product-card.component.html',
+  styleUrls: ['./product-card.component.scss']
 })
 export class ProductListCardComponent implements OnInit {
   @Input()
   product: IProduct;
-  
+
   @Output()
   detailsEventEmitter = new EventEmitter<any>();
 
@@ -22,7 +22,7 @@ export class ProductListCardComponent implements OnInit {
   showDetails() {
     this.detailsEventEmitter.emit(this.product.id);
   }
-  
+
   getNotFoundImage() {
     return NOT_FOUND_IMAGE;
   }

@@ -10,9 +10,12 @@ export class CategoryService {
   private dataStore: {
     categories: ICategory[]
   };
+
   constructor(private transportService: TransportService) {
     this._categories = <BehaviorSubject<ICategory[]>>new BehaviorSubject([]);
     this.dataStore = {categories: []};
+
+    this.loadAll();
   }
 
   get categories() {
@@ -27,5 +30,12 @@ export class CategoryService {
         this._categories.next(Object.assign({}, this.dataStore).categories);
       }, error => console.log(error));
   }
-  
+
+  getCategoryById(categoryId: number): ICategory {
+    if (this.dataStore.categories.length > 0) {
+      return this.dataStore.categories.filter(c => c.id === categoryId)[0];
+    }
+    return null;
+  }
+
 }

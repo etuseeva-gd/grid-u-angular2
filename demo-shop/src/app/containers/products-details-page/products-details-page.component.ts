@@ -3,6 +3,8 @@ import {ActivatedRoute, Params} from "@angular/router";
 import {ProductService} from "../../services/product.service";
 import {Observable} from "rxjs/Rx";
 import {IProduct} from "../../interfaces";
+import {NOT_FOUND_IMAGE} from "../../constants";
+import {CategoryService} from "../../services/category.service";
 
 @Component({
   selector: 'app-products-details-page',
@@ -14,7 +16,8 @@ export class ProductsDetailsPageComponent implements OnInit {
   private product: IProduct;
 
   constructor(private route: ActivatedRoute,
-              private productService: ProductService) {
+              private productService: ProductService,
+              private categoryService: CategoryService) {
   }
 
   ngOnInit() {
@@ -25,6 +28,14 @@ export class ProductsDetailsPageComponent implements OnInit {
           this.product = p;
         }, error => console.log(error));
     });
+  }
+
+  getNotFoundImage() {
+    return NOT_FOUND_IMAGE;
+  }
+
+  getCategoryNameById(categoryId: number) {
+    return this.categoryService.getCategoryById(categoryId).name;
   }
 
 }

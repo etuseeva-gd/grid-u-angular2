@@ -7,6 +7,7 @@ import {ProductsDetailsPageComponent} from "./containers/products-details-page/p
 import {ProductsListPageComponent} from "./containers/products-list-page/products-list-page.component";
 import {MainComponent} from "./containers/main/main.component";
 import {ErrorPagesComponent} from "./modules/error-pages/error-pages.component";
+import {EditProductComponent} from "./containers/edit-product/edit-product.component";
 
 const appRoutes: Routes = [
   {
@@ -36,7 +37,12 @@ const appRoutes: Routes = [
       },
       {
         path: 'product/edit/:productId',
-        component: ProductsDetailsPageComponent,
+        component: EditProductComponent,
+        pathMatch: 'prefix'
+      },
+      {
+        path: 'product/edit',
+        component: EditProductComponent,
         pathMatch: 'prefix'
       }
     ]

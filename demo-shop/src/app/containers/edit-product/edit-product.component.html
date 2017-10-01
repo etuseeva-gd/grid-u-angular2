@@ -1,0 +1,69 @@
+<div *ngIf="product" class="row no-margin">
+  <div class="col s12">
+    <nav class="medium-text">
+      <a class="bold-text">Back</a>
+    </nav>
+  </div>
+  <div class="col s12">
+    <div  class="card edit">
+      <div class="row">
+        <div class="col 12">
+          {{product | json}}
+        </div>
+        <div class="col s12 m6">
+          <label for="name">Name:</label>
+          <p>
+            <input id="name" type="text" [(ngModel)]="product.name">
+          </p>
+          <label>Category:</label>
+          <div class="input-container">
+            <select [(ngModel)]="product.categoryId" class="green">
+              <option *ngFor="let category of categories | async"
+                      value="{{category.id}}">{{category.name}}
+              </option>
+            </select>
+          </div>
+          <label>Gender:</label>
+          <p>
+            <input [(ngModel)]="product.gender" value="Men"
+                   id="radioMen" type="radio" name="selector">
+            <label for="radioMen">Men</label>
+            <input [(ngModel)]="product.gender" value="Woman"
+                   id="radioWoman" type="radio" name="selector">
+            <label for="radioWoman">Woman</label>
+            <input [(ngModel)]="product.gender" value="Unisex"
+                   id="radioUnisex" type="radio" name="selector" checked>
+            <label for="radioUnisex">Unisex</label>
+          </p>
+          <label for="desc">Description:</label>
+          <p>
+            <textarea [(ngModel)]="product.description" id="desc"></textarea>
+          </p>
+        </div>
+        <div class="col s12 m6">
+          <label for="link">Link to image:</label>
+          <p>
+            <input [(ngModel)]="product.image" id="link" type="text">
+          </p>
+          <p>
+            <!--<img [src]="product.image">-->
+          </p>
+          <label for="cost">cost:</label>
+          <p>
+            <input [(ngModel)]="product.cost" id="cost" type="number">
+          </p>
+          <label>Rating:</label>
+          <div class="input-container">
+            <select [(ngModel)]="product.rating">
+              <option *ngFor="let i of [0,1,2,3,4]" value="{{i}}">{{i}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col s12">
+          <button class="btn secondary big">Cancel</button>
+          <button class="btn primary big">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
