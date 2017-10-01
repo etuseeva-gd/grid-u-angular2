@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {ProductService} from "../../services/product.service";
 import {Observable} from "rxjs/Rx";
 import {IProduct} from "../../interfaces";
@@ -17,7 +17,8 @@ export class ProductsDetailsPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
-              private categoryService: CategoryService) {
+              private categoryService: CategoryService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -36,6 +37,14 @@ export class ProductsDetailsPageComponent implements OnInit {
 
   getCategoryNameById(categoryId: number) {
     return this.categoryService.getCategoryById(categoryId).name;
+  }
+
+  toEditMode(productId: number) {
+    this.router.navigate(['/main/product/edit', this.productId]);
+  }
+
+  deleteProduct() {
+
   }
 
 }
