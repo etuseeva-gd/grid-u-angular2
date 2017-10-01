@@ -3,7 +3,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {ProductService} from "../../services/product.service";
 import {Observable} from "rxjs/Rx";
 import {IProduct} from "../../interfaces";
-import {NOT_FOUND_IMAGE} from "../../constants";
+import {NOT_FOUND_IMAGE, PATHS} from "../../constants";
 import {CategoryService} from "../../services/category.service";
 
 @Component({
@@ -39,8 +39,8 @@ export class ProductsDetailsPageComponent implements OnInit {
     return this.categoryService.getCategoryById(categoryId).name;
   }
 
-  toEditMode(productId: number) {
-    this.router.navigate(['/main/product/edit', this.productId]);
+  toEditMode() {
+    this.router.navigate([PATHS.PRODUCTS.EDIT, this.productId]);
   }
 
   deleteProduct() {

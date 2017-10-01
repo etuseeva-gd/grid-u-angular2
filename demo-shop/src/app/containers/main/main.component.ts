@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {IUser} from "../../interfaces";
 import {UserService} from "../../services/user.service";
+import {PATHS} from "../../constants";
 
 @Component({
   selector: 'app-main',
@@ -21,7 +22,7 @@ export class MainComponent implements OnInit {
 
   logout() {
     this.userService.logout().subscribe(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate([PATHS.LOGIN]);
     });
   }
 

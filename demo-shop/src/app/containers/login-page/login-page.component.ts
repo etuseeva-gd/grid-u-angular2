@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {TransportService} from "../../services/transport.service";
+import {PATHS} from "../../constants";
 
 @Component({
   selector: 'app-login-page',
@@ -32,7 +33,7 @@ export class LoginPageComponent implements OnInit {
               const user = res.filter(r => r.login === this.login)[0];
               if (user) {
                 this.userService.setUser(user);
-                this.router.navigate(['/main/products-list']); //Todo: rewrite
+                this.router.navigate([PATHS.PRODUCTS.LIST]);
               } else {
                 console.log('Error with auth');
               }
@@ -41,5 +42,5 @@ export class LoginPageComponent implements OnInit {
       }, error => console.log(error));
     return false;
   }
-  
+
 }

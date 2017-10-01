@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../services/product.service";
 import {Router} from "@angular/router";
+import {PATHS} from "../../constants";
 
 @Component({
   selector: 'app-products-list-page',
@@ -20,11 +21,11 @@ export class ProductsListPageComponent implements OnInit {
   }
 
   toProductDetails(productId: number) {
-    this.router.navigate(['/main/product/details', productId]);
+    this.router.navigate([PATHS.PRODUCTS.DETAILS, productId]);
   }
 
   toEditMode() {
-    this.router.navigate(['/main/product/edit/']);
+    this.router.navigate([PATHS.PRODUCTS.EDIT]);
   }
 
 }
