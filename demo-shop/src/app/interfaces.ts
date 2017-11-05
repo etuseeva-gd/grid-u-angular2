@@ -1,3 +1,9 @@
+export interface AppSore {
+  categories: ICategory[],
+  products: IProduct[],
+  // user: IUser  // ???
+}
+
 export interface IProduct {
   id: number;
   categoryId: number;
