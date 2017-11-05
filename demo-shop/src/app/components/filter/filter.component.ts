@@ -74,6 +74,12 @@ export class FilterComponent implements OnInit {
   }
 
   validatePrice() {
+    if (this.filterParams.price.from < 0) {
+      this.filterParams.price.from = 0
+    }
+    if (this.filterParams.price.to < 0) {
+      this.filterParams.price.to = 0
+    }
     if (this.filterParams.price.from !== null) {
       if (this.filterParams.price.to === null ||
         this.filterParams.price.to < this.filterParams.price.from) {
