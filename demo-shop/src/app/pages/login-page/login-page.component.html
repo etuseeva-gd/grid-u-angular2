@@ -1,0 +1,35 @@
+<div class="wrapper blur"></div>
+<div class="modal login-container">
+  <div class="modal-content">
+    <form [formGroup]="loginForm" (ngSubmit)="signIn()">
+      <div class="modal-header align-center">
+        Login to "Demo Show"
+      </div>
+      <div class="modal-body">
+        <div *ngIf="errorMessage !== null" class="error-message">
+          {{errorMessage}}
+        </div>
+        <div class="input-container">
+          <label for="login">Your Login:</label>
+          <input id="login"
+                 class="big input-login"
+                 formControlName="login">
+          <control-messages class="error-message"
+                            [control]="loginForm.controls.login"></control-messages>
+        </div>
+        <div class="input-container">
+          <label for="password">Your Password:</label>
+          <input id="password"
+                 class="big input-password"
+                 type="password"
+                 formControlName="password">
+          <control-messages class="error-message"
+                            [control]="loginForm.controls.password"></control-messages>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn big primary" [disabled]="!loginForm.valid" value="Submit"/>
+      </div>
+    </form>
+  </div>
+</div>

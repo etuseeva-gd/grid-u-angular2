@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {UserService} from "../../services/user.service";
 import {TransportService} from "../../services/transport.service";
 import {PATHS} from "../../constants";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -10,8 +11,8 @@ import {PATHS} from "../../constants";
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  login: string;
-  password: string;
+  loginForm: FormGroup;
+  errorMessage: string;
 
   constructor(private userService: UserService,
               private transportService: TransportService,
@@ -19,9 +20,27 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loginForm = new FormGroup({
+      'login': new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.pattern(/^[a-zA-Z]*$/)
+      ]),
+      'password': new FormControl('', Validators.required),
+    });
+  }
+
+  get login() {
+    return this.loginForm.value.login;
+  }
+
+  get password() {
+    return this.loginForm.value.password;
   }
 
   signIn() {
+    const errorMessage = 'Wrong login or password';
+
     this.userService.login(this.login, this.password)
       .subscribe(data => {
         console.log(data);
@@ -37,9 +56,16 @@ export class LoginPageComponent implements OnInit {
               } else {
                 console.log('Error with auth');
               }
-            }, error => console.log(error));
+            }, error => {
+              //???
+              this.errorMessage = error;
+              console.log(error)
+            });
         }
-      }, error => console.log(error));
+      }, error => {
+        this.errorMessage = errorMessage;
+        console.log(error)
+      });
     return false;
   }
 

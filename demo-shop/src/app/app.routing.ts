@@ -2,12 +2,12 @@ import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {AuthGuardService} from "./services/auth-guard.service";
 import {LoginGuardService} from "./services/login-guard.service";
-import {LoginPageComponent} from "./containers/login-page/login-page.component";
-import {ProductsDetailsPageComponent} from "./containers/products-details-page/products-details-page.component";
-import {ProductsListPageComponent} from "./containers/products-list-page/products-list-page.component";
-import {MainComponent} from "./containers/main/main.component";
-import {ErrorPagesComponent} from "./modules/error-pages/error-pages.component";
-import {EditProductComponent} from "./containers/edit-product/edit-product.component";
+import {LoginPageComponent} from "./pages/login-page/login-page.component";
+import {ProductsDetailsPageComponent} from "./pages/products-details-page/products-details-page.component";
+import {ProductsListPageComponent} from "./pages/products-list-page/products-list-page.component";
+import {MainComponent} from "./pages/main/main.component";
+import {ErrorPagesComponent} from "./pages/error-pages/error-pages.component";
+import {EditProductComponent} from "./pages/edit-product/edit-product.component";
 
 const appRoutes: Routes = [
   {
