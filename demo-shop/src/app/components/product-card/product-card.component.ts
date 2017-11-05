@@ -11,6 +11,9 @@ export class ProductListCardComponent implements OnInit {
   @Input()
   product: IProduct;
 
+  @Input()
+  hasAdminAccess: boolean;
+
   @Output()
   detailsEventEmitter = new EventEmitter<any>();
 

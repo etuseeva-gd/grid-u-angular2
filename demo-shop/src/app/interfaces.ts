@@ -17,7 +17,7 @@ export interface IUser {
   roleId: number;
 }
 
-export interface IRoles {
+export interface IRole {
   id: number;
   name: string;
 }

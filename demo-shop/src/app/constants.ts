@@ -1,6 +1,6 @@
-export enum roles {
-  User,
-  Admin
+export enum Roles {
+  Admin,
+  User
 }
 
 export const API = {

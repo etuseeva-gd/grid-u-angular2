@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../services/product.service";
 import {Router} from "@angular/router";
-import {PATHS} from "../../constants";
+import {PATHS, Roles} from "../../constants";
+import {IProduct, IUser} from "../../interfaces";
+import {Observable} from "rxjs/Observable";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-products-list-page',
@@ -9,13 +12,18 @@ import {PATHS} from "../../constants";
   styleUrls: ['./products-list-page.component.scss']
 })
 export class ProductsListPageComponent implements OnInit {
-  private products;
+  private products: Observable<IProduct[]>;
+  private user: IUser;
 
   constructor(private productService: ProductService,
-              private router: Router) {
+              private router: Router,
+              private userService: UserService) {
   }
 
   ngOnInit() {
+    //Todo: to redux
+    this.user = this.userService.getUser();
+
     this.products = this.productService.products;
     this.productService.loadAll();
   }
@@ -28,4 +36,8 @@ export class ProductsListPageComponent implements OnInit {
     this.router.navigate([PATHS.PRODUCTS.EDIT]);
   }
 
+  //Todo: rewrite
+  hasAdminAccess() {
+    return this.user.roleId < Roles.User;
+  }
 }
