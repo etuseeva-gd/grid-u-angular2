@@ -1,32 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Rx";
 import {ICategory} from "../../interfaces";
 import {CategoryService} from "../../services/category.service";
 
-export class FilterPrice {
+export class IPrice {
   from: number;
   to: number;
-
-  constructor() {
-    this.from = null;
-    this.to = null;
-  }
 }
 
-export class FilterParams {
+export class IFilterParams {
   isAvailable: boolean;
-  gender: string; //??
+  gender: string;
   category: number;
   rating: number;
-  price: FilterPrice;
-
-  constructor() {
-    this.isAvailable = false;
-    this.gender = 'Unisex';
-    this.category = 0;
-    this.rating = null;
-    this.price = new FilterPrice();
-  }
+  price: IPrice;
 }
 
 @Component({
@@ -35,13 +22,13 @@ export class FilterParams {
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-
   canSeeFilter: boolean;
-  filterParams: FilterParams;
+  filterParams: IFilterParams;
 
   categories: Observable<ICategory[]>;
 
-  constructor(private categoryService: CategoryService) {
+  constructor(private categoryService: CategoryService,
+              private cdRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -51,19 +38,51 @@ export class FilterComponent implements OnInit {
   init() {
     this.initFilter();
 
-    this.canSeeFilter = false;
-    // this.canSeeFilter = true;
+    // this.canSeeFilter = false;
+    this.canSeeFilter = true;
 
     this.categories = this.categoryService.categories;
     this.categoryService.loadAll();
   }
 
   initFilter() {
-    this.filterParams = new FilterParams();
+    this.filterParams = {
+      isAvailable: false,
+      gender: 'Unisex',
+      category: -1,
+      rating: null,
+      price: {from: null, to: null} as IPrice,
+    } as IFilterParams;
   }
 
   toggleFilter() {
     this.canSeeFilter = !this.canSeeFilter;
+  }
+
+  filter() {
+    return false;
+  }
+
+  validateRating() {
+    if (this.filterParams.rating < 1) {
+      this.filterParams.rating = 1;
+    }
+    if (this.filterParams.rating > 5) {
+      this.filterParams.rating = 5;
+    }
+    this.cdRef.detectChanges();
+  }
+
+  validatePrice() {
+    if (this.filterParams.price.from !== null) {
+      if (this.filterParams.price.to === null ||
+        this.filterParams.price.to < this.filterParams.price.from) {
+        this.filterParams.price.to = this.filterParams.price.from;
+      }
+    } else if (this.filterParams.price.to !== null) {
+      this.filterParams.price.from = this.filterParams.price.to;
+    }
+    this.cdRef.detectChanges();
   }
 
 }

@@ -11,17 +11,13 @@
   </div>
   <div *ngIf="canSeeFilter" class="filter">
     <div class="row">
-      <div *ngIf="filterParams" class="col s12">
-        {{filterParams | json}}
-      </div>
-    </div>
-    <div class="row">
       <div class="col s12 m3">
         <label>Available:</label>
         <p>
-          <input [(ngModel)]="filterParams.isAvailable"
-                 id="checkIsAvailable" type="checkbox">
-          <label for="checkIsAvailable">Available only</label>
+          <input id="isAvailable"
+                 type="checkbox"
+                 [(ngModel)]="filterParams.isAvailable">
+          <label for="isAvailable">Available only</label>
         </p>
       </div>
       <div class="col s12 m5">
@@ -34,7 +30,7 @@
                  id="radioWoman" type="radio" name="selector">
           <label for="radioWoman">Woman</label>
           <input [(ngModel)]="filterParams.gender" value="Unisex"
-                 id="radioUnisex" type="radio" name="selector" checked>
+                 id="radioUnisex" type="radio" name="selector">
           <label for="radioUnisex">Unisex</label>
         </p>
       </div>
@@ -42,24 +38,37 @@
         <label>Category:</label>
         <div class="input-container">
           <select [(ngModel)]="filterParams.category" class="green">
+            <option value="-1">None</option>
             <option *ngFor="let category of categories | async"
-                    value="{{category.id}}">{{category.name}}</option>
+                    value="{{category.id}}">{{category.name}}
+            </option>
           </select>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col s12 m4">
-        <label>Rating:</label>
+        <label for="rating">Rating:</label>
         <div class="input-container">
-          <input [(ngModel)]="filterParams.rating" type="number" placeholder="Rating">
+          <input id="rating" name="rating"
+                 type="number"
+                 [(ngModel)]="filterParams.rating"
+                 placeholder="Rating"
+                 min="1" max="5"
+                 (change)="validateRating()">
         </div>
       </div>
       <div class="col s12 m4 no-border">
         <label>Price:</label>
         <div class="input-container">
-          <input type="number" [(ngModel)]="filterParams.price.from" placeholder="From">
-          <input type="number" [(ngModel)]="filterParams.price.to" placeholder="To">
+          <input type="number"
+                 [(ngModel)]="filterParams.price.from"
+                 placeholder="From"
+                 (change)="validatePrice()">
+          <input type="number"
+                 [(ngModel)]="filterParams.price.to"
+                 placeholder="To"
+                 (change)="validatePrice()">
         </div>
       </div>
       <div class="col s12 m4 align-center">
