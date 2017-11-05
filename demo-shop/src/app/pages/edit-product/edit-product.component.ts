@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {ICategory, IProduct} from "../../interfaces";
 import {ActivatedRoute, Params} from "@angular/router";
 import {ProductService} from "../../services/product.service";
@@ -17,12 +17,14 @@ export class EditProductComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
-              private categoryService: CategoryService) { }
+              private categoryService: CategoryService,
+              private cdRef: ChangeDetectorRef) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       const productId = +params['productId'];
-      if (productId) {
+      if (productId && productId > -1) {
         this.productService.getProductById(productId)
           .subscribe(p => {
             this.product = p;
@@ -34,6 +36,17 @@ export class EditProductComponent implements OnInit {
       this.categories = this.categoryService.categories;
       this.categoryService.loadAll();
     });
+  }
+
+  action() {
+    return false;
+  }
+
+  validateCost() {
+    if (this.product.cost < 0) {
+      this.product.cost = 0;
+    }
+    this.cdRef.detectChanges();
   }
 
 }

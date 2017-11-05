@@ -8,6 +8,7 @@ import {ProductsListPageComponent} from "./pages/products-list-page/products-lis
 import {MainComponent} from "./pages/main/main.component";
 import {ErrorPagesComponent} from "./pages/error-pages/error-pages.component";
 import {EditProductComponent} from "./pages/edit-product/edit-product.component";
+import {AccessGuardService} from "./services/access-guard.service";
 
 const appRoutes: Routes = [
   {
@@ -38,12 +39,14 @@ const appRoutes: Routes = [
       {
         path: 'product/edit/:productId',
         component: EditProductComponent,
-        pathMatch: 'prefix'
+        pathMatch: 'prefix',
+        canActivate: [AccessGuardService]
       },
       {
         path: 'product/edit',
         component: EditProductComponent,
-        pathMatch: 'prefix'
+        pathMatch: 'prefix',
+        canActivate: [AccessGuardService]
       }
     ]
   },

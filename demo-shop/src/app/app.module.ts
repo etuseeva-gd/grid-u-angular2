@@ -28,7 +28,8 @@ import { EditProductComponent } from './pages/edit-product/edit-product.componen
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
-import {ControlMessagesComponent} from "./control-messages.component";
+import {ControlMessagesComponent} from "./components/control-messages.component";
+import {AccessGuardService} from "./services/access-guard.service";
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import {ControlMessagesComponent} from "./control-messages.component";
     TransportService,
     StoreService,
     LoginGuardService,
-    CategoryService
+    CategoryService,
+    AccessGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -3,6 +3,12 @@ export enum Roles {
   User
 }
 
+// export enum Gender {
+//   MEN = 'Men',
+//   WOMEN = 'Women',
+//   UNISEX = 'Unisex',
+// }
+
 export const API = {
   LOGIN: '/login',
   LOGOUT: '/logout',
