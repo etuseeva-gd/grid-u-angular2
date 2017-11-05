@@ -5,6 +5,7 @@ import {Observable} from "rxjs/Rx";
 import {IProduct} from "../../interfaces";
 import {NOT_FOUND_IMAGE, PATHS} from "../../constants";
 import {CategoryService} from "../../services/category.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-products-details-page',
@@ -18,7 +19,8 @@ export class ProductsDetailsPageComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
               private categoryService: CategoryService,
-              private router: Router) {
+              private router: Router,
+              private userService: UserService) {
   }
 
   ngOnInit() {
@@ -45,6 +47,11 @@ export class ProductsDetailsPageComponent implements OnInit {
 
   deleteProduct() {
 
+  }
+
+  //Todo: rewrite
+  hasAdminAccess() {
+    return this.userService.isAdmin();
   }
 
 }

@@ -4,6 +4,7 @@ import {TransportService} from "./transport.service";
 import {IUser} from "../interfaces";
 import {StoreService} from "./store.service";
 import {Observable} from "rxjs/Rx";
+import {Roles} from "../constants";
 
 @Injectable()
 export class UserService {
@@ -50,5 +51,9 @@ export class UserService {
       this.transportService.removeToken();
       return true;
     });
+  }
+
+  isAdmin() {
+    return this.user.roleId < Roles.User;
   }
 }

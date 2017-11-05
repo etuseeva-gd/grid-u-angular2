@@ -37,9 +37,7 @@ export class FilterComponent implements OnInit {
 
   init() {
     this.initFilter();
-
-    // this.canSeeFilter = false;
-    this.canSeeFilter = true;
+    this.canSeeFilter = false;
 
     this.categories = this.categoryService.categories;
     this.categoryService.loadAll();

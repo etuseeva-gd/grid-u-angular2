@@ -38,6 +38,6 @@ export class ProductsListPageComponent implements OnInit {
 
   //Todo: rewrite
   hasAdminAccess() {
-    return this.user.roleId < Roles.User;
+    return this.userService.isAdmin();
   }
 }

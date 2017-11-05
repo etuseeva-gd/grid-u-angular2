@@ -25,7 +25,7 @@
             <p>
               {{product.description}}
             </p>
-            <p>
+            <p *ngIf="hasAdminAccess()">
               You can also <span (click)="toEditMode()">edit</span> details or
               <span (click)="deleteProduct(product.id)">delete</span> them.
             </p>

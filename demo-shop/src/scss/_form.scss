@@ -27,9 +27,9 @@ input {
     box-shadow: 0 0 0 3px $valid-color;
   }
 
-  &:invalid:not(:focus) {
-    box-shadow: 0 0 0 3px $invalid-color;
-  }
+  //&:invalid:not(:focus) {
+  //  box-shadow: 0 0 0 3px $invalid-color;
+  //}
 
   &.big {
     width: 100%;
