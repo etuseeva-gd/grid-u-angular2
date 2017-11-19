@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {UserService} from "./user.service";
+import {UserService} from "../user.service";
 import {Router, CanActivate} from "@angular/router";
 
 @Injectable()
@@ -17,5 +17,5 @@ export class LoginGuardService implements CanActivate {
     this.router.navigate(['/main']);
     return false;
   }
-  
+
 }

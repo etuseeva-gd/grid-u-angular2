@@ -1,4 +1,4 @@
-export interface AppSore {
+export interface AppStore {
   categories: ICategory[],
   products: IProduct[],
   // user: IUser  // ???

@@ -8,10 +8,9 @@ import {ErrorHandlerService} from "./services/error-handler.service";
 import {ProductService} from "./services/product.service";
 import {HttpModule, JsonpModule} from "@angular/http";
 import {UserService} from "./services/user.service";
-import {AuthGuardService} from "./services/auth-guard.service";
 import {TransportService} from "./services/transport.service";
 import {StoreService} from "./services/store.service";
-import {LoginGuardService} from "./services/login-guard.service";
+import {LoginGuardService} from "./services/guards/login-guard.service";
 import {DefaultImageDirective} from "./directives/default-image.directive";
 import {CategoryService} from "./services/category.service";
 import {ErrorPagesComponent} from "./pages/error-pages/error-pages.component";
@@ -24,12 +23,16 @@ import {FilterComponent} from "./components/filter/filter.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {ProductsDetailsPageComponent} from "./pages/products-details-page/products-details-page.component";
 import {ProductsListPageComponent} from "./pages/products-list-page/products-list-page.component";
-import { EditProductComponent } from './pages/edit-product/edit-product.component';
-
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreModule } from '@ngrx/store';
+import {EditProductPageComponent} from './pages/edit-product-page/edit-product-page.component';
+import {StoreModule} from '@ngrx/store';
 import {ControlMessagesComponent} from "./components/control-messages.component";
-import {AccessGuardService} from "./services/access-guard.service";
+import {AccessGuardService} from "./services/guards/access-guard.service";
+import {products} from "./reducers/products.reducer";
+import {NgxPaginationModule} from "ngx-pagination";
+import {ModalComponent} from './components/modal/modal.component';
+import {ModalService} from "./components/modal/modal.service";
+import {ErrorPagesService} from "./pages/error-pages/error-pages.service";
+import {AuthGuardService} from "./services/guards/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import {AccessGuardService} from "./services/access-guard.service";
     FilterComponent,
     RatingStarsComponent,
     DefaultImageDirective,
-    EditProductComponent,
+    ControlMessagesComponent,
+    ModalComponent,
+    EditProductPageComponent,
     ControlMessagesComponent
   ],
   imports: [
@@ -55,12 +60,11 @@ import {AccessGuardService} from "./services/access-guard.service";
     HttpModule,
     JsonpModule,
     routing,
-    // StoreModule.provideStore({
-    //   //place for future reducers
-    // }),
-    // StoreDevtoolsModule.instrumentOnlyWithExtension()
+    StoreModule.forRoot({products}),
+    NgxPaginationModule
   ],
   providers: [
+    UserService,
     ErrorHandlerService,
     ProductService,
     UserService,
@@ -69,7 +73,9 @@ import {AccessGuardService} from "./services/access-guard.service";
     StoreService,
     LoginGuardService,
     CategoryService,
-    AccessGuardService
+    AccessGuardService,
+    ModalService,
+    ErrorPagesService
   ],
   bootstrap: [AppComponent]
 })

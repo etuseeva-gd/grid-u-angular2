@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {IProduct} from "../../interfaces";
+import {IProduct} from "../../models";
 import {NOT_FOUND_IMAGE} from "../../constants";
 
 @Component({
@@ -15,7 +15,10 @@ export class ProductListCardComponent implements OnInit {
   hasAdminAccess: boolean;
 
   @Output()
-  detailsEventEmitter = new EventEmitter<any>();
+  detailsEventEmitter = new EventEmitter<IProduct>();
+
+  @Output()
+  deleteEventEmitter = new EventEmitter<IProduct>();
 
   constructor() { }
 
@@ -23,7 +26,11 @@ export class ProductListCardComponent implements OnInit {
   }
 
   showDetails() {
-    this.detailsEventEmitter.emit(this.product.id);
+    this.detailsEventEmitter.emit(this.product);
+  }
+
+  deleteProduct() {
+    this.deleteEventEmitter.emit(this.product);
   }
 
   getNotFoundImage() {

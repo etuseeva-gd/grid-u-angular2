@@ -1,7 +1,8 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Rx";
-import {ICategory} from "../../interfaces";
+import {ICategory} from "../../models";
 import {CategoryService} from "../../services/category.service";
+import {ProductService} from "../../services/product.service";
 
 export class IPrice {
   from: number;
@@ -9,9 +10,10 @@ export class IPrice {
 }
 
 export class IFilterParams {
+  name: string;
   isAvailable: boolean;
   gender: string;
-  category: number;
+  categoryId: number;
   rating: number;
   price: IPrice;
 }
@@ -28,6 +30,7 @@ export class FilterComponent implements OnInit {
   categories: Observable<ICategory[]>;
 
   constructor(private categoryService: CategoryService,
+              private productsService: ProductService,
               private cdRef: ChangeDetectorRef) {
   }
 
@@ -45,9 +48,10 @@ export class FilterComponent implements OnInit {
 
   initFilter() {
     this.filterParams = {
+      name: '',
       isAvailable: false,
       gender: 'Unisex',
-      category: -1,
+      categoryId: null,
       rating: null,
       price: {from: null, to: null} as IPrice,
     } as IFilterParams;
@@ -58,7 +62,11 @@ export class FilterComponent implements OnInit {
   }
 
   filter() {
-    return false;
+    this.productsService.filterProducts(this.filterParams);
+  }
+
+  filterByName() {
+    this.productsService.filterProductsByName(this.filterParams.name);
   }
 
   validateRating() {

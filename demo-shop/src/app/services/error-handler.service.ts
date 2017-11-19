@@ -1,9 +1,29 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Router} from "@angular/router";
+import {UserService} from "./user.service";
+import {ErrorPagesService} from "../pages/error-pages/error-pages.service";
 
 @Injectable()
 export class ErrorHandlerService {
 
-  constructor() { }
+  constructor(private userService: UserService,
+              private router: Router,
+              private errorPagesService: ErrorPagesService) {
+  }
 
-  //check is auth or not
+  errorHandler(error: any) {
+    switch (error.status) {
+      case 401: {
+        this.userService.removeAuthSession();
+        this.router.navigateByUrl('login');
+        break;
+      }
+      case 404: {
+      }
+      case 500: {
+        this.errorPagesService.next(error.status);
+        break;
+      }
+    }
+  }
 }

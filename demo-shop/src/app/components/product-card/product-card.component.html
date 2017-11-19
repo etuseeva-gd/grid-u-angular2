@@ -15,7 +15,9 @@
   </div>
   <div class="card-footer">
     <span class="price">${{product.cost}}</span>
-    <button *ngIf="hasAdminAccess" class="btn regular primary">Delete</button>
+    <button *ngIf="hasAdminAccess"
+            class="btn regular primary"
+            (click)="deleteProduct()">Delete</button>
     <button class="btn regular primary" (click)="showDetails()">Show more</button>
   </div>
 </div>

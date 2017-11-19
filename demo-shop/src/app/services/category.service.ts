@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {ICategory} from "../interfaces";
+import {ICategory} from "../models";
 import {TransportService} from "./transport.service";
 import {Observable, BehaviorSubject} from "rxjs/Rx";
 import {Response} from '@angular/http';
+import {ErrorHandlerService} from "./error-handler.service";
 
 @Injectable()
 export class CategoryService {
@@ -11,7 +12,8 @@ export class CategoryService {
     categories: ICategory[]
   };
 
-  constructor(private transportService: TransportService) {
+  constructor(private transportService: TransportService,
+              private errHandler: ErrorHandlerService) {
     this._categories = <BehaviorSubject<ICategory[]>>new BehaviorSubject([]);
     this.dataStore = {categories: []};
 
@@ -28,7 +30,7 @@ export class CategoryService {
       .subscribe(data => {
         this.dataStore.categories = <ICategory[]> data;
         this._categories.next(Object.assign({}, this.dataStore).categories);
-      }, error => console.log(error));
+      }, error => this.errHandler.errorHandler(error));
   }
 
   getCategoryById(categoryId: number): ICategory {

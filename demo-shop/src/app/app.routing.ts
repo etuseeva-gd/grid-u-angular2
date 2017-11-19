@@ -1,14 +1,14 @@
 import {Routes, RouterModule} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
-import {AuthGuardService} from "./services/auth-guard.service";
-import {LoginGuardService} from "./services/login-guard.service";
+import {AuthGuardService} from "./services/guards/auth-guard.service";
+import {LoginGuardService} from "./services/guards/login-guard.service";
 import {LoginPageComponent} from "./pages/login-page/login-page.component";
 import {ProductsDetailsPageComponent} from "./pages/products-details-page/products-details-page.component";
 import {ProductsListPageComponent} from "./pages/products-list-page/products-list-page.component";
 import {MainComponent} from "./pages/main/main.component";
 import {ErrorPagesComponent} from "./pages/error-pages/error-pages.component";
-import {EditProductComponent} from "./pages/edit-product/edit-product.component";
-import {AccessGuardService} from "./services/access-guard.service";
+import {EditProductPageComponent} from "./pages/edit-product-page/edit-product-page.component";
+import {AccessGuardService} from "./services/guards/access-guard.service";
 
 const appRoutes: Routes = [
   {
@@ -38,13 +38,13 @@ const appRoutes: Routes = [
       },
       {
         path: 'product/edit/:productId',
-        component: EditProductComponent,
+        component: EditProductPageComponent,
         pathMatch: 'prefix',
         canActivate: [AccessGuardService]
       },
       {
         path: 'product/edit',
-        component: EditProductComponent,
+        component: EditProductPageComponent,
         pathMatch: 'prefix',
         canActivate: [AccessGuardService]
       }
@@ -56,11 +56,15 @@ const appRoutes: Routes = [
     pathMatch: 'full',
     canActivate: [LoginGuardService],
   },
-  {
-    path: '404',
-    component: ErrorPagesComponent,
-    pathMatch: 'full',
-    canActivate: [AuthGuardService],
-  }
+  // {
+  //   path: 'error/:status',
+  //   component: ErrorPagesComponent,
+  //   pathMatch: 'full',
+  //   canActivate: [AuthGuardService],
+  // },
+  // {
+  //   path: '**',
+  //   redirectTo: '/error/404'
+  // }
 ];
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

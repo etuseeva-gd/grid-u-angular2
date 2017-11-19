@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "/scss/_variables.scss";
-
 @import "/scss/_buttons.scss";
 @import "/scss/_form.scss";
-@import "/scss/_modal.scss";
 @import "/scss/_grid.scss";
 
 * {
@@ -201,7 +199,6 @@ nav {
   }
 }
 
-//Product
 .product-card {
   .row {
     margin-bottom: 0;
@@ -266,30 +263,6 @@ nav {
   }
 }
 
-.pr-modal {
-  .modal-content {
-    max-width: 730px;
-  }
-
-  .modal-header {
-    font-size: 22px;
-  }
-
-  .modal-body {
-    font-size: 24px;
-  }
-
-  .modal-footer {
-    .btn {
-      margin-right: 20px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
-}
-
 .delete-modal {
   .modal-body {
     padding: 45px 160px 40px;
@@ -345,5 +318,10 @@ nav {
   .modal-footer {
     padding: 20px 20px 30px;
   }
+}
+
+.error-message {
+  color: #ff0000;
+  text-align: center;
 }
 

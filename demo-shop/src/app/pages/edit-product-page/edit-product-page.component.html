@@ -1,0 +1,96 @@
+<div *ngIf="product" class="row no-margin">
+  <div class="col s12">
+    <nav class="medium-text">
+      <!--<a class="bold-text">Back</a>-->
+    </nav>
+  </div>
+  <div class="col s12">
+    <div class="card edit">
+      <div class="row">
+        <form [formGroup]="editForm" (ngSubmit)="action()">
+          <div class="col s12 m6">
+            <img [src]="product.image"
+                 [default]="getNotFoundImage()">
+          </div>
+          <div class="col s12 m6">
+            <label for="name">Name:</label>
+            <p>
+              <input id="name"
+                     name="name"
+                     formControlName="name">
+              <control-messages class="error-message"
+                                [control]="editForm.controls.name"></control-messages>
+            </p>
+            <label>Category:</label>
+            <div class="input-container">
+              <select name="categoryId"
+                      formControlName="categoryId"
+                      class="green">
+                <option *ngFor="let category of categories | async"
+                        value="{{category.id}}">
+                  {{category.name}}
+                </option>
+              </select>
+              <control-messages class="error-message"
+                                [control]="editForm.controls.categoryId"></control-messages>
+            </div>
+            <label>Gender:</label>
+            <p>
+              <span *ngFor="let gender of genders">
+                <input id="{{gender}}"
+                       name="gender"
+                       type="radio"
+                       formControlName="gender"
+                       value="{{gender}}">
+                <label for="{{gender}}">{{gender}}</label>
+              </span>
+              <control-messages class="error-message"
+                                [control]="editForm.controls.gender"></control-messages>
+            </p>
+            <label for="description">Description:</label>
+            <p>
+              <textarea id="description"
+                        name="description"
+                        formControlName="description"></textarea>
+              <control-messages class="error-message"
+                                [control]="editForm.controls.description"></control-messages>
+            </p>
+            <label for="image">Link to image:</label>
+            <p>
+              <input id="image"
+                     name="image"
+                     formControlName="image">
+              <control-messages class="error-message"
+                                [control]="editForm.controls.image"></control-messages>
+            </p>
+            <label for="cost">Cost:</label>
+            <p>
+              <input id="cost"
+                     type="number"
+                     name="cost"
+                     formControlName="cost">
+              <control-messages class="error-message"
+                                [control]="editForm.controls.cost"></control-messages>
+            </p>
+            <label for="rating">Rating:</label>
+            <div class="input-container">
+              <select id="rating"
+                      name="rating"
+                      formControlName="rating">
+                <option *ngFor="let i of [0,1,2,3,4]" value="{{i}}">{{i}}</option>
+              </select>
+              <control-messages class="error-message"
+                                [control]="editForm.controls.rating"></control-messages>
+            </div>
+          </div>
+          <div class="col s12 align-right">
+            <button class="btn secondary big">Cancel</button>
+            <button [disabled]="!editForm.valid"
+                    class="btn primary big"
+                    (click)="action()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

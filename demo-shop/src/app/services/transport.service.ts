@@ -47,4 +47,20 @@ export class TransportService {
     }
     return this.http.post(url, data, {headers});
   }
+
+  put(relativeUrl, data, headers = new Headers({'Content-Type': 'application/json'})): Observable<Response> {
+    const url = `${environment.baseUrl}${environment.prefix}${relativeUrl}`;
+    if (this.token) {
+      this.createAuthHeader(headers);
+    }
+    return this.http.put(url, data, {headers});
+  }
+
+  delete(relativeUrl, headers = new Headers({'Content-Type': 'application/json'})): Observable<Response> {
+    const url = `${environment.baseUrl}${environment.prefix}${relativeUrl}`;
+    if (this.token) {
+      this.createAuthHeader(headers);
+    }
+    return this.http.delete(url, {headers});
+  }
 }

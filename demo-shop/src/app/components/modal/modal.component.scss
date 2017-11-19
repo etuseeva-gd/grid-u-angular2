@@ -1,6 +1,6 @@
 /*Modal*/
 .modal {
-  display: none;
+  //display: none;
   position: fixed;
   z-index: 1;
   //padding-top: 10%;
@@ -14,7 +14,7 @@
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
 
-  //display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 
@@ -64,5 +64,29 @@
   .modal-footer {
     padding: 20px 30px;
     text-align: right;
+  }
+}
+
+.pr-modal {
+  .modal-content {
+    max-width: 730px;
+  }
+
+  .modal-header {
+    font-size: 22px;
+  }
+
+  .modal-body {
+    font-size: 24px;
+  }
+
+  .modal-footer {
+    .btn {
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

@@ -1,3 +1,9 @@
 .edit {
   background: #eee url("/assets/images/bg-2.png") repeat;
 }
+
+
+input, textarea, select {
+  width: 100%;
+  max-width: none;
+}

@@ -4,8 +4,8 @@ export enum Roles {
 }
 
 // export enum Gender {
-//   MEN = 'Men',
-//   WOMEN = 'Women',
+//   MAN = 'Man',
+//   WOMAN = 'Woman',
 //   UNISEX = 'Unisex',
 // }
 

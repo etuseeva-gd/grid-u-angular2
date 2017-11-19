@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Headers} from "@angular/http";
 import {TransportService} from "./transport.service";
-import {IUser} from "../interfaces";
+import {IUser} from "../models";
 import {StoreService} from "./store.service";
 import {Observable} from "rxjs/Rx";
 import {Roles} from "../constants";
@@ -23,6 +23,11 @@ export class UserService {
   setUser(user: IUser): void {
     this.user = user;
     StoreService.set('User', this.user);
+  }
+
+  removeAuthSession() {
+    this.removeUser();
+    this.transportService.removeToken();
   }
 
   removeUser() {
@@ -47,8 +52,7 @@ export class UserService {
   logout(): Observable<any> {
     const body = JSON.stringify({login: this.user.login});
     return this.transportService.post('/logout', body).map(res => {
-      this.removeUser();
-      this.transportService.removeToken();
+      this.removeAuthSession();
       return true;
     });
   }

@@ -2,6 +2,7 @@
   <app-header [user]="user" (logoutEventEmitter)="logout()" ></app-header>
   <main>
     <div class="container">
+      <app-error-pages></app-error-pages>
       <router-outlet></router-outlet>
     </div>
   </main>

@@ -1,7 +1,7 @@
 <div *ngIf="product" class="row no-margin">
   <div class="col s12">
     <nav class="medium-text">
-      <a class="bold-text">Back</a>
+      <!--<a class="bold-text">Back</a>-->
       <span class="right">Category: <span class="bold-text">{{product.gender}} / {{getCategoryNameById(product.categoryId)}}</span></span>
     </nav>
   </div>
@@ -27,13 +27,16 @@
             </p>
             <p *ngIf="hasAdminAccess()">
               You can also <span (click)="toEditMode()">edit</span> details or
-              <span (click)="deleteProduct(product.id)">delete</span> them.
+              <span (click)="deleteProduct(product)">delete</span> them.
             </p>
           </div>
           <div class="card-footer">
             <span class="price large-text">${{product.cost}}</span>
-            <span class="count-product medium-text">&nbsp;({{product.soldCount}} items left)</span>
-            <button class="btn regular primary">Buy</button>
+            <span *ngIf="product.soldCount > 0" class="count-product medium-text">&nbsp;({{product.soldCount}} items left)</span>
+            <span *ngIf="product.soldCount === 0" class="count-product medium-text">(<span class="sold">sold out</span>)</span>
+            <button class="btn regular primary"
+                    [disabled]="product.soldCount === 0"
+                    (click)="buyProduct()">Buy</button>
           </div>
         </div>
       </div>

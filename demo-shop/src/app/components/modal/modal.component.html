@@ -1,0 +1,25 @@
+<div *ngIf="showModal && modal" class="modal pr-modal">
+  <div class="modal-content">
+    <div *ngIf="modal.header" class="modal-header">
+      {{modal.header}}
+    </div>
+    <div *ngIf="modal.body" class="modal-body align-center">
+      {{modal.body}}
+    </div>
+    <div *ngIf="modal.footer" class="modal-footer">
+      {{modal.footer}}
+    </div>
+    <div *ngIf="modal.submitButton || modal.closeButton" class="modal-footer">
+      <button *ngIf="modal.closeButton"
+              class="btn primary big"
+              (click)="toggleModal()">
+        {{modal.textButton}}
+      </button>
+      <button *ngIf="modal.submitButton"
+              class="btn primary big"
+              (click)="submit()">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {ProductService} from "../../services/product.service";
-import {Observable} from "rxjs/Rx";
-import {IProduct} from "../../interfaces";
+import {IProduct} from "../../models";
 import {NOT_FOUND_IMAGE, PATHS} from "../../constants";
 import {CategoryService} from "../../services/category.service";
 import {UserService} from "../../services/user.service";
+import {IModalActions, ModalService, IModal, IModalAnswer} from "../../components/modal/modal.service";
 
 @Component({
   selector: 'app-products-details-page',
@@ -20,7 +20,8 @@ export class ProductsDetailsPageComponent implements OnInit {
               private productService: ProductService,
               private categoryService: CategoryService,
               private router: Router,
-              private userService: UserService) {
+              private userService: UserService,
+              private modalService: ModalService) {
   }
 
   ngOnInit() {
@@ -45,8 +46,27 @@ export class ProductsDetailsPageComponent implements OnInit {
     this.router.navigate([PATHS.PRODUCTS.EDIT, this.productId]);
   }
 
-  deleteProduct() {
+  deleteProduct(product: IProduct) {
+    this.modalService.open({
+      header: 'Are you sure?',
+      body: 'You are trying to delete this product. Are you sure you want this?',
+      closeButton: true,
+      textButton: 'Cancel',
+      submitButton: true,
+      onSubmit: function () {
+        this.productService.deleteProduct(product);
+        this.router.navigate(['/main']);
+      }.bind(this)
+    } as IModal);
+  }
 
+  buyProduct() {
+    this.modalService.open({
+      header: 'Thank you!',
+      body: 'You successfully purchased this item.',
+      closeButton: true,
+      textButton: 'Continue shopping',
+    } as IModal);
   }
 
   //Todo: rewrite
