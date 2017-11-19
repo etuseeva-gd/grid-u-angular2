@@ -9,6 +9,7 @@ import {IFilterParams} from "../components/filter/filter.component";
 import {ErrorHandlerService} from "./error-handler.service";
 
 export const PRODUCTS = {
+  ADD_NEW_PRODUCTS: 'ADD_NEW_PRODUCTS',
   ADD_PRODUCTS: 'ADD_PRODUCTS',
   CREATE_PRODUCT: 'CREATE_PRODUCT',
   EDIT_PRODUCT: 'EDIT_PRODUCT',
@@ -51,7 +52,13 @@ export class ProductService {
         });
         return res.json() || {};
       })
-      .map(payload => createAction(PRODUCTS.ADD_PRODUCTS, payload))
+      .map(payload => {
+        if (pageNumber === 1) {
+          return createAction(PRODUCTS.ADD_NEW_PRODUCTS, payload);
+        } else {
+          return createAction(PRODUCTS.ADD_PRODUCTS, payload);
+        }
+      })
       .subscribe(action => this.store.dispatch(action),
         error => this.errHandler.errorHandler(error));
   }
@@ -104,7 +111,7 @@ export class ProductService {
 
     this.transportService.get(url)
       .map(res => res.json())
-      .map(payload => createAction(PRODUCTS.ADD_PRODUCTS, payload))
+      .map(payload => createAction(PRODUCTS.ADD_NEW_PRODUCTS, payload))
       .subscribe(action => this.store.dispatch(action),
         error => this.errHandler.errorHandler(error));
   }
@@ -113,7 +120,7 @@ export class ProductService {
     if (name.length > 0) {
       this.transportService.get(`/products?q=${name}`)
         .map(res => res.json())
-        .map(payload => createAction(PRODUCTS.ADD_PRODUCTS, payload))
+        .map(payload => createAction(PRODUCTS.ADD_NEW_PRODUCTS, payload))
         .subscribe(action => this.store.dispatch(action),
           error => this.errHandler.errorHandler(error));
     }

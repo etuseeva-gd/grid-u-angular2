@@ -2,6 +2,8 @@ import {PRODUCTS} from "../services/product.service";
 
 export const products = (state: any = [], {type, payload}) => {
   switch (type) {
+    case PRODUCTS.ADD_NEW_PRODUCTS:
+      return payload;
     case PRODUCTS.ADD_PRODUCTS:
       return [...state, ...payload];
     case PRODUCTS.CREATE_PRODUCT:

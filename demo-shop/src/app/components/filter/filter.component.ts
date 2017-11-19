@@ -55,6 +55,7 @@ export class FilterComponent implements OnInit {
       rating: null,
       price: {from: null, to: null} as IPrice,
     } as IFilterParams;
+    this.productsService.loadPage(1);
   }
 
   toggleFilter() {
