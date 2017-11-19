@@ -84,7 +84,7 @@ export class ProductService {
 
   deleteProduct(product: IProduct) {
     this.transportService.delete(`/products/${product.id}`)
-      .subscribe(action => this.store.dispatch(createAction(PRODUCTS.CREATE_PRODUCT, product)),
+      .subscribe(action => this.store.dispatch(createAction(PRODUCTS.DELETE_PRODUCT, product)),
         error => this.errHandler.errorHandler(error));
   }
 
