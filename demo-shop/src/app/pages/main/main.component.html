@@ -3,7 +3,7 @@
   <main>
     <div class="container">
       <app-error-pages></app-error-pages>
-      <router-outlet></router-outlet>
+      <router-outlet *ngIf="!error.isError"></router-outlet>
     </div>
   </main>
   <app-footer></app-footer>

@@ -1,3 +1,3 @@
-<h1 *ngIf="status">
-  Error: {{status}}
+<h1 *ngIf="error.isError">
+  Error: {{error.status}} {{error.text}}
 </h1>

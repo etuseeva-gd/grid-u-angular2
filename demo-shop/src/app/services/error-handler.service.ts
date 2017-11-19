@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import {UserService} from "./user.service";
-import {ErrorPagesService} from "../pages/error-pages/error-pages.service";
+import {ErrorPagesService, IError} from "../pages/error-pages/error-pages.service";
 
 @Injectable()
 export class ErrorHandlerService {
@@ -21,7 +21,10 @@ export class ErrorHandlerService {
       case 404: {
       }
       case 500: {
-        this.errorPagesService.next(error.status);
+        this.errorPagesService.next({
+          isError: true,
+          status: error.status,
+        } as IError);
         break;
       }
     }

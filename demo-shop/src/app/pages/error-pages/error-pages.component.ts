@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {Subscription} from "rxjs/Subscription";
-import {ErrorPagesService} from "./error-pages.service";
+import {ErrorPagesService, IError} from "./error-pages.service";
 
 @Component({
   selector: 'app-error-pages',
@@ -9,27 +9,20 @@ import {ErrorPagesService} from "./error-pages.service";
   styleUrls: ['./error-pages.component.scss']
 })
 export class ErrorPagesComponent implements OnInit, OnDestroy {
-  private status: string;
-  private _sub: Subscription[] = [];
+  private error: IError;
+  private _sub: Subscription;
 
-  constructor(private route: ActivatedRoute,
-              private errorPagesService: ErrorPagesService) {
+  constructor(private errorPagesService: ErrorPagesService) {
   }
 
   ngOnInit() {
-    this._sub.push(this.errorPagesService.sub.subscribe(data => {
-      this.status = data.status;
-    }));
-
-    this._sub.push(this.route.params.subscribe((params: Params) => {
-      this.status = params['status'];
-    }));
+    this._sub = this.errorPagesService.sub.subscribe(error => {
+      this.error = error;
+    });
   }
 
   ngOnDestroy(): void {
-    this._sub.forEach(s => {
-      s.unsubscribe();
-    });
+    this._sub.unsubscribe();
   }
 
 }
