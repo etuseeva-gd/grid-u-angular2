@@ -28,7 +28,6 @@ import {StoreModule} from '@ngrx/store';
 import {ControlMessagesComponent} from "./components/control-messages.component";
 import {AccessGuardService} from "./services/guards/access-guard.service";
 import {products} from "./reducers/products.reducer";
-import {NgxPaginationModule} from "ngx-pagination";
 import {ModalComponent} from './components/modal/modal.component';
 import {ModalService} from "./components/modal/modal.service";
 import {ErrorPagesService} from "./pages/error-pages/error-pages.service";
@@ -61,7 +60,6 @@ import {AuthGuardService} from "./services/guards/auth-guard.service";
     JsonpModule,
     routing,
     StoreModule.forRoot({products}),
-    NgxPaginationModule
   ],
   providers: [
     UserService,

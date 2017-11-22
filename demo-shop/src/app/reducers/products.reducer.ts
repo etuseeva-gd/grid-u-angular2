@@ -1,6 +1,6 @@
 import {PRODUCTS} from "../services/product.service";
 
-export const products = (state: any = [], {type, payload}) => {
+export function products(state: any = [], {type, payload}) {
   switch (type) {
     case PRODUCTS.ADD_NEW_PRODUCTS:
       return payload;
@@ -17,11 +17,10 @@ export const products = (state: any = [], {type, payload}) => {
         return item.id !== payload.id;
       });
     case PRODUCTS.FILTER:
-      //need filter
       return state.filter(item => {
         return payload.name && item.name.includes(payload.name);
       });
     default:
       return state;
   }
-};
+}
