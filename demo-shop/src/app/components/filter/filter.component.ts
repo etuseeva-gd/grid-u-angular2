@@ -35,10 +35,6 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.init();
-  }
-
-  init() {
     this.initFilter();
     this.canSeeFilter = false;
 
