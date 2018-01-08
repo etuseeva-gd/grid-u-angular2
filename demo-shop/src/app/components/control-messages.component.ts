@@ -11,12 +11,14 @@ export class ControlMessagesComponent {
   constructor() { }
 
   get errorMessage() {
-    for (let propertyName in this.control.errors) {
-      if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {
+    if (this.control.errors === null) {
+      return null;
+    }
+    for (let propertyName of Object.keys(this.control.errors)) {
+      if (this.control.touched) {
         return ValidationService.getValidatorErrorMessage(propertyName, this.control.errors[propertyName]);
       }
     }
-
     return null;
   }
 }
