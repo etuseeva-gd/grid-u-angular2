@@ -1,24 +1,24 @@
-import {PRODUCTS} from "../services/product.service";
+import {ProductActions, ProductsActionTypes} from "../actions/product.actions";
 
-export function products(state: any = [], {type, payload}) {
-  switch (type) {
-    case PRODUCTS.ADD_NEW_PRODUCTS:
-      return payload;
-    case PRODUCTS.ADD_PRODUCTS:
-      return [...state, ...payload];
-    case PRODUCTS.CREATE_PRODUCT:
-      return [...state, payload];
-    case PRODUCTS.EDIT_PRODUCT:
+export function products(state: any = [], action: ProductActions) {
+  switch (action.type) {
+    case ProductsActionTypes.ADD_NEW:
+      return action.payload;
+    case ProductsActionTypes.ADD:
+      return [...state, ...action.payload];
+    case ProductsActionTypes.CREATE:
+      return [...state, action.payload];
+    case ProductsActionTypes.EDIT:
       return state.map(item => {
-        return item.id === payload.id ? Object.assign({}, item, payload) : item;
+        return item.id === action.payload.id ? Object.assign({}, item, action.payload) : item;
       });
-    case PRODUCTS.DELETE_PRODUCT:
+    case ProductsActionTypes.DELETE:
       return state.filter(item => {
-        return item.id !== payload.id;
+        return item.id !== action.payload.id;
       });
-    case PRODUCTS.FILTER:
+    case ProductsActionTypes.FILTER:
       return state.filter(item => {
-        return payload.name && item.name.includes(payload.name);
+        return action.payload.name && item.name.includes(action.payload.name);
       });
     default:
       return state;

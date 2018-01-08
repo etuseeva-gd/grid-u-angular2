@@ -7,24 +7,7 @@ import {Observable} from "rxjs/Observable";
 import {Store} from "@ngrx/store";
 import {IFilterParams} from "../components/filter/filter.component";
 import {ErrorHandlerService} from "./error-handler.service";
-
-export const PRODUCTS = {
-  ADD_NEW_PRODUCTS: 'ADD_NEW_PRODUCTS',
-  ADD_PRODUCTS: 'ADD_PRODUCTS',
-  CREATE_PRODUCT: 'CREATE_PRODUCT',
-  EDIT_PRODUCT: 'EDIT_PRODUCT',
-  DELETE_PRODUCT: 'DELETE_PRODUCT',
-  FILTER: 'FILTER'
-};
-
-export interface Action {
-  type: string;
-  payload?: any;
-}
-
-export function createAction(type: string, payload?: any): Action {
-  return {type, payload};
-}
+import * as Product from '../actions/product.actions'
 
 @Injectable()
 export class ProductService {
@@ -54,9 +37,9 @@ export class ProductService {
       })
       .map(payload => {
         if (pageNumber === 1) {
-          return createAction(PRODUCTS.ADD_NEW_PRODUCTS, payload);
+          return new Product.AddNew(payload);
         } else {
-          return createAction(PRODUCTS.ADD_PRODUCTS, payload);
+          return new Product.Add(payload);
         }
       })
       .subscribe(action => this.store.dispatch(action),
@@ -69,7 +52,7 @@ export class ProductService {
 
   editProduct(product: IProduct) {
     this.transportService.put(`/products/${product.id}`, JSON.stringify(product))
-      .subscribe(action => this.store.dispatch(createAction(PRODUCTS.EDIT_PRODUCT, product)),
+      .subscribe(action => this.store.dispatch(new Product.Edit(product)),
         error => this.errHandler.errorHandler(error));
   }
 
@@ -79,12 +62,12 @@ export class ProductService {
     //   .map(payload => createAction(PRODUCTS.CREATE_PRODUCT, payload))
     //   .subscribe(action => this.store.dispatch(action), error => this.errHandler.errorHandler(error));
 
-    this.store.dispatch(createAction(PRODUCTS.CREATE_PRODUCT, product));
+    this.store.dispatch(new Product.Create(product));
   }
 
   deleteProduct(product: IProduct) {
     this.transportService.delete(`/products/${product.id}`)
-      .subscribe(action => this.store.dispatch(createAction(PRODUCTS.DELETE_PRODUCT, product)),
+      .subscribe(action => this.store.dispatch(new Product.Delete(product)),
         error => this.errHandler.errorHandler(error));
   }
 
@@ -111,7 +94,7 @@ export class ProductService {
 
     this.transportService.get(url)
       .map(res => res.json())
-      .map(payload => createAction(PRODUCTS.ADD_NEW_PRODUCTS, payload))
+      .map(payload => new Product.AddNew(payload))
       .subscribe(action => this.store.dispatch(action),
         error => this.errHandler.errorHandler(error));
   }
@@ -120,7 +103,7 @@ export class ProductService {
     if (name.length > 0) {
       this.transportService.get(`/products?q=${name}`)
         .map(res => res.json())
-        .map(payload => createAction(PRODUCTS.ADD_NEW_PRODUCTS, payload))
+        .map(payload => new Product.AddNew(payload))
         .subscribe(action => this.store.dispatch(action),
           error => this.errHandler.errorHandler(error));
     }
