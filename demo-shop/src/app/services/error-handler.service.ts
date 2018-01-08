@@ -18,8 +18,7 @@ export class ErrorHandlerService {
         this.router.navigateByUrl('login');
         break;
       }
-      case 404: {
-      }
+      case 404:
       case 500: {
         this.errorPagesService.next({
           isError: true,
