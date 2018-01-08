@@ -2,11 +2,11 @@
   <div class="col s12">
     <nav class="medium-text">
       <!--<a class="bold-text">Back</a>-->
-      <span class="right">Category: <span class="bold-text">{{product.gender}} / {{getCategoryNameById(product.categoryId)}}</span></span>
+      <span class="right">Category: <span class="bold-text">{{product.gender}} / {{(getCategoryById(product.categoryId) | async).name}}</span></span>
     </nav>
   </div>
   <div class="col s12"> <!-- //row-flex ???-->
-    <div  class="card product-card">
+    <div class="card product-card">
       <div class="row flex-row">
         <div class="col s12 m6">
           <div class="card-header image-slider-content">
@@ -36,7 +36,8 @@
             <span *ngIf="product.soldCount === 0" class="count-product medium-text">(<span class="sold">sold out</span>)</span>
             <button class="btn regular primary"
                     [disabled]="product.soldCount === 0"
-                    (click)="buyProduct()">Buy</button>
+                    (click)="buyProduct()">Buy
+            </button>
           </div>
         </div>
       </div>

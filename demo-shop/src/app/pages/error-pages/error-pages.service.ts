@@ -1,9 +1,9 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {Subject} from "rxjs/Subject";
 import {Observable} from "rxjs/Observable";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {NavigationEnd, Router} from "@angular/router";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {Subscription} from "rxjs/Subscription";
+import 'rxjs/add/operator/filter'
 
 export interface IError {
   status?: number;

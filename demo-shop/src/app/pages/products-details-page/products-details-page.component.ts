@@ -38,8 +38,8 @@ export class ProductsDetailsPageComponent implements OnInit {
     return NOT_FOUND_IMAGE;
   }
 
-  getCategoryNameById(categoryId: number) {
-    return this.categoryService.getCategoryById(categoryId).name;
+  getCategoryById(categoryId: number) {
+    return this.categoryService.getCategoryById(categoryId);
   }
 
   toEditMode() {

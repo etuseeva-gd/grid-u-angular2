@@ -32,6 +32,7 @@ import {ModalComponent} from './components/modal/modal.component';
 import {ModalService} from "./components/modal/modal.service";
 import {ErrorPagesService} from "./pages/error-pages/error-pages.service";
 import {AuthGuardService} from "./services/guards/auth-guard.service";
+import {categories} from "./reducers/categories.reducer";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import {AuthGuardService} from "./services/guards/auth-guard.service";
     HttpModule,
     JsonpModule,
     routing,
-    StoreModule.forRoot({products}),
+    StoreModule.forRoot({categories, products}),
   ],
   providers: [
     UserService,

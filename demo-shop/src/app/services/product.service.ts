@@ -7,7 +7,9 @@ import {Observable} from "rxjs/Observable";
 import {Store} from "@ngrx/store";
 import {IFilterParams} from "../components/filter/filter.component";
 import {ErrorHandlerService} from "./error-handler.service";
-import * as Product from '../actions/product.actions'
+import * as Product from '../actions/product.actions';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ProductService {

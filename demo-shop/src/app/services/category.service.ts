@@ -1,43 +1,32 @@
 import {Injectable} from '@angular/core';
-import {ICategory} from "../models";
+import {AppStore, ICategory} from "../models";
 import {TransportService} from "./transport.service";
-import {Observable, BehaviorSubject} from "rxjs/Rx";
+import {Observable} from "rxjs/Rx";
 import {Response} from '@angular/http';
 import {ErrorHandlerService} from "./error-handler.service";
+import {Store} from "@ngrx/store";
+import * as Category from '../actions/category.actions'
 
 @Injectable()
 export class CategoryService {
-  private _categories: BehaviorSubject<ICategory[]>;
-  private dataStore: {
-    categories: ICategory[]
-  };
+  public categories: Observable<ICategory[]>;
 
   constructor(private transportService: TransportService,
-              private errHandler: ErrorHandlerService) {
-    this._categories = <BehaviorSubject<ICategory[]>>new BehaviorSubject([]);
-    this.dataStore = {categories: []};
-
+              private errHandler: ErrorHandlerService,
+              private store: Store<AppStore>) {
+    this.categories = this.store.select(state => state.categories);
     this.loadAll();
-  }
-
-  get categories() {
-    return this._categories.asObservable();
   }
 
   loadAll() {
     this.transportService.get('/categories')
-      .map((res: Response) => res.json())
-      .subscribe(data => {
-        this.dataStore.categories = <ICategory[]> data;
-        this._categories.next(Object.assign({}, this.dataStore).categories);
-      }, error => this.errHandler.errorHandler(error));
+      .map((res: Response) => res.json() || {})
+      .subscribe(payload => this.store.dispatch(new Category.Add(payload)),
+        error => this.errHandler.errorHandler(error));
   }
 
-  getCategoryById(categoryId: number): ICategory {
-    if (this.dataStore.categories.length > 0) {
-      return this.dataStore.categories.filter(c => c.id === categoryId)[0];
-    }
-    return null;
+  getCategoryById(categoryId: number): Observable<ICategory> {
+    return this.categories.map((categories: ICategory[]) => categories.filter((category: ICategory) => category.id === categoryId)[0]);
   }
 
 }
