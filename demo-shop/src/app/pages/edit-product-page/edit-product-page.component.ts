@@ -4,7 +4,6 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {ProductService} from "../../services/product.service";
 import {CategoryService} from "../../services/category.service";
 import {Observable} from "rxjs/Observable";
-import {NOT_FOUND_IMAGE} from "../../constants";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {IModal, ModalService} from "../../components/modal/modal.service";
 
@@ -98,10 +97,6 @@ export class EditProductPageComponent implements OnInit {
       this.product.cost = 0;
     }
     this.cdRef.detectChanges();
-  }
-
-  getNotFoundImage() {
-    return NOT_FOUND_IMAGE;
   }
 
   getRandomInt(min, max) {

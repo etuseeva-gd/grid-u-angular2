@@ -1,6 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {IProduct} from "../../models";
-import {NOT_FOUND_IMAGE} from "../../constants";
 
 @Component({
   selector: 'app-product-card',
@@ -32,9 +31,4 @@ export class ProductListCardComponent implements OnInit {
   deleteProduct() {
     this.deleteEventEmitter.emit(this.product);
   }
-
-  getNotFoundImage() {
-    return NOT_FOUND_IMAGE;
-  }
-
 }

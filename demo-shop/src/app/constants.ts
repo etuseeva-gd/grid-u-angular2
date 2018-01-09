@@ -24,5 +24,3 @@ export const PATHS = {
   ERROR: "/404",
   LOGIN: "/login"
 };
-
-export const NOT_FOUND_IMAGE = 'http://www.kickoff.com/chops/images/resized/large/no-image-found.jpg';

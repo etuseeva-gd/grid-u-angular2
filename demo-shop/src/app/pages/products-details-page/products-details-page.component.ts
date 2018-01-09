@@ -2,10 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {ProductService} from "../../services/product.service";
 import {IProduct} from "../../models";
-import {NOT_FOUND_IMAGE, PATHS} from "../../constants";
+import {PATHS} from "../../constants";
 import {CategoryService} from "../../services/category.service";
 import {UserService} from "../../services/user.service";
-import {IModalActions, ModalService, IModal, IModalAnswer} from "../../components/modal/modal.service";
+import {ModalService, IModal} from "../../components/modal/modal.service";
 
 @Component({
   selector: 'app-products-details-page',
@@ -32,10 +32,6 @@ export class ProductsDetailsPageComponent implements OnInit {
           this.product = p;
         }, error => console.log(error));
     });
-  }
-
-  getNotFoundImage() {
-    return NOT_FOUND_IMAGE;
   }
 
   getCategoryById(categoryId: number) {

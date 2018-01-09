@@ -9,8 +9,7 @@
       <div class="row">
         <form [formGroup]="editForm" (ngSubmit)="action()">
           <div class="col s12 m6">
-            <img [src]="product.image"
-                 [default]="getNotFoundImage()">
+            <img [src]="product.image">
           </div>
           <div class="col s12 m6">
             <label for="name">Name:</label>
