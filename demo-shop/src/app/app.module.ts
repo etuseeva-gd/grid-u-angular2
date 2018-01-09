@@ -15,7 +15,7 @@ import {DefaultImageDirective} from "./directives/default-image.directive";
 import {CategoryService} from "./services/category.service";
 import {ErrorPagesComponent} from "./pages/error-pages/error-pages.component";
 import {MainComponent} from "./pages/main/main.component";
-import {ProductListCardComponent} from "./components/product-card/product-card.component";
+import {ProductCardComponent} from "./components/product-card/product-card.component";
 import {RatingStarsComponent} from "./components/rating-stars/rating-stars.component";
 import {LoginPageComponent} from "./pages/login-page/login-page.component";
 import {HeaderComponent} from "./components/header/header.component";
@@ -44,7 +44,7 @@ import {categories} from "./reducers/categories.reducer";
     MainComponent,
     HeaderComponent,
     FooterComponent,
-    ProductListCardComponent,
+    ProductCardComponent,
     FilterComponent,
     RatingStarsComponent,
     DefaultImageDirective,

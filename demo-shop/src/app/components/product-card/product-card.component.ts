@@ -6,7 +6,7 @@ import {IProduct} from "../../models";
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductListCardComponent implements OnInit {
+export class ProductCardComponent implements OnInit {
   @Input()
   product: IProduct;
 
