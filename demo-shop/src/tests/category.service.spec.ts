@@ -76,13 +76,22 @@ describe('Tests. CategoryService', () => {
       connection.mockRespond(new Response(new ResponseOptions({body: JSON.stringify(categoriesBackEnd)})));
     });
 
+    service.loadAll();
   })));
-
-  it('true is true', () => {
-    expect(true).toBe(true);
-  });
 
   it('should be created', inject([CategoryService], (service: CategoryService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('should get first category', () => {
+    service.getCategoryById(0).subscribe(res => {
+      expect(res).toEqual(categoriesBackEnd[0]);
+    });
+  });
+
+  it('lenghts should be equal', () => {
+    service.categories.subscribe(res => {
+      expect(res.length).toEqual(categoriesBackEnd.length);
+    });
+  });
 });
