@@ -89,7 +89,7 @@ describe('Tests. CategoryService', () => {
     });
   });
 
-  it('lenghts should be equal', () => {
+  it('lengths should be equal', () => {
     service.categories.subscribe(res => {
       expect(res.length).toEqual(categoriesBackEnd.length);
     });
